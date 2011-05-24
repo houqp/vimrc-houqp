@@ -60,7 +60,7 @@ imap <buffer> ,,hd <Esc>:s#=\(.*\)=#\1#<CR>:let @/ = ""<CR>
 nmap <buffer> ,,hd :s#=\(.*\)=#\1#<CR>:let @/ = ""<CR>
 imap <buffer> ,,hp <Esc>:s#\(.*\)#=\1=#<CR>:let @/ = ""<CR>
 nmap <buffer> ,,hp :s#\(.*\)#=\1=#<CR>:let @/ = ""<CR>
-imap <buffer> ,,lp <Esc>:s#\(^.*\*\)#  \1#<CR>:let @/ = ""<CR>a<space>
+imap <buffer> ,,lp <Esc>:s#\(^.*\*\)#  \1#<CR>:let @/ = ""<CR>
 
 "adding code block
 imap <buffer> ,,cb <code<++>> <++> </code>

@@ -1,1 +1,4 @@
 This is houqp's vim configuration, use at your own risk. :-P
+
+= Update Plugins =
+make update-plugin
