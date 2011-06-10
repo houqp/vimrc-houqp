@@ -9,6 +9,8 @@ syntax enable
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
+"expand tab to spaces
+set expandtab
 set autoindent
 set cindent
 set nu

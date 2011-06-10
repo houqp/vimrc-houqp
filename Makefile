@@ -1,7 +1,8 @@
 .PHONY: update-plugin
 
 update-plugin:
-	cd ./my-plugin-tree/vim-latex && git pull origin
+	@echo -e "---[ Updating vim-latex plugin ]---------------------------\n"
+	cd ./my-plugin-tree/vim-latex && git pull origin master && git merge master
 
 install:
 	cd ./bundle && ln -s ../my-plugin-tree/vim-latex/vimfiles vim-latex

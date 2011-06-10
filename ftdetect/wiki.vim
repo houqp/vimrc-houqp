@@ -1,2 +1,2 @@
-au BufNewFile,BufRead *.dwiki,*.wiki setf dokuwiki
+au BufNewFile,BufRead *.dwiki,*.wiki *.txt setf dokuwiki
 
