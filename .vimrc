@@ -1,7 +1,7 @@
 source ~/.vim/.vim-all.vim
 
 set t_Co=256
-colorscheme torte
+colorscheme freya-term
 
 "show different cursor shape under normal mode and insert mode
 "let &t_SI = "\<Esc>]50;CursorShape=1\x7"
