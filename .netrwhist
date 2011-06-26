@@ -1,5 +1,11 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/home/dave/.vimperator'
 let g:netrw_dirhist_2='/home/dave/documents/code/latex/math-draft'
 let g:netrw_dirhist_3='/home/dave/.notes/CourseNotes/OperationResearch'
+let g:netrw_dirhist_4='/home/dave/downloads/mentohust/mentohust'
+let g:netrw_dirhist_5='/sys/devices/pci0000:00/0000:00:19.0/net/eth0/subsystem'
+let g:netrw_dirhist_6='/sys/devices/pci0000:00/0000:00:19.0/net/eth0/statistics'
+let g:netrw_dirhist_7='/sys/devices/pci0000:00/0000:00:19.0/net/eth0'
+let g:netrw_dirhist_8='/sys/devices/pci0000:00/0000:00:19.0/net/eth0/device'
+let g:netrw_dirhist_9='/etc/portage/package.keywords'

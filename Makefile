@@ -6,3 +6,5 @@ update-plugin:
 
 install:
 	cd ./bundle && ln -s ../my-plugin-tree/vim-latex/vimfiles vim-latex
+	cd ~ && ln -s .vim/.vimrc .vimrc
+	cd ~ && ln -s .vim/.gvimrc .gvimrc
