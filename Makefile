@@ -3,6 +3,7 @@
 update-plugin:
 	@echo -e "---[ Updating vim-latex plugin ]---------------------------\n"
 	cd ./my-plugin-tree/vim-latex && git pull origin master && git merge master
+	cd ./bundle/html5.vim && git pull origin master
 
 install:
 	cd ./bundle && ln -s ../my-plugin-tree/vim-latex/vimfiles vim-latex
