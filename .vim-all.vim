@@ -53,7 +53,7 @@ map <silent> <leader><cr> :noh<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "工作目录随文件变
 "autocmd BufEnter * cd %:p:h
-"set autochdir
+set autochdir
 " Set to auto read when a file is changed from the outside
 set autoread
 " reload vimrc when it is changed
