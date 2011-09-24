@@ -1,7 +1,0 @@
-This is houqp's vim configuration, use at your own risk. :-P
-
-= Install =
-make install
-
-= Update Plugins =
-make update-plugin
