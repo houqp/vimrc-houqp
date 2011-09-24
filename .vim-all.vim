@@ -6,15 +6,28 @@ call pathogen#helptags()
 let mapleader = ","
 
 syntax enable
+
+""""""""""""""""""""""""""""""
+" tab and indent
+""""""""""""""""""""""""""""""
+filetype plugin indent on
+" expand tab to spaces
+set expandtab
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
-"expand tab to spaces
-set expandtab
+"show tab 
+set list
+set listchars=tab:▸\ 
+
 set autoindent
 set cindent
+autocmd FileType python setlocal shiftwidth=4 softtabstop=4
+autocmd FileType c,cpp setlocal noexpandtab
+
+
 set nu
-"set cursorline              " 突出显示当前行
+set cursorline              " 突出显示当前行
 "set cursorcolumn              " 突出显示当前列
 set ignorecase smartcase    " 搜索时忽略大小写，但在有一个或以上大写字母时仍保持对大小写敏感
 set hidden                  " 允许在有未保存的修改时切换缓冲区，此时的修改由 vim 负责保存
@@ -28,10 +41,6 @@ set foldmethod=syntax
 "highlight Folded ctermfg=darkmagenta
 "highlight Folded guibg=white
 let loaded_csExplorer = 1		"not load the color preview plugin
-
-"show tab 
-set list
-set listchars=tab:▸\ 
 
 "Fast saving
 nmap <leader>w :w!<cr>
@@ -76,7 +85,6 @@ filetype plugin on
 " omni
 """"""""""""""""""""""""""""""
 imap <C-L> <C-x><C-o>
-filetype plugin indent on
 set completeopt=longest,menu
 
 let g:AutoComplPop_IgnoreCaseOption=1
@@ -128,6 +136,7 @@ let showmarks_ignore_type = "hqm"
 " Hilight lower & upper marks
 let showmarks_hlline_lower = 1
 let showmarks_hlline_upper = 1 
+
 
 """"""""""""""""""""""""""""""
 " markbrowser setting
@@ -190,7 +199,10 @@ function! HasPaste()
     endif
 endfunction
 
-"Toggle hex mode
+
+""""""""""""""""""""""""""""""
+" Toggle hex mode
+""""""""""""""""""""""""""""""
 let s:hexMode = "N"
 function! ToggleHexMode()
   if s:hexMode == "Y"
