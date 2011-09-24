@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/etc/portage/package.keywords'
-let g:netrw_dirhist_2='/etc/modprobe.d'
-let g:netrw_dirhist_3='/home/dave/documents/vps/gitolite-admin/conf'
-let g:netrw_dirhist_4='/home/dave/documents/code/web/houqp.org/scholar/templates'
-let g:netrw_dirhist_5='/home/dave/.ssh'
