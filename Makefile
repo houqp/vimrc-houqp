@@ -1,13 +1,12 @@
-.PHONY: update-plugin
+.PHONY:install all
 
-update-plugin:
-	@echo -e "---[ Updating vim-latex plugin ]---------------------------\n"
-	cd ./my-plugin-tree/vim-latex && git pull origin master && git merge master
-	git submodule foreach git pull origin master
+all:
+	@echo 'Install instructions:'
+	@echo '1. Put the repository in your home directory and rename to .vim'
+	@echo '2. cd into .vim and issue `make install`'
 
 install:
 	git submodule init
 	git submodule update
-	cd ./bundle && ln -s ../my-plugin-tree/vim-latex/vimfiles vim-latex
 	cd ~ && ln -s .vim/.vimrc .vimrc
 	cd ~ && ln -s .vim/.gvimrc .gvimrc

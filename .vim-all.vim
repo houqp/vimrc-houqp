@@ -1,6 +1,42 @@
 "for pathogen
-call pathogen#runtime_append_all_bundles() 
-call pathogen#helptags()
+"call pathogen#runtime_append_all_bundles() 
+"call pathogen#helptags()
+
+""""""""""""""""""""""""""""""
+" setting for vundle
+""""""""""""""""""""""""""""""
+set nocompatible
+"filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundles/dokuwiki/
+set rtp+=~/.vim/bundles/c.vim/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+"language
+"Bundle 'c.vim'
+Bundle 'moin.vim'
+Bundle 'sukima/xmledit'
+Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
+Bundle 'maxima.vim'
+Bundle 'Puppet-Syntax-Highlighting'
+Bundle 'houqp/jpythonfold.vim'
+Bundle 'houqp/vim-dokuwiki'
+
+"web dev
+Bundle 'lilydjwg/colorizer'
+Bundle 'othree/html5.vim'
+Bundle 'hail2u/vim-css3-syntax'
+Bundle 'mattn/zencoding-vim'
+
+"dev tools
+Bundle 'po.vim'
+Bundle 'scrooloose/nerdcommenter'
+
+filetype plugin indent on
+
 
 "Set mapleader
 let mapleader = ","
@@ -10,7 +46,6 @@ syntax enable
 """"""""""""""""""""""""""""""
 " tab and indent
 """"""""""""""""""""""""""""""
-filetype plugin indent on
 " expand tab to spaces
 set expandtab
 set tabstop=2
