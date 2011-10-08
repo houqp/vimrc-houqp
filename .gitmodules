@@ -4,3 +4,6 @@
 [submodule "bundle/html5.vim"]
 	path = bundle/html5.vim
 	url = https://github.com/othree/html5.vim.git
+[submodule "bundle/vim-css3-syntax"]
+	path = bundle/vim-css3-syntax
+	url = https://github.com/hail2u/vim-css3-syntax.git
