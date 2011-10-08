@@ -3,17 +3,12 @@ This is houqp's vim configuration, use at your own risk. :-P
 Install
 -------
 
-Move the whole directory into your home directory and rename to `.vim`. Then issue following command:
+Move the whole directory into your home directory and rename to `.vim`. 
+
+Then issue following command in `.vim`:
 
 ```bash
 $ make install
-```
-
-Update Plugins
---------------
-
-```bash
-$ make update-plugin
 ```
 
 Usage
