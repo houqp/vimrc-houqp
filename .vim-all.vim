@@ -32,6 +32,7 @@ Bundle 'lilydjwg/colorizer'
 Bundle 'othree/html5.vim'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'mattn/zencoding-vim'
+Bundle 'taglist.vim'
 
 "dev tools
 Bundle 'po.vim'
@@ -61,7 +62,6 @@ set autoindent
 set cindent
 autocmd FileType python setlocal shiftwidth=4 softtabstop=4
 autocmd FileType c,cpp setlocal noexpandtab
-
 
 set nu
 set cursorline              " 突出显示当前行
@@ -127,12 +127,22 @@ set completeopt=longest,menu
 let g:AutoComplPop_IgnoreCaseOption=1
 set ignorecase
 
+"""""""""""""""""""""""""""""""
+" Taglist
+""""""""""""""""""""""""""""""
+let Tlist_Ctags_Cmd = "/usr/bin/ctags"
+let Tlist_WinWidth = 35
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
+map <Leader>tl :TlistToggle <bar> TlistUpdate <cr>
 
+
+"""""""""""""""""""""""""""""""
+" WinManage
+""""""""""""""""""""""""""""""
 "let g:winManagerWindowLayout='FileExplorer|TagList'
-let g:winManagerWindowLayout='TagList'
-nmap wm :WMToggle<cr>
+"let g:winManagerWindowLayout='TagList'
+"nmap wm :WMToggle<cr>
 
 
 """"""""""""""""""""""""""""""
@@ -174,9 +184,9 @@ let showmarks_hlline_upper = 1
 """"""""""""""""""""""""""""""
 nmap <silent> <leader>mk :MarksBrowser<cr> 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""
 " Some mapping
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""
 nmap CTRL-F1 :!cts<cr>
 "F5 for compling
 nmap <M-F5> :make<cr>
