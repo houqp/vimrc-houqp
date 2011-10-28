@@ -15,3 +15,9 @@ Usage
 -----
 
 Colorizer is turned off by default, use command `ColorToggle` to turn it on.
+
+
+BufExplorer
+^^^^^^^^^^^
+`help bufexplorer`
+
