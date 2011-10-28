@@ -23,8 +23,9 @@ Bundle 'sukima/xmledit'
 Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 Bundle 'maxima.vim'
 Bundle 'Puppet-Syntax-Highlighting'
-Bundle 'houqp/jpythonfold.vim'
+"Bundle 'houqp/jpythonfold.vim'
 Bundle 'houqp/vim-dokuwiki'
+Bundle 'bufexplorer.zip'
 
 "web dev
 Bundle 'lilydjwg/colorizer'
@@ -129,15 +130,9 @@ set ignorecase
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
 
-let g:winManagerWindowLayout='FileExplorer|TagList'
+"let g:winManagerWindowLayout='FileExplorer|TagList'
+let g:winManagerWindowLayout='TagList'
 nmap wm :WMToggle<cr>
-
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1 
-"vim will quit if there are only explorer windows
-let g:persistentBehaviour = 0
 
 
 """"""""""""""""""""""""""""""
