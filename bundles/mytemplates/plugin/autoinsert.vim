@@ -4,6 +4,7 @@ augroup autoinsert
   autocmd BufNewFile Makefile call s:Template("make")
   autocmd BufNewFile *.py call s:Template("python")
   autocmd BufNewFile .gitignore call s:Template("gitignore")
+  autocmd BufNewFile README.md call s:Template("readme.md")
 augroup END
 endif
 
@@ -20,13 +21,15 @@ function s:Template(argument)
                 if (a:argument == "make")
                         0r ~/.vim/skeletons/template.make
                         set ft=make
-
                 " Stuff for python files
                 elseif (a:argument == "python")
                         0r ~/.vim/skeletons/template.py
                         set ft=python
                 elseif (a:argument == "gitignore")
                         0r ~/.vim/skeletons/template.gitignore
+                elseif (a:argument == "readme.md")
+                        0r ~/.vim/skeletons/template.readmemd
+                        set ft=markdown
                 endif
 
                 "silent %!~/.vim/do_header %
