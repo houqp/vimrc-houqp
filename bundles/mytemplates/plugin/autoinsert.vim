@@ -3,6 +3,7 @@ augroup autoinsert
   au!
   autocmd BufNewFile Makefile call s:Template("make")
   autocmd BufNewFile *.py call s:Template("python")
+  autocmd BufNewFile .gitignore call s:Template("gitignore")
 augroup END
 endif
 
@@ -24,6 +25,8 @@ function s:Template(argument)
                 elseif (a:argument == "python")
                         0r ~/.vim/skeletons/template.py
                         set ft=python
+                elseif (a:argument == "gitignore")
+                        0r ~/.vim/skeletons/template.gitignore
                 endif
 
                 "silent %!~/.vim/do_header %
