@@ -50,7 +50,7 @@ syntax enable
 " tab and indent
 """"""""""""""""""""""""""""""
 " expand tab to spaces
-set expandtab
+set noexpandtab
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
@@ -60,8 +60,7 @@ set listchars=tab:▸\
 
 set autoindent
 set cindent
-autocmd FileType python setlocal shiftwidth=4 softtabstop=4
-autocmd FileType c,cpp setlocal noexpandtab
+autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 
 set nu
 set cursorline              " 突出显示当前行
