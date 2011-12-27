@@ -61,7 +61,6 @@ set listchars=tab:▸\
 
 set autoindent
 set cindent
-autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 
 set nu
 set cursorline              " 突出显示当前行
@@ -84,6 +83,15 @@ nmap <leader>w :w!<cr>
 
 " find tags file recursively from current directory to root directory
 set tags=tags;
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" For special file type
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
+"autocmd FileType markdown Voom markdown 
+autocmd FileType asciidoc Voom asciidoc 
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " For search

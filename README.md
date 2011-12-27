@@ -1,18 +1,21 @@
 This is houqp's vim configuration, use at your own risk. :-P
 
-# Install
--------
+# Installation
 
-Move the whole directory into your home directory and rename to `.vim`. 
+Move the whole repository into your home directory and rename to `.vim`. 
 
-Then issue following command in `.vim`:
+Then issue following command in `.vim` directory:
 
 ```bash
 $ make install
 ```
 
+This will clone the latest Vundle plugin for you. 
+
+The last thing you need to do is to call `:BundleInstall` in vim.
+
+
 # Usage
------
 
 Colorizer is turned off by default, use command `ColorToggle` to turn it on.
 
