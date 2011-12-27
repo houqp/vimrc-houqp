@@ -17,13 +17,13 @@ $ make install
 Colorizer is turned off by default, use command `ColorToggle` to turn it on.
 
 
-## BufExplorer
+### BufExplorer
 
-`help bufexplorer`
+`:help bufexplorer`
 
-## VOoM
+### VOoM
 
-`Voom format`
+`:Voom format`
 
 VOoM supports lots of format, check out this [page](http://vim-voom.github.com) for the list.
 
