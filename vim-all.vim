@@ -37,6 +37,8 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'VOoM'
 "Bundle 'cscope_plus.vim'
 "Bundle 'autoload_cscope.vim'
+"Bundle 'Marks-Browser'
+Bundle 'ShowMarks'
 
 "misc
 Bundle 'L9'
