@@ -1,7 +1,3 @@
-"for pathogen
-"call pathogen#runtime_append_all_bundles() 
-"call pathogen#helptags()
-
 """"""""""""""""""""""""""""""
 " setting for vundle
 """"""""""""""""""""""""""""""
@@ -36,6 +32,11 @@ Bundle 'taglist.vim'
 Bundle 'po.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'VOoM'
+
+"misc
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+Bundle 'Lokaltog/vim-easymotion'
 
 filetype plugin indent on
 
@@ -76,9 +77,6 @@ set foldmethod=syntax
 "highlight Folded guibg=white
 let loaded_csExplorer = 1		"not load the color preview plugin
 
-"Fast saving
-nmap <leader>w :w!<cr>
-
 " find tags file recursively from current directory to root directory
 set tags=tags;
 
@@ -111,7 +109,7 @@ set autoread
 " reload vimrc when it is changed
 autocmd! bufwritepost .vimrc source ~/.vimrc
 autocmd! bufwritepost .gvimrc source ~/.gvimrc
-autocmd! bufwritepost .vim-all.vim source ~/.vim/.vim-all.vim
+autocmd! bufwritepost vim-all.vim source ~/.vim/vim-all.vim
 " input method auto close
 autocmd! InsertLeave * set imdisable
 autocmd! InsertEnter * set noimdisable
@@ -205,6 +203,13 @@ map <leader>ss :setlocal spell!<cr>
 
 "toggle hex mode
 map <leader>h :call ToggleHexMode()<cr>
+
+"Fast saving
+nmap <leader>w :w!<cr>
+
+nmap <leader>f :FufFile<cr>
+nmap <leader>bf :FufBuffer<cr>
+
 
 """"""""""""""""""""""""""""""
 " Command mode related

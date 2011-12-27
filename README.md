@@ -24,9 +24,19 @@ Colorizer is turned off by default, use command `ColorToggle` to turn it on.
 
 `:help bufexplorer`
 
+
 ### VOoM
 
 `:Voom format`
 
 VOoM supports lots of format, check out this [page](http://vim-voom.github.com) for the list.
 
+
+### easymotion
+
+The default leader for easymotion has been changed to <Leader><Leader> to avoid conflcts. So use `<Leader><Leader>w` to trigger the word motion.
+
+
+### FuzzyFinder
+
+use `<Leader>f` to trigger `:FufFile`, `<Leader>bf` to trigger `:FufBuffer`.
