@@ -246,7 +246,7 @@ iab SZIE SIZE
 set laststatus=2
 
 " Format the statusline
-set statusline=\ %{HasPaste()}%F%m%r%h%w\ [TYPE=%Y]\ [CWD:\%r%{CurDir()}%h]\ \ Line:\ %l/%L:%c\ [ASCII=\%03.3b,\ HEX=\%02.2B]
+set statusline=\ [CWD:\%r%{CurDir()}%h]\ %{HasPaste()}%f%m%r%h%w\ [TYPE=%Y]\ \ Line:\ %l/%L:%c\ [ASCII=\%03.3b,\ HEX=\%02.2B]
 
 function! CurDir()
     let curdir = substitute(getcwd(), '/Users/amir/', "~/", "g")

@@ -14,4 +14,5 @@ colorscheme freya
 
 "不显示工具条
 set guioptions-=T
+set guioptions-=m
 
