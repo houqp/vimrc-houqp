@@ -11,19 +11,17 @@ set nocompatible
 set rtp+=~/.vim/bundle/vundle/
 "set rtp+=~/.vim/bundles/dokuwiki/
 set rtp+=~/.vim/bundles/mytemplates/
-set rtp+=~/.vim/bundles/c.vim/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
 "language
-"Bundle 'c.vim'
+Bundle 'c.vim'
 Bundle 'moin.vim'
 Bundle 'sukima/xmledit'
 Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 Bundle 'maxima.vim'
 Bundle 'Puppet-Syntax-Highlighting'
-"Bundle 'houqp/jpythonfold.vim'
 Bundle 'houqp/vim-dokuwiki'
 Bundle 'bufexplorer.zip'
 
