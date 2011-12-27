@@ -21,6 +21,7 @@ Bundle 'Puppet-Syntax-Highlighting'
 Bundle 'houqp/vim-dokuwiki'
 Bundle 'bufexplorer.zip'
 Bundle 'octave.vim--'
+Bundle 'scilab.vim'
 Bundle 'johnbintz/vim-puppet'
 
 "web dev
