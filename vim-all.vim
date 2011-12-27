@@ -20,6 +20,7 @@ Bundle 'maxima.vim'
 Bundle 'Puppet-Syntax-Highlighting'
 Bundle 'houqp/vim-dokuwiki'
 Bundle 'bufexplorer.zip'
+Bundle 'octave.vim--'
 
 "web dev
 Bundle 'lilydjwg/colorizer'
