@@ -37,6 +37,7 @@ Bundle 'VOoM'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'AutoComplPop'
 
 filetype plugin indent on
 
