@@ -1,4 +1,4 @@
-source ~/.vim/.vim-all.vim
+source ~/.vim/vim-all.vim
 
 set cursorline
 
