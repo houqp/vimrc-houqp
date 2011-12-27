@@ -35,6 +35,8 @@ Bundle 'taglist.vim'
 Bundle 'po.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'VOoM'
+"Bundle 'cscope_plus.vim'
+"Bundle 'autoload_cscope.vim'
 
 "misc
 Bundle 'L9'
