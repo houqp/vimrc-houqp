@@ -7,6 +7,8 @@ set nocompatible
 set rtp+=~/.vim/bundle/vundle/
 "set rtp+=~/.vim/bundles/dokuwiki/
 set rtp+=~/.vim/bundles/mytemplates/
+set rtp+=~/.vim/bundles/cscope-related/
+set rtp+=~/.vim/bundles/conkyrc/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
