@@ -21,3 +21,9 @@ BufExplorer
 ^^^^^^^^^^^
 `help bufexplorer`
 
+VOoM
+^^^^
+`Voom format`
+
+VOoM supports lots of format, check out this [page](http://vim-voom.github.com) for the list.
+

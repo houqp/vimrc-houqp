@@ -37,6 +37,7 @@ Bundle 'taglist.vim'
 "dev tools
 Bundle 'po.vim'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'VOoM'
 
 filetype plugin indent on
 
