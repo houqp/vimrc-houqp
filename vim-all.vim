@@ -209,7 +209,7 @@ nmap <M-F7> :cn<cr>
 nmap <M-F8> :cp<cr>
 
 "Pressing ,ss will toggle and untoggle spell checking
-map <leader>ss :setlocal spell!<cr>
+map <leader>ss :call ToggleSpellCheck()<cr>
 
 "toggle hex mode
 map <leader>h :call ToggleHexMode()<cr>
@@ -236,6 +236,19 @@ cnoremap <C-B> <left>
 """"""""""""""""""""""""""""""
 " abbreviations for spelling correct
 """"""""""""""""""""""""""""""
+function! ToggleSpellCheck()
+	setlocal spell!
+	"@TODO: save old value
+	"s:old_balloonexpr = balloonexpr
+	set balloonexpr=SpellBalloon()
+	set ballooneval!
+endfunction
+
+function! SpellBalloon()
+	let lines = spellsuggest( spellbadword(v:beval_text)[0], 5, 0 )
+	return join( lines, has("balloon_multiline") ? "\n" : "" )
+endfunction
+
 iab szie size
 iab SZIE SIZE
 
@@ -246,7 +259,8 @@ iab SZIE SIZE
 set laststatus=2
 
 " Format the statusline
-set statusline=\ [CWD:\%r%{CurDir()}%h]\ %{HasPaste()}%f%m%r%h%w\ [TYPE=%Y]\ \ Line:\ %l/%L:%c\ [ASCII=\%03.3b,\ HEX=\%02.2B]
+set statusline=\ [CWD:\%r%{CurDir()}%h]\ %{HasPaste()}%f%m%r%h%w\ 
+		\[TYPE=%Y]\ \ Line:\ %l/%L:%c\ [ASCII=\%03.3b,\ HEX=\%02.2B]
 
 function! CurDir()
     let curdir = substitute(getcwd(), '/Users/amir/', "~/", "g")
