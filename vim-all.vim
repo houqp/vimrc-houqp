@@ -193,7 +193,7 @@ let showmarks_hlline_upper = 1
 
 
 """"""""""""""""""""""""""""""
-" Some mapping
+" Some mappinl
 """"""""""""""""""""""""""""""
 nmap CTRL-F1 :!cts<cr>
 "F5 for compling
@@ -287,4 +287,13 @@ function! ToggleHexMode()
     let s:hexMode = "Y"
   endif
 endfunction
+
+
+""""""""""""""""""""""""""""""
+" Place holder
+""""""""""""""""""""""""""""""
+"mark place holder
+match Todo /<+.\++>/
+nnoremap <c-j> /<+.\{-1,}+><cr>c/+>/e<cr>
+inoremap <c-j> <ESC>/<+.\{-1,}+><cr>c/+>/e<cr>
 
