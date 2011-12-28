@@ -32,6 +32,7 @@ Bundle 'othree/html5.vim'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'mattn/zencoding-vim'
 Bundle 'taglist.vim'
+Bundle 'autoproto.vim'
 
 "dev tools
 Bundle 'po.vim'
@@ -193,8 +194,10 @@ let showmarks_hlline_upper = 1
 
 
 """"""""""""""""""""""""""""""
-" Some mappinl
+" Some mappinn
 """"""""""""""""""""""""""""""
+" switch between two windows
+nmap <leader><TAB> :wincmd p<cr>
 nmap CTRL-F1 :!cts<cr>
 "F5 for compling
 nmap <M-F5> :make<cr>
