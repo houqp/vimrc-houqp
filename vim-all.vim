@@ -216,6 +216,7 @@ map <leader>h :call ToggleHexMode()<cr>
 
 "Fast saving
 nmap <leader>w :w!<cr>
+imap <C-s> <esc>:w<cr>a
 
 nmap <leader>f :FufFile<cr>
 nmap <leader>bf :FufBuffer<cr>
@@ -225,9 +226,9 @@ nmap <leader>bf :FufBuffer<cr>
 " Command mode related
 """"""""""""""""""""""""""""""
 "Bash like keys for the command line
-cnoremap <C-A>      <Home>
-cnoremap <C-E>      <End>
-cnoremap <C-K>      <C-U>
+cnoremap <C-A> <Home>
+cnoremap <C-E> <End>
+cnoremap <C-K> <C-U>
 cnoremap <C-P> <Up>
 cnoremap <C-N> <Down>
 cnoremap <C-F> <Right>
