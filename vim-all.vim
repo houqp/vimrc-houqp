@@ -104,16 +104,20 @@ autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set sessionoptions-=blank
 set sessionoptions+=resize,winpos
+let s:session_mode = "N"
 autocmd VimEnter * call LoadSession()
-"autocmd VimLeave * call SaveSession()
+autocmd VimLeave * call SaveSession()
 nmap <leader>ms :mksession! .Session.vim<cr>
 
-"function! SaveSession()
-	"execute 'mksession! .Session.vim'
-"endfunction
+function! SaveSession()
+	if s:session_mode == "Y"
+		execute 'mksession! .Session.vim'
+	endif
+endfunction
 
 function! LoadSession()
 	if has("gui_running") && argc() == 0 && filereadable(".Session.vim")
+		let s:session_mode = "Y"
 		"execute 'source $HOME/.vim/.sessions/main_session.vim'
 		silent source .Session.vim
 	endif
