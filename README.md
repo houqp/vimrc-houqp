@@ -19,15 +19,25 @@ The last thing you need to do is to call `:BundleInstall` in vim.
 # Usage
 ### Mappings
 `<leader>ms`: save current session to .Session.vim file.
+
 `<leader><TAB>`: switch to previous window.
+
 `<leader>tl`: toggle taglist window.
+
 `<leader>f`: find files.
+
 `<leader>fb`: find buffers.
+
 `<leader>be`: show buffer lists.
+
 `<leader>w`: quick save in normal mode.
+
 `<leader>h`: toggle hex mode.
+
 `<Ctrl>s`: quick save in insert mode.
+
 `<Ctrl>j`: jump to place holder.
+
 `<Alt><F5>`: issue make command in current directory.
 
 

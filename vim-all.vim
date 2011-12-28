@@ -113,11 +113,8 @@ nmap <leader>ms :mksession! .Session.vim<cr>
 "endfunction
 
 function! LoadSession()
-	"if argc() == 0
+	if has("gui_running") && argc() == 0 && filereadable(".Session.vim")
 		"execute 'source $HOME/.vim/.sessions/main_session.vim'
-	"else
-	"endif
-	if filereadable(".Session.vim")
 		silent source .Session.vim
 	endif
 endfunction
