@@ -67,7 +67,6 @@ set shiftwidth=2
 "show tab 
 set list
 set listchars=tab:▸\ 
-
 set autoindent
 set cindent
 
@@ -80,7 +79,7 @@ set hidden                  " 允许在有未保存的修改时切换缓冲区�
 set undolevels=200
 set modifiable
 set write
-set foldenable
+"set foldenable
 set foldmethod=syntax
 "highlight Folded ctermbg=black
 "highlight Folded ctermfg=darkmagenta
@@ -194,11 +193,6 @@ let showmarks_hlline_upper = 1
 
 
 """"""""""""""""""""""""""""""
-" markbrowser setting
-""""""""""""""""""""""""""""""
-nmap <silent> <leader>mk :MarksBrowser<cr> 
-
-""""""""""""""""""""""""""""""
 " Some mapping
 """"""""""""""""""""""""""""""
 nmap CTRL-F1 :!cts<cr>
@@ -234,6 +228,7 @@ cnoremap <C-N> <Down>
 cnoremap <C-F> <Right>
 cnoremap <C-B> <left>
 
+
 """"""""""""""""""""""""""""""
 " abbreviations for spelling correct
 """"""""""""""""""""""""""""""
@@ -252,6 +247,7 @@ endfunction
 
 iab szie size
 iab SZIE SIZE
+
 
 """"""""""""""""""""""""""""""
 " Statusline
@@ -281,6 +277,7 @@ endfunction
 " Toggle hex mode
 """"""""""""""""""""""""""""""
 let s:hexMode = "N"
+
 function! ToggleHexMode()
   if s:hexMode == "Y"
     %!xxd -r

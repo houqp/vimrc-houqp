@@ -6,7 +6,7 @@ all:
 	@echo '2. cd into .vim and issue `make install`'
 
 install_vundle:
-	cd bundle && git clone https://github.com/gmarik/vundle.git vundle
+	git clone http://github.com/gmarik/vundle.git ./bundle/vundle
 
 install:install_vundle
 	cd ~ && ln -s .vim/.vimrc .vimrc

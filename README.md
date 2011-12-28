@@ -17,6 +17,8 @@ The last thing you need to do is to call `:BundleInstall` in vim.
 
 # Usage
 
+### Colorizer
+
 Colorizer is turned off by default, use command `ColorToggle` to turn it on.
 
 
