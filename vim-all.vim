@@ -96,7 +96,31 @@ set tags=tags;
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 "autocmd FileType markdown Voom markdown 
-autocmd FileType asciidoc Voom asciidoc 
+"autocmd FileType asciidoc Voom asciidoc 
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Session management
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set sessionoptions-=blank
+set sessionoptions+=resize,winpos
+autocmd VimEnter * call LoadSession()
+"autocmd VimLeave * call SaveSession()
+nmap <leader>ms :mksession! .Session.vim<cr>
+
+"function! SaveSession()
+	"execute 'mksession! .Session.vim'
+"endfunction
+
+function! LoadSession()
+	"if argc() == 0
+		"execute 'source $HOME/.vim/.sessions/main_session.vim'
+	"else
+	"endif
+	if filereadable(".Session.vim")
+		silent source .Session.vim
+	endif
+endfunction
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -107,6 +131,7 @@ set incsearch	"search every word you type
 vnoremap <silent> * :call VisualSearch('f')<CR>
 vnoremap <silent> # :call VisualSearch('b')<CR>
 map <silent> <leader><cr> :noh<cr>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " auto motion for vim
@@ -131,6 +156,7 @@ let html_use_css=1
 "for omnicppcomplete
 set nocp
 filetype plugin on
+
 
 """"""""""""""""""""""""""""""
 " omni
@@ -215,6 +241,7 @@ map <leader>h :call ToggleHexMode()<cr>
 nmap <leader>w :w!<cr>
 imap <C-s> <esc>:w<cr>a
 
+"for FuzzyFinder
 nmap <leader>f :FufFile<cr>
 nmap <leader>bf :FufBuffer<cr>
 
