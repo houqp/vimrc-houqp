@@ -5,7 +5,7 @@ set nocompatible
 "filetype off
 
 set rtp+=~/.vim/bundle/vundle/
-"set rtp+=~/.vim/bundles/dokuwiki/
+set rtp+=~/.vim/bundles/vim-dokuwiki/
 set rtp+=~/.vim/bundles/mytemplates/
 set rtp+=~/.vim/bundles/cscope-related/
 set rtp+=~/.vim/bundles/conkyrc/
@@ -20,7 +20,7 @@ Bundle 'sukima/xmledit'
 Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 Bundle 'maxima.vim'
 Bundle 'Puppet-Syntax-Highlighting'
-Bundle 'houqp/vim-dokuwiki'
+"Bundle 'houqp/vim-dokuwiki'
 Bundle 'bufexplorer.zip'
 Bundle 'octave.vim--'
 Bundle 'scilab.vim'
@@ -82,6 +82,7 @@ set modifiable
 set write
 "set foldenable
 set foldmethod=syntax
+set foldcolumn=1
 "highlight Folded ctermbg=black
 "highlight Folded ctermfg=darkmagenta
 "highlight Folded guibg=white
@@ -95,6 +96,7 @@ set tags=tags;
 " For special file type
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
+autocmd FileType dokuwiki setlocal expandtab shiftwidth=2 softtabstop=2
 "autocmd FileType markdown Voom markdown 
 "autocmd FileType asciidoc Voom asciidoc 
 
@@ -104,22 +106,36 @@ autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set sessionoptions-=blank
 set sessionoptions+=resize,winpos
-let s:session_mode = "N"
+let g:session_dir = ""
 autocmd VimEnter * call LoadSession()
 autocmd VimLeave * call SaveSession()
-nmap <leader>ms :mksession! .Session.vim<cr>
+nmap <leader>ms :call SaveSession()<cr>
 
 function! SaveSession()
-	if s:session_mode == "Y"
-		execute 'mksession! .Session.vim'
+	if g:session_dir != "" 
+		" session_mode is set
+		if g:session_dir != "?"
+			" already loaded from a session, save to the original Session.vim
+			execute 'mksession! ' . g:session_dir . '/Session.vim'
+		else
+			" session_mode is set, create a new Session.vim
+			mksession! Session.vim
+			let g:session_dir = CurDir()
+		endif
 	endif
 endfunction
 
 function! LoadSession()
-	if has("gui_running") && argc() == 0 && filereadable(".Session.vim")
-		let s:session_mode = "Y"
-		"execute 'source $HOME/.vim/.sessions/main_session.vim'
-		silent source .Session.vim
+	if has("gui_running") && argc() == 0 
+		" session is only enabled for gvim with no arguments
+		" if g:session_dir != "", then session_mode is set
+		if filereadable("Session.vim")
+			let g:session_dir = CurDir()
+			silent source Session.vim
+		else
+			" Session.vim not found, set session_mode 
+			let g:session_dir = "?"
+		endif
 	endif
 endfunction
 
@@ -167,6 +183,7 @@ set completeopt=longest,menu
 
 let g:AutoComplPop_IgnoreCaseOption=1
 set ignorecase
+
 
 """""""""""""""""""""""""""""""
 " Taglist

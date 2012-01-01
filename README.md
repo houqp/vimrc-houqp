@@ -26,7 +26,7 @@ The last thing you need to do is to call `:BundleInstall` in vim.
 
 `<leader>f`: find files.
 
-`<leader>fb`: find buffers.
+`<leader>bf`: find buffers.
 
 `<leader>be`: show buffer lists.
 
@@ -40,6 +40,15 @@ The last thing you need to do is to call `:BundleInstall` in vim.
 
 `<Alt><F5>`: issue make command in current directory.
 
+### Use sessions for project management
+Because I use different color scheme for .gvimrc and .vimrc, so I only
+enabled auto session management in GUI. Every time you fire up GVim with no arguments,
+the session mode will be set and you can use `<Leader><Leader>ms` to save a
+session on current directory.
+
+Then you can easily recover your previous workspace by fire up GVim in the
+same directory, where Session.vim is saved. When you quit GVim, it will automatically
+save the session for you.
 
 
 # Plugins notes
