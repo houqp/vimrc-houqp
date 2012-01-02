@@ -77,3 +77,12 @@ The default leader for easymotion has been changed to <Leader><Leader> to avoid 
 ### FuzzyFinder
 
 use `<Leader>f` to trigger `:FufFile`, `<Leader>bf` to trigger `:FufBuffer`.
+
+
+### NeoComplCache
+
+`C-e` : delete and Cancel completion
+
+`C-y` : simply close completion popup
+
+`C-k` : expand snippets

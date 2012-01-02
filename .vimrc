@@ -1,4 +1,4 @@
-source ~/.vim/vim-all.vim
+source ~/.vim/allrc.vim
 
 set t_Co=256
 colorscheme freya-term
