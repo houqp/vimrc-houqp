@@ -15,6 +15,7 @@ Bundle 'gmarik/vundle'
 
 "language
 Bundle 'c.vim'
+"Bundle 'OmniCppComplete'
 Bundle 'moin.vim'
 Bundle 'sukima/xmledit'
 Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
