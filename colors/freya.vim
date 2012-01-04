@@ -12,7 +12,7 @@ hi Normal ctermbg=0 ctermfg=7 cterm=none guibg=#2a2a2a guifg=#dcdccc gui=none
 
 hi Cursor guibg=fg guifg=bg gui=none
 hi CursorColumn guibg=#3f3f3f gui=none
-hi CursorLine guibg=#3f3f3f guifg=fg gui=none
+hi CursorLine guibg=#3f3f3f gui=none
 hi DiffAdd guibg=#008b00 guifg=fg gui=none
 hi DiffChange guibg=#00008b guifg=fg gui=none
 hi DiffDelete guibg=#8b0000 guifg=fg gui=none
