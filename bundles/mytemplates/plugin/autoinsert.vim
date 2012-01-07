@@ -6,6 +6,7 @@ augroup autoinsert
   autocmd BufNewFile *.html,*.htm call s:Template("html")
   autocmd BufNewFile .gitignore call s:Template("gitignore")
   autocmd BufNewFile README.md call s:Template("readme.md")
+  autocmd BufNewFile *.css call s:Template("css")
 augroup END
 endif
 
@@ -32,6 +33,9 @@ function s:Template(argument)
                 elseif (a:argument == "html")
                         0r $HOME/.vim/templates/html.tpl
                         set ft=html
+                elseif (a:argument == "css")
+                        0r $HOME/.vim/templates/css.tpl
+                        set ft=css
                 elseif (a:argument == "gitignore")
                         0r $HOME/.vim/templates/gitignore.tpl
                 elseif (a:argument == "readme.md")
