@@ -16,7 +16,7 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
-"language
+" --- languages
 Bundle 'c.vim'
 "Bundle 'OmniCppComplete'
 Bundle 'moin.vim'
@@ -30,16 +30,16 @@ Bundle 'octave.vim--'
 Bundle 'scilab.vim'
 Bundle 'johnbintz/vim-puppet'
 
-"web dev
+" --- web dev
 Bundle 'lilydjwg/colorizer'
 Bundle 'othree/html5.vim'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'mattn/zencoding-vim'
-Bundle 'taglist.vim'
-Bundle 'autoproto.vim'
+Bundle 'nono/jquery.vim'
 
-"dev tools
+" --- dev tools
 "Bundle 'neocomplcache'
+Bundle 'taglist.vim'
 Bundle 'po.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'VOoM'
@@ -47,8 +47,10 @@ Bundle 'VOoM'
 "Bundle 'autoload_cscope.vim'
 "Bundle 'Marks-Browser'
 Bundle 'ShowMarks'
+" display function parameter/prototypes in preview
+Bundle 'autoproto.vim' 
 
-"misc
+" --- misc
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'Lokaltog/vim-easymotion'
@@ -102,6 +104,8 @@ set tags=tags;
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 autocmd FileType dokuwiki setlocal expandtab shiftwidth=2 softtabstop=2
+"au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
+autocmd FileType javascript set syntax=jquery
 "autocmd FileType markdown Voom markdown 
 "autocmd FileType asciidoc Voom asciidoc 
 
@@ -112,7 +116,7 @@ autocmd FileType dokuwiki setlocal expandtab shiftwidth=2 softtabstop=2
 set sessionoptions-=blank
 set sessionoptions+=resize,winpos
 let g:session_dir = ""
-autocmd VimEnter * call LoadSession()
+autocmd VimEnter * call LoadSession() | if has("gui_running") | source $HOME/.gvimrc | endif
 autocmd VimLeave * call SaveSession()
 nmap <leader>ms :call SaveSession()<cr>
 
