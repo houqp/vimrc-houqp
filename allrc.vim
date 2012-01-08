@@ -105,6 +105,8 @@ set tags=tags;
 autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 autocmd FileType dokuwiki setlocal expandtab shiftwidth=2 softtabstop=2
 "au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
+"autocmd BufRead *.js set syntax=jquery
+" @TODO this does not work after LoadSession()
 autocmd FileType javascript set syntax=jquery
 "autocmd FileType markdown Voom markdown 
 "autocmd FileType asciidoc Voom asciidoc 
@@ -115,8 +117,10 @@ autocmd FileType javascript set syntax=jquery
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set sessionoptions-=blank
 set sessionoptions+=resize,winpos
-let g:session_dir = ""
-autocmd VimEnter * call LoadSession() | if has("gui_running") | source $HOME/.gvimrc | endif
+if !exists("g:session_dir")
+	let g:session_dir = ""
+endif
+autocmd VimEnter * call LoadSession() | if has("gui_running") | source $HOME/.gvimrc
 autocmd VimLeave * call SaveSession()
 nmap <leader>ms :call SaveSession()<cr>
 
