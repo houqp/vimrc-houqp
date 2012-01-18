@@ -40,6 +40,7 @@ Bundle 'tpope/vim-haml'
 
 " --- dev tools
 "Bundle 'neocomplcache'
+Bundle 'tpope/vim-fugitive'
 Bundle 'taglist.vim'
 Bundle 'po.vim'
 Bundle 'scrooloose/nerdcommenter'
@@ -55,6 +56,7 @@ Bundle 'autoproto.vim'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'Lokaltog/vim-powerline'
 Bundle 'AutoComplPop'
 
 filetype plugin indent on
@@ -113,46 +115,6 @@ autocmd FileType javascript set syntax=jquery
 "autocmd FileType asciidoc Voom asciidoc 
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Session management
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set sessionoptions-=blank
-set sessionoptions+=resize,winpos
-if !exists("g:session_dir")
-	let g:session_dir = ""
-endif
-autocmd VimEnter * call LoadSession() | if has("gui_running") | source $HOME/.gvimrc
-autocmd VimLeave * call SaveSession()
-nmap <leader>ms :call SaveSession()<cr>
-
-function! SaveSession()
-	if g:session_dir != "" 
-		" session_mode is set
-		if g:session_dir != "?"
-			" already loaded from a session, save to the original Session.vim
-			execute 'mksession! ' . g:session_dir . '/Session.vim'
-		else
-			" session_mode is set, create a new Session.vim
-			mksession! Session.vim
-			let g:session_dir = CurDir()
-		endif
-	endif
-endfunction
-
-function! LoadSession()
-	if has("gui_running") && argc() == 0 
-		" session is only enabled for gvim with no arguments
-		" if g:session_dir != "", then session_mode is set
-		if filereadable("Session.vim")
-			let g:session_dir = CurDir()
-			silent source Session.vim
-		else
-			" Session.vim not found, set session_mode 
-			let g:session_dir = "?"
-		endif
-	endif
-endfunction
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " For search
@@ -172,11 +134,17 @@ map <silent> <leader><cr> :noh<cr>
 set autochdir
 " Set to auto read when a file is changed from the outside
 set autoread
+
 " reload vimrc when it is changed
-autocmd! bufwritepost .vimrc source $HOME/.vimrc
-autocmd! bufwritepost .gvimrc source $HOME/.gvimrc
-autocmd! bufwritepost allrc.vim source $HOME/.vim/allrc.vim
-" input method auto close
+autocmd! BufWritePost .vimrc,.gvimrc,allrc.vim 
+			\	if has("gui_running") |
+			\		source $MYGVIMRC |
+			\	else |
+			\		source $MYVIMRC |
+			\	endif |
+			\	call Pl#Load()
+
+" auto disable input method 
 autocmd! InsertLeave * set imdisable
 autocmd! InsertEnter * set noimdisable
 
@@ -313,13 +281,18 @@ iab SZIE SIZE
 
 """"""""""""""""""""""""""""""
 " Statusline
+
 """"""""""""""""""""""""""""""
+
+set encoding=utf-8 " Necessary to show unicode glyphs
+let g:Powerline_symbols="unicode"
+
 " Always show the statusline
 set laststatus=2
 
 " Format the statusline
-set statusline=\ [CWD:\%r%{CurDir()}%h]\ %{HasPaste()}%f%m%r%h%w\ 
-		\[TYPE=%Y]\ \ Line:\ %l/%L:%c\ [ASCII=\%03.3b,\ HEX=\%02.2B]
+"set statusline=\ [CWD:\%r%{CurDir()}%h]\ %{HasPaste()}%f%m%r%h%w\ 
+		"\[TYPE=%Y]\ \ Line:\ %l/%L:%c\ [ASCII=\%03.3b,\ HEX=\%02.2B]
 
 function! CurDir()
     let curdir = substitute(getcwd(), '/Users/amir/', "~/", "g")
@@ -359,5 +332,49 @@ match Todo /<+.\++>/
 nnoremap <c-j> /<+.\{-1,}+><cr>c/+>/e<cr>
 inoremap <c-j> <ESC>/<+.\{-1,}+><cr>c/+>/e<cr>
 
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Session management
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set sessionoptions-=blank,help
+set sessionoptions+=resize,winpos
+if !exists("g:session_dir")
+	let g:session_dir = ""
+endif
+
+" session is only enabled for gvim with no arguments
+" if g:session_dir != "", then session_mode is set
+" Session.vim not found, set session_mode 
+
+autocmd! GUIEnter * 
+			\	if argc() == 0 | 
+			\		if filereadable("Session.vim") |
+			\			let g:session_dir = CurDir() |
+			\			source Session.vim |
+			\			source $MYGVIMRC |
+			\			call Pl#Load() |
+			\		else |
+			\			let g:session_dir = "?" |
+			\ endif
+
+"autocmd! SessionLoadPost * source $MYGVIMRC | call Pl#Load()
+autocmd! VimLeave * call SaveSession()
+
+nmap <leader>ms :call SaveSession()<cr>
+
+function! SaveSession()
+	if g:session_dir != "" 
+		" session_mode is set
+		if g:session_dir != "?"
+			" already loaded from a session, save to the original Session.vim
+			execute 'mksession! ' . g:session_dir . '/Session.vim'
+		else
+			" session_mode is set, create a new Session.vim
+			mksession! Session.vim
+			let g:session_dir = CurDir()
+		endif
+	endif
+endfunction
 
 
