@@ -79,10 +79,14 @@ The default leader for easymotion has been changed to <Leader><Leader> to avoid 
 use `<Leader>f` to trigger `:FufFile`, `<Leader>bf` to trigger `:FufBuffer`.
 
 
-### NeoComplCache
+### UltiSnips
 
-`C-e` : delete and Cancel completion
+in insert mode, press:
 
-`C-y` : simply close completion popup
+expand snips: `<tab>`
 
-`C-k` : expand snippets
+jump forward: `<c-j>`
+
+jump backward: `<c-k>`
+
+list snips: `<c-tab>`

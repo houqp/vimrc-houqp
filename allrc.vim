@@ -12,6 +12,7 @@ let g:dokuwiki_enable_key_mappings = 1
 set rtp+=~/.vim/bundles/mytemplates/
 set rtp+=~/.vim/bundles/cscope-related/
 set rtp+=~/.vim/bundles/conkyrc/
+set rtp+=~/.vim/bundles/linux-kernel.vim/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
@@ -40,6 +41,7 @@ Bundle 'tpope/vim-haml'
 
 " --- dev tools
 "Bundle 'neocomplcache'
+Bundle 'SirVer/ultisnips'
 Bundle 'tpope/vim-fugitive'
 Bundle 'taglist.vim'
 Bundle 'po.vim'
@@ -56,7 +58,8 @@ Bundle 'autoproto.vim'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Lokaltog/vim-powerline'
+"Bundle 'Lokaltog/vim-powerline'
+Bundle 'scrooloose/vim-statline'
 Bundle 'AutoComplPop'
 
 filetype plugin indent on
@@ -141,8 +144,7 @@ autocmd! BufWritePost .vimrc,.gvimrc,allrc.vim
 			\		source $MYGVIMRC |
 			\	else |
 			\		source $MYVIMRC |
-			\	endif |
-			\	call Pl#Load()
+			\	endif
 
 " auto disable input method 
 autocmd! InsertLeave * set imdisable
@@ -285,10 +287,9 @@ iab SZIE SIZE
 """"""""""""""""""""""""""""""
 
 set encoding=utf-8 " Necessary to show unicode glyphs
-let g:Powerline_symbols="unicode"
 
 " Always show the statusline
-set laststatus=2
+"set laststatus=2
 
 " Format the statusline
 "set statusline=\ [CWD:\%r%{CurDir()}%h]\ %{HasPaste()}%f%m%r%h%w\ 
@@ -353,12 +354,10 @@ autocmd! GUIEnter *
 			\			let g:session_dir = CurDir() |
 			\			source Session.vim |
 			\			source $MYGVIMRC |
-			\			call Pl#Load() |
 			\		else |
 			\			let g:session_dir = "?" |
 			\ endif
 
-"autocmd! SessionLoadPost * source $MYGVIMRC | call Pl#Load()
 autocmd! VimLeave * call SaveSession()
 
 nmap <leader>ms :call SaveSession()<cr>
