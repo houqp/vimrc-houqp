@@ -30,6 +30,8 @@ Bundle 'bufexplorer.zip'
 Bundle 'octave.vim--'
 Bundle 'scilab.vim'
 Bundle 'johnbintz/vim-puppet'
+Bundle 'xolox/vim-lua-ftplugin'
+"Bundle 'xolox/vim-lua-inspect'
 
 " --- web dev
 Bundle 'lilydjwg/colorizer'
@@ -53,6 +55,7 @@ Bundle 'VOoM'
 Bundle 'ShowMarks'
 " display function parameter/prototypes in preview
 Bundle 'autoproto.vim' 
+Bundle 'superjudge/tasklist-pathogen'
 
 " --- misc
 Bundle 'L9'
@@ -75,9 +78,9 @@ syntax enable
 """"""""""""""""""""""""""""""
 " expand tab to spaces
 set noexpandtab
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 "show tab 
 set list
 set listchars=tab:▸\ 
@@ -94,7 +97,7 @@ set undolevels=200
 set modifiable
 set write
 "set foldenable
-set foldmethod=syntax
+"set foldmethod=syntax
 set foldcolumn=1
 "highlight Folded ctermbg=black
 "highlight Folded ctermfg=darkmagenta

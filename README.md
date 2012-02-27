@@ -34,6 +34,8 @@ The last thing you need to do is to call `:BundleInstall` in vim.
 
 `<leader>h`: toggle hex mode.
 
+`<leader>t`: show tasklist (todo, fix, etc).
+
 `<Ctrl>s`: quick save in insert mode.
 
 `<Ctrl>j`: jump to place holder.
