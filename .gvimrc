@@ -8,6 +8,7 @@ if &term=~"xterm"
 endif
 
 set guifont=bitstream\ vera\ sans\ mono\ 11
+set gfw=WenQuanYi\ Micro\ Hei\ 11
 
 "If in gvim, use a better colorscheme
 colorscheme freya

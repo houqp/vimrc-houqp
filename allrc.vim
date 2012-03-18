@@ -11,8 +11,9 @@ let g:dokuwiki_enable_key_mappings = 1
 
 set rtp+=~/.vim/bundles/mytemplates/
 set rtp+=~/.vim/bundles/cscope-related/
-set rtp+=~/.vim/bundles/conkyrc/
+"set rtp+=~/.vim/bundles/conkyrc/
 set rtp+=~/.vim/bundles/linux-kernel.vim/
+set rtp+=~/.vim/bundles/notify.vim/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
@@ -333,8 +334,10 @@ endfunction
 """"""""""""""""""""""""""""""
 "mark place holder
 match Todo /<+.\++>/
-nnoremap <c-j> /<+.\{-1,}+><cr>c/+>/e<cr>
-inoremap <c-j> <ESC>/<+.\{-1,}+><cr>c/+>/e<cr>
+"nnoremap <c-j> /<+.\{-1,}+><cr>c/+>/e<cr>
+"inoremap <c-j> <ESC>/<+.\{-1,}+><cr>c/+>/e<cr>
+nnoremap <c-j> /<+.\{-1,}><cr>c/+>/e<cr>
+inoremap <c-j> <ESC>/<+.\{-1,}><cr>c/+>/e<cr>
 
 
 
