@@ -202,6 +202,17 @@ let g:tagbar_autoshowtag = 1
 let g:tagbar_width = 30
 map <Leader>tl :TagbarToggle<CR>
 
+let g:tagbar_type_tex = {
+	\ 'ctagstype' : 'latex',
+	\ 'kinds'     : [
+		\ 's:sections',
+		\ 'g:graphics',
+		\ 'l:labels',
+		\ 'r:refs',
+		\ 'p:pagerefs'
+	\ ],
+	\ 'sort'    : 0,
+\ }
 
 """"""""""""""""""""""""""""""
 " Vim-LaTex	
