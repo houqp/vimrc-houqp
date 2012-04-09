@@ -59,7 +59,7 @@ Bundle 'matchit.zip'
 " --- misc ---
 Bundle 'L9'
 " > better alternative for FuzzyFinder
-Bundle 'ctrlp.vim'
+Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'scrooloose/vim-statline'
 Bundle 'AutoComplPop'

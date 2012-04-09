@@ -1,4 +1,6 @@
-This is houqp's vim configuration, use at your own risk. :-P
+This is houqp's vim configuration, use at your own risk. ;-P
+
+
 
 # Installation
 
@@ -44,6 +46,7 @@ The last thing you need to do is to call `:BundleInstall` in vim.
 
 `<Alt><F5>`: issue make command in current directory.
 
+
 ### Use sessions for project management
 Because I use different color scheme for .gvimrc and .vimrc, so I only
 enabled auto session management in GUI. Every time you fire up GVim with no arguments,
@@ -55,7 +58,8 @@ same directory, where Session.vim is saved. When you quit GVim, it will automati
 save the session for you.
 
 
-# Plugins notes
+
+# Tips for installed plugins 
 ### Colorizer
 
 Colorizer is turned off by default, use command `ColorToggle` to turn it on.
@@ -78,36 +82,31 @@ VOoM supports lots of format, check out this [page](http://vim-voom.github.com) 
 The default leader for easymotion has been changed to <Leader><Leader> to avoid conflcts. So use `<Leader><Leader>w` to trigger the word motion.
 
 
-### FuzzyFinder
-
-use `<Leader>f` to trigger `:FufFile`, `<Leader>bf` to trigger `:FufBuffer`.
-
-
 ### UltiSnips
 
 in insert mode, press:
 
-expand snips: `<tab>`
+expand snips: `<TAB>`
 
-jump forward: `<c-j>`
+jump forward: `<Ctrl>j`
 
-jump backward: `<c-k>`
+jump backward: `<Ctrl>k`
 
-list snips: `<c-tab>`
+list snips: `<Ctrl><TAB>`
 
 
 ### CtrlP
 
 inside the prompt:
 
- * toggle search by filename between by full path: `<c-d>`
- * selection up: `<c-k>`
- * selection down: `<c-j>`
- * exit: `<c-c>`, `<c-g>`, `<esc>`
- * toggle regexp search: `<c-r>`
+ * toggle search by filename between by full path: `<Ctrl>d`
+ * selection up: `<Ctrl>k`
+ * selection down: `<Ctrl>j`
+ * exit: `<Ctrl>c`, `<Ctrl>g`, `<esc>`
+ * toggle regexp search: `<Ctrl>r`
  * purge cache: `<F5>`
- * forward: `<c-f>`
- * backward: `<c-b>`
+ * forward: `<Ctrl>f`
+ * backward: `<Ctrl>b`
  * wipe MRU list: `<F7>`
  * help page: `?`+`<CR>`
 
@@ -124,7 +123,7 @@ in Tagbar buffer:
    * toggle: `za`
    * open all: `zR`
    * close all: `zM`
- * goto next top level: `<C-N>`
- * goto previous top level: `<C-P>`
+ * goto next top level: `<Ctrl>N`
+ * goto previous top level: `<Ctrl>P`
  * zoom tagbar window: `x`
  * display tag protogype: `<Space>`
