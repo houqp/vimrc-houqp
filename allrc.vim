@@ -182,21 +182,13 @@ nmap <leader>r :CtrlPMRU<cr>
 
 " default search by filename
 let g:ctrlp_by_filename = 1
-" set match windown on top
-let g:ctrlp_match_window_bottom = 0
 " avoid opening file in following window
 let g:ctrlp_reuse_window = 'netrw\|help\|quickfix'
 " set working directory to the parent dir of current file
 "let g:ctrlp_working_path_mode = 1
 " exclude files from search
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/tags
-" external tool for file listing
-let g:ctrlp_user_command = {
-	\ 'types': {
-		\ 1: ['.git/', 'cd %s && git ls-files'],
-		\ 2: ['.hg/', 'hg --cwd %s locate -I .'],
-		\ },
-	\ }
+let g:ctrlp_user_command = 'find %s -type f'
 
 
 """""""""""""""""""""""""""""""
