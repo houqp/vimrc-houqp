@@ -22,11 +22,13 @@ The last thing you need to do is to call `:BundleInstall` in vim.
 
 `<leader><TAB>`: switch to previous window.
 
-`<leader>tl`: toggle taglist window.
+`<leader>tl`: toggle TagBar window.
 
 `<leader>f`: find files.
 
 `<leader>bf`: find buffers.
+
+`<leader>r`: show MRU list.
 
 `<leader>be`: show buffer lists.
 
@@ -92,3 +94,37 @@ jump forward: `<c-j>`
 jump backward: `<c-k>`
 
 list snips: `<c-tab>`
+
+
+### CtrlP
+
+inside the prompt:
+
+ * toggle search by filename between by full path: `<c-d>`
+ * selection up: `<c-k>`
+ * selection down: `<c-j>`
+ * exit: `<c-c>`, `<c-g>`, `<esc>`
+ * toggle regexp search: `<c-r>`
+ * purge cache: `<F5>`
+ * forward: `<c-f>`
+ * backward: `<c-b>`
+ * wipe MRU list: `<F7>`
+ * help page: `?`+`<CR>`
+
+
+### Tagbar
+
+in Tagbar buffer:
+
+ * display help page: `<F1>`
+ * change tags sort order: `s`
+ * folding: same as Vim's built-in mappings:
+   * open: `zo`
+   * close: `zc`
+   * toggle: `za`
+   * open all: `zR`
+   * close all: `zM`
+ * goto next top level: `<C-N>`
+ * goto previous top level: `<C-P>`
+ * zoom tagbar window: `x`
+ * display tag protogype: `<Space>`

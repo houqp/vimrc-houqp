@@ -1,5 +1,5 @@
 """"""""""""""""""""""""""""""
-" setting for vundle
+" Setting for vundle
 """"""""""""""""""""""""""""""
 set nocompatible
 "filetype off
@@ -11,30 +11,28 @@ let g:dokuwiki_enable_key_mappings = 1
 
 set rtp+=~/.vim/bundles/mytemplates/
 set rtp+=~/.vim/bundles/cscope-related/
-"set rtp+=~/.vim/bundles/conkyrc/
 set rtp+=~/.vim/bundles/linux-kernel.vim/
 set rtp+=~/.vim/bundles/notify.vim/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
-" --- languages
+" --- languages ---
 Bundle 'c.vim'
-"Bundle 'OmniCppComplete'
 Bundle 'moin.vim'
 Bundle 'sukima/xmledit'
 Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 Bundle 'maxima.vim'
 Bundle 'Puppet-Syntax-Highlighting'
-"Bundle 'houqp/vim-dokuwiki'
 Bundle 'bufexplorer.zip'
 Bundle 'octave.vim--'
 Bundle 'scilab.vim'
 Bundle 'johnbintz/vim-puppet'
 Bundle 'xolox/vim-lua-ftplugin'
+"Bundle 'houqp/vim-dokuwiki'
 "Bundle 'xolox/vim-lua-inspect'
 
-" --- web dev
+" --- web dev ---
 Bundle 'lilydjwg/colorizer'
 Bundle 'othree/html5.vim'
 Bundle 'hail2u/vim-css3-syntax'
@@ -42,30 +40,30 @@ Bundle 'mattn/zencoding-vim'
 Bundle 'nono/jquery.vim'
 Bundle 'tpope/vim-haml'
 
-" --- dev tools
-"Bundle 'neocomplcache'
+" --- dev tools ---
 Bundle 'SirVer/ultisnips'
 Bundle 'tpope/vim-fugitive'
-Bundle 'taglist.vim'
+" > better alternative for taglist
+Bundle 'majutsushi/tagbar'
 Bundle 'po.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'VOoM'
-"Bundle 'cscope_plus.vim'
-"Bundle 'autoload_cscope.vim'
-"Bundle 'Marks-Browser'
-Bundle 'ShowMarks'
-" display function parameter/prototypes in preview
+" > display function parameter/prototypes in preview
 Bundle 'autoproto.vim' 
+" > show TODO, FIXME etc.
 Bundle 'superjudge/tasklist-pathogen'
+" > For fast search inside codes
 Bundle 'mileszs/ack.vim'
+Bundle 'matchit.zip'
 
-" --- misc
+" --- misc ---
 Bundle 'L9'
-Bundle 'FuzzyFinder'
+" > better alternative for FuzzyFinder
+Bundle 'ctrlp.vim'
 Bundle 'Lokaltog/vim-easymotion'
-"Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/vim-statline'
 Bundle 'AutoComplPop'
+"Bundle 'Lokaltog/vim-powerline'
 
 filetype plugin indent on
 
@@ -76,7 +74,7 @@ let mapleader = ","
 syntax enable
 
 """"""""""""""""""""""""""""""
-" tab and indent
+" Tab and indent
 """"""""""""""""""""""""""""""
 " expand tab to spaces
 set noexpandtab
@@ -135,7 +133,7 @@ map <silent> <leader><cr> :noh<cr>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" auto motion for vim
+" Auto motion for vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "工作目录随文件变
 "autocmd BufEnter * cd %:p:h
@@ -165,7 +163,7 @@ filetype plugin on
 
 
 """"""""""""""""""""""""""""""
-" omni
+" Omni
 """"""""""""""""""""""""""""""
 imap <C-L> <C-x><C-o>
 set completeopt=longest,menu
@@ -175,25 +173,45 @@ set ignorecase
 
 
 """""""""""""""""""""""""""""""
-" Taglist
-""""""""""""""""""""""""""""""
-let Tlist_Ctags_Cmd = "/usr/bin/ctags"
-let Tlist_WinWidth = 35
-let Tlist_Show_One_File=1
-let Tlist_Exit_OnlyWindow=1
-map <Leader>tl :TlistToggle <bar> TlistUpdate <cr>
+" CtrlP
+"""""""""""""""""""""""""""""""
+let g:ctrlp_map = '<leader>f'
+"nmap <leader>f :CtrlP<cr>
+nmap <leader>bf :CtrlPBuffer<cr>
+nmap <leader>r :CtrlPMRU<cr>
+
+" default search by filename
+let g:ctrlp_by_filename = 1
+" set match windown on top
+let g:ctrlp_match_window_bottom = 0
+" avoid opening file in following window
+let g:ctrlp_reuse_window = 'netrw\|help\|quickfix'
+" set working directory to the parent dir of current file
+"let g:ctrlp_working_path_mode = 1
+" exclude files from search
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/tags
+" external tool for file listing
+let g:ctrlp_user_command = {
+	\ 'types': {
+		\ 1: ['.git/', 'cd %s && git ls-files'],
+		\ 2: ['.hg/', 'hg --cwd %s locate -I .'],
+		\ },
+	\ }
 
 
 """""""""""""""""""""""""""""""
-" WinManage
+" TagBar
 """"""""""""""""""""""""""""""
-"let g:winManagerWindowLayout='FileExplorer|TagList'
-"let g:winManagerWindowLayout='TagList'
-"nmap wm :WMToggle<cr>
+let g:tagbar_left = 1
+"let g:tagbar_iconchars = ['+', '-']
+let g:tagbar_iconchars = [' ▶', ' ▼']
+let g:tagbar_autoshowtag = 1
+let g:tagbar_width = 30
+map <Leader>tl :TagbarToggle<CR>
 
 
 """"""""""""""""""""""""""""""
-" vim-latex	
+" Vim-LaTex	
 """"""""""""""""""""""""""""""
 " IMPORTANT: grep will sometimes skip displaying the file name if you
 " search in a singe file. This will confuse Latex-Suite. Set your grep
@@ -207,13 +225,13 @@ let g:tex_flavor='latex'
 
 
 """"""""""""""""""""""""""""""
-"	use vim in man page
+" Use vim in man page
 """"""""""""""""""""""""""""""
 let $PAGER=''
 
 
 """"""""""""""""""""""""""""""
-" showmarks setting
+" Showmarks setting
 """"""""""""""""""""""""""""""
 " Enable ShowMarks
 let showmarks_enable = 1
@@ -227,7 +245,7 @@ let showmarks_hlline_upper = 1
 
 
 """"""""""""""""""""""""""""""
-" Some mappinn
+" Some other mappings
 """"""""""""""""""""""""""""""
 " switch between two windows
 nmap <leader><TAB> :wincmd p<cr>
@@ -248,14 +266,10 @@ map <leader>h :call ToggleHexMode()<cr>
 nmap <leader>w :w!<cr>
 imap <C-s> <esc>:w<cr>a
 
-"for FuzzyFinder
-nmap <leader>f :FufFile<cr>
-nmap <leader>bf :FufBuffer<cr>
 
-
-""""""""""""""""""""""""""""""
-" Command mode related
-""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""
+" Command mode related mappings
+""""""""""""""""""""""""""""""""
 "Bash like keys for the command line
 cnoremap <C-A> <Home>
 cnoremap <C-E> <End>
@@ -266,9 +280,9 @@ cnoremap <C-F> <Right>
 cnoremap <C-B> <left>
 
 
-""""""""""""""""""""""""""""""
-" abbreviations for spelling correct
-""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""
+" Abbreviations for spelling correct
+"""""""""""""""""""""""""""""""""""""
 function! ToggleSpellCheck()
 	setlocal spell!
 	"@TODO: save old value
@@ -288,9 +302,7 @@ iab SZIE SIZE
 
 """"""""""""""""""""""""""""""
 " Statusline
-
 """"""""""""""""""""""""""""""
-
 set encoding=utf-8 " Necessary to show unicode glyphs
 
 " Always show the statusline
@@ -341,10 +353,9 @@ nnoremap <c-j> /<+.\{-1,}><cr>c/+>/e<cr>
 inoremap <c-j> <ESC>/<+.\{-1,}><cr>c/+>/e<cr>
 
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""
 " Session management
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""
 set sessionoptions-=blank,help
 set sessionoptions+=resize,winpos
 if !exists("g:session_dir")
