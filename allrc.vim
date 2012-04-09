@@ -19,6 +19,7 @@ Bundle 'gmarik/vundle'
 
 " --- languages ---
 Bundle 'c.vim'
+Bundle 'echofunc.vim'
 Bundle 'moin.vim'
 Bundle 'sukima/xmledit'
 Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'

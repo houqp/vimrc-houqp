@@ -127,3 +127,10 @@ in Tagbar buffer:
  * goto previous top level: `<Ctrl>P`
  * zoom tagbar window: `x`
  * display tag protogype: `<Space>`
+
+
+### echofunc
+
+next proto: `<Alt>=`
+
+previous proto: `<Alt>-`
