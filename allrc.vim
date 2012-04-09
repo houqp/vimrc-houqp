@@ -57,6 +57,7 @@ Bundle 'ShowMarks'
 " display function parameter/prototypes in preview
 Bundle 'autoproto.vim' 
 Bundle 'superjudge/tasklist-pathogen'
+Bundle 'mileszs/ack.vim'
 
 " --- misc
 Bundle 'L9'
