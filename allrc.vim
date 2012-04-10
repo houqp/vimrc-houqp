@@ -53,7 +53,7 @@ Bundle 'VOoM'
 Bundle 'autoproto.vim' 
 " > show TODO, FIXME etc.
 Bundle 'superjudge/tasklist-pathogen'
-" > For fast search inside codes
+" > for fast search inside codes
 Bundle 'mileszs/ack.vim'
 Bundle 'matchit.zip'
 
@@ -66,6 +66,8 @@ Bundle 'scrooloose/vim-statline'
 Bundle 'AutoComplPop'
 " > toggle quickfix and location list
 Bundle 'milkypostman/vim-togglelist'
+" > pairs of bracket mappings
+Bundle 'tpope/vim-unimpaired'
 "Bundle 'Lokaltog/vim-powerline'
 
 filetype plugin indent on

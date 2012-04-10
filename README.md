@@ -40,7 +40,9 @@ The last thing you need to do is to call `:BundleInstall` in vim.
 
 `<leader>t`: show tasklist (todo, fix, etc).
 
-`<leader>q`: toggle quickfix window
+`<leader>q`: toggle quickfix window.
+
+`[q` & `]q`: previous & next quickfix item.
 
 `<Ctrl>s`: quick save in insert mode.
 
