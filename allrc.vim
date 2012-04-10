@@ -68,6 +68,8 @@ Bundle 'AutoComplPop'
 Bundle 'milkypostman/vim-togglelist'
 " > pairs of bracket mappings
 Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-repeat'
+"Bundle 'tpope/vim-surround'
 "Bundle 'Lokaltog/vim-powerline'
 
 filetype plugin indent on
