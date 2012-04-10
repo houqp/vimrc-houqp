@@ -64,6 +64,8 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'scrooloose/vim-statline'
 Bundle 'AutoComplPop'
+" > toggle quickfix and location list
+Bundle 'milkypostman/vim-togglelist'
 "Bundle 'Lokaltog/vim-powerline'
 
 filetype plugin indent on
