@@ -192,7 +192,7 @@ let g:ctrlp_by_filename = 1
 " avoid opening file in following window
 let g:ctrlp_reuse_window = 'netrw\|help\|quickfix'
 " set working directory to the parent dir of current file
-"let g:ctrlp_working_path_mode = 1
+let g:ctrlp_working_path_mode = 1
 " exclude files from file search
 let g:ctrlp_custom_ignore = {
 \ 'dir':  '\.git$\|\.hg$\|\.svn$',
@@ -205,6 +205,13 @@ let g:ctrlp_user_command = 'find %s -type f'
 let g:ctrlp_open_new_file = 'r'
 " follow links in searching
 let g:ctrlp_follow_symlinks = 1
+" switch mappings between ToggleType and PtrCur
+let g:ctrlp_prompt_mappings = {
+\ 'ToggleType(1)':        ['<c-l>', '<c-up>'],
+\ 'ToggleType(-1)':       ['<c-h>', '<c-down>'],
+\ 'PrtCurLeft()':         ['<c-b>', '<left>', '<c-^>'],
+\ 'PrtCurRight()':        ['<c-f>', '<right>'],
+\ }
 
 
 """""""""""""""""""""""""""""""
