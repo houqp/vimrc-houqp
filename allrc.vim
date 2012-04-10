@@ -182,8 +182,8 @@ set ignorecase
 """""""""""""""""""""""""""""""
 " CtrlP
 """""""""""""""""""""""""""""""
-let g:ctrlp_map = '<leader>f'
-"nmap <leader>f :CtrlP<cr>
+"let g:ctrlp_map = '<leader>f'
+nmap <leader>f :CtrlPMixed<cr>
 nmap <leader>bf :CtrlPBuffer<cr>
 nmap <leader>r :CtrlPMRU<cr>
 
@@ -193,9 +193,18 @@ let g:ctrlp_by_filename = 1
 let g:ctrlp_reuse_window = 'netrw\|help\|quickfix'
 " set working directory to the parent dir of current file
 "let g:ctrlp_working_path_mode = 1
-" exclude files from search
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/tags
+" exclude files from file search
+let g:ctrlp_custom_ignore = {
+\ 'dir':  '\.git$\|\.hg$\|\.svn$',
+\ 'file': '\.exe$\|\.so$\|\.dll$|\.swp$|^tags$',
+\ }
+" exclude files from MRU
+let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*|.*\.swp$'
 let g:ctrlp_user_command = 'find %s -type f'
+" open file in current window
+let g:ctrlp_open_new_file = 'r'
+" follow links in searching
+let g:ctrlp_follow_symlinks = 1
 
 
 """""""""""""""""""""""""""""""

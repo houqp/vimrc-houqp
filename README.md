@@ -146,7 +146,7 @@ find out the author of every line: `Gblame`
 
 add current editing file: `Gwrite`
 
-commit current file: `Gcommit`
+commit staged changes: `Gcommit`
 
 view revisions for current file: `Glog`
 
