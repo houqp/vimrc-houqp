@@ -40,6 +40,7 @@ Bundle 'hail2u/vim-css3-syntax'
 Bundle 'mattn/zencoding-vim'
 Bundle 'nono/jquery.vim'
 Bundle 'tpope/vim-haml'
+Bundle 'groenewege/vim-less'
 
 " --- dev tools ---
 Bundle 'SirVer/ultisnips'

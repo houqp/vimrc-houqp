@@ -7,11 +7,17 @@ if &term=~"xterm"
     gui
 endif
 
-set guifont=bitstream\ vera\ sans\ mono\ 11
-set gfw=WenQuanYi\ Micro\ Hei\ 11
+
+if has('gui_macvim')
+	set gfw=WenQuanYi\ Micro\ Hei\ Mono:h16
+else
+	set guifont=bitstream\ vera\ sans\ mono\ 11
+	set gfw=WenQuanYi\ Micro\ Hei\ 11
+	colorscheme freya
+endif
+
 
 "If in gvim, use a better colorscheme
-colorscheme freya
 
 "不显示工具条
 set guioptions-=T
