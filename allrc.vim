@@ -128,7 +128,6 @@ autocmd FileType javascript set syntax=jquery
 "autocmd FileType asciidoc Voom asciidoc 
 
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " For search
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -191,16 +190,16 @@ nmap <leader>r :CtrlPMRU<cr>
 let g:ctrlp_by_filename = 1
 " avoid opening file in following window
 let g:ctrlp_reuse_window = 'netrw\|help\|quickfix'
-" set working directory to the parent dir of current file
-let g:ctrlp_working_path_mode = 1
+" don't manage working directory
+let g:ctrlp_working_path_mode = 0
 " exclude files from file search
 let g:ctrlp_custom_ignore = {
 \ 'dir':  '\.git$\|\.hg$\|\.svn$',
-\ 'file': '\.exe$\|\.so$\|\.dll$|\.swp$|^tags$',
+\ 'file': '\.exe$\|\.so$\|\.o$|\.dll$|\.swp$|^tags$',
 \ }
 " exclude files from MRU
-let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*|.*\.swp$'
-let g:ctrlp_user_command = 'find %s -type f'
+let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*|.*\.swp$|.*\.o$'
+"let g:ctrlp_user_command = 'find %s -type f'
 " open file in current window
 let g:ctrlp_open_new_file = 'r'
 " follow links in searching
@@ -235,6 +234,26 @@ let g:tagbar_type_tex = {
 	\ ],
 	\ 'sort'    : 0,
 \ }
+
+let g:tagbar_type_md = {
+	\ 'ctagstype' : 'markdown',
+	\ 'kinds' : [
+	\ 'h:Heading_L1',
+	\ 'i:Heading_L2',
+	\ 'k:Heading_L3'
+	\ ]
+\ }
+
+let g:tagbar_type_asciidoc = {
+	\ 'ctagstype' : 'asciidoc',
+	\ 'kinds' : [
+	\ 'h:Heading_L1',
+	\ 'i:Heading_L2',
+	\ 'k:Heading_L3'
+	\ ]
+\ }
+
+
 
 """"""""""""""""""""""""""""""
 " Vim-LaTex	
@@ -275,7 +294,7 @@ let showmarks_hlline_upper = 1
 """"""""""""""""""""""""""""""
 " switch between two windows
 nmap <leader><TAB> :wincmd p<cr>
-nmap CTRL-F1 :!cts<cr>
+"nmap CTRL-F1 :!cts<cr>
 "F5 for compling
 nmap <M-F5> :make<cr>
 "jumpping between the errors
