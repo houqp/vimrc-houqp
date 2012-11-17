@@ -4,3 +4,8 @@
 import <+MODULE+>
 
 def <+FUNCTION+>:
+
+
+
+if __name__ == "__main__":
+
