@@ -50,8 +50,6 @@ Bundle 'majutsushi/tagbar'
 Bundle 'po.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'VOoM'
-" > display function parameter/prototypes in preview
-Bundle 'autoproto.vim' 
 " > show TODO, FIXME etc.
 Bundle 'superjudge/tasklist-pathogen'
 " > for fast search inside codes
