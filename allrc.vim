@@ -71,6 +71,7 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-repeat'
 "Bundle 'tpope/vim-surround'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'chriskempson/vim-tomorrow-theme'
 
 filetype plugin indent on
 

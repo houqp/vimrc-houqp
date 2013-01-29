@@ -13,13 +13,13 @@ if has('gui_macvim')
 else
 	set guifont=bitstream\ vera\ sans\ mono\ 11
 	set gfw=WenQuanYi\ Micro\ Hei\ 11
-	colorscheme freya
+	"If in gvim, use a better colorscheme
+	"colorscheme freya
+	"colorscheme Tomorrow-Night
+	colorscheme Tomorrow-Night-Eighties
 endif
 
-
-"If in gvim, use a better colorscheme
-
-"不显示工具条
+"hide tool bar and menu bar
 set guioptions-=T
 set guioptions-=m
 
