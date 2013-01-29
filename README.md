@@ -48,6 +48,8 @@ The last thing you need to do is to call `:BundleInstall` in vim.
 
 `<Ctrl>j`: jump to place holder.
 
+`<Ctrl>l`: OmniComplete.
+
 `<Alt><F5>`: issue make command in current directory.
 
 
