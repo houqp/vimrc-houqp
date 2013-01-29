@@ -193,9 +193,9 @@ let g:ctrlp_reuse_window = 'netrw\|help\|quickfix'
 let g:ctrlp_working_path_mode = 0
 " exclude files from file search
 let g:ctrlp_custom_ignore = {
-\ 'dir':  '\.git$\|\.hg$\|\.svn$',
-\ 'file': '\.exe$\|\.so$\|\.o$|\.dll$|\.swp$|^tags$',
-\ }
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll|o|a|swp|dep)$|tags',
+  \ }
 " exclude files from MRU
 let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*|.*\.swp$|.*\.o$'
 "let g:ctrlp_user_command = 'find %s -type f'
@@ -205,11 +205,11 @@ let g:ctrlp_open_new_file = 'r'
 let g:ctrlp_follow_symlinks = 1
 " switch mappings between ToggleType and PtrCur
 let g:ctrlp_prompt_mappings = {
-\ 'ToggleType(1)':        ['<c-l>', '<c-up>'],
-\ 'ToggleType(-1)':       ['<c-h>', '<c-down>'],
-\ 'PrtCurLeft()':         ['<c-b>', '<left>', '<c-^>'],
-\ 'PrtCurRight()':        ['<c-f>', '<right>'],
-\ }
+  \ 'ToggleType(1)':        ['<c-l>', '<c-up>'],
+  \ 'ToggleType(-1)':       ['<c-h>', '<c-down>'],
+  \ 'PrtCurLeft()':         ['<c-b>', '<left>', '<c-^>'],
+  \ 'PrtCurRight()':        ['<c-f>', '<right>'],
+  \ }
 
 
 """""""""""""""""""""""""""""""
