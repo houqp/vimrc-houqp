@@ -55,6 +55,7 @@ Bundle 'superjudge/tasklist-pathogen'
 " > for fast search inside codes
 Bundle 'mileszs/ack.vim'
 Bundle 'matchit.zip'
+Bundle 'Rip-Rip/clang_complete'
 
 " --- misc ---
 Bundle 'L9'
@@ -163,8 +164,6 @@ autocmd! InsertEnter * set noimdisable
 " syntax/2html.vim，可以用:runtime! syntax/2html.vim
 let html_use_css=1
 
-"for omnicppcomplete
-set nocp
 filetype plugin on
 
 
