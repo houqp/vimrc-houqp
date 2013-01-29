@@ -2,7 +2,7 @@
 " Setting for vundle
 """"""""""""""""""""""""""""""
 set nocompatible
-"filetype off
+filetype off
 
 set rtp+=~/.vim/bundle/vundle/
 
@@ -69,7 +69,7 @@ Bundle 'milkypostman/vim-togglelist'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-repeat'
 "Bundle 'tpope/vim-surround'
-"Bundle 'Lokaltog/vim-powerline'
+Bundle 'Lokaltog/vim-powerline'
 
 filetype plugin indent on
 
