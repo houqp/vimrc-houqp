@@ -72,6 +72,7 @@ Bundle 'tpope/vim-repeat'
 "Bundle 'tpope/vim-surround'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'chriskempson/vim-tomorrow-theme'
+Bundle "daylerees/colour-schemes", { "rtp": "vim-themes/" }
 
 filetype plugin indent on
 
