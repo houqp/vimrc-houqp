@@ -15,9 +15,8 @@ else
 	set gfw=WenQuanYi\ Micro\ Hei\ 11
 	"If in gvim, use a better colorscheme
 	"colorscheme freya
-	"colorscheme Tomorrow-Night
-	colorscheme Tomorrow-Night-Eighties
 	"colorscheme Yule
+	colorscheme Tomorrow-Night-Eighties-houqp
 endif
 
 "hide tool bar and menu bar

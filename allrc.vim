@@ -71,8 +71,11 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-repeat'
 "Bundle 'tpope/vim-surround'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'chriskempson/vim-tomorrow-theme'
-Bundle "daylerees/colour-schemes", { "rtp": "vim-themes/" }
+
+" --- themes ---
+"Bundle 'chriskempson/vim-tomorrow-theme'
+"Bundle 'daylerees/colour-schemes', { 'rtp': 'vim-themes/' }
+"Bundle 'nanotech/jellybeans.vim'
 
 filetype plugin indent on
 
@@ -92,13 +95,16 @@ set softtabstop=4
 set shiftwidth=4
 "show tab 
 set list
-set listchars=tab:▸\ 
+"set listchars=tab:▸\ 
+set listchars=tab:\:\ 
 set autoindent
 set cindent
 
 set nu
-set cursorline              " 突出显示当前行
-"set cursorcolumn              " 突出显示当前列
+" highlight current line
+set cursorline
+" highlight current column
+"set cursorcolumn
 set ignorecase smartcase    " 搜索时忽略大小写，但在有一个或以上大写字母时仍保持对大小写敏感
 set hidden                  " 允许在有未保存的修改时切换缓冲区，此时的修改由 vim 负责保存
 "set the number of changes that are remembered

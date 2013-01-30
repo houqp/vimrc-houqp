@@ -1,7 +1,7 @@
 source ~/.vim/allrc.vim
 
 set t_Co=256
-colorscheme Tomorrow-Night-Eighties
+colorscheme Tomorrow-Night-Eighties-houqp
 "colorscheme Tomorrow-Night
 "colorscheme freya-term
 
