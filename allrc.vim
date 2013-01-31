@@ -96,6 +96,7 @@ set shiftwidth=4
 "show tab 
 set list
 "set listchars=tab:▸\ 
+" start with : and fill the remaining with spaces
 set listchars=tab:\:\ 
 set autoindent
 set cindent
@@ -445,5 +446,3 @@ function! SaveSession()
 		endif
 	endif
 endfunction
-
-
