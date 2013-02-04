@@ -130,6 +130,7 @@ set tags=tags;
 autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 autocmd FileType haml setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType dokuwiki setlocal expandtab shiftwidth=2 softtabstop=2
+au BufRead,BufNewFile *.md set ft=markdown
 "au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 "autocmd BufRead *.js set syntax=jquery
 " @TODO this does not work after LoadSession()
