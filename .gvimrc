@@ -16,7 +16,7 @@ else
 	"If in gvim, use a better colorscheme
 	"colorscheme freya
 	"colorscheme Yule
-	colorscheme Tomorrow-Night-Eighties-houqp
+	colorscheme base16-eighties
 endif
 
 "hide tool bar and menu bar
