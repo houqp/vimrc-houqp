@@ -5,4 +5,7 @@
 *.a
 *.so
 *.log
+cscope.*
+.*.swo
+tags
 
