@@ -5,7 +5,6 @@ hi clear
 if exists("syntax_on")
     syntax reset
 endif
-
 let colors_name = "freya-term"
 
 highlight Normal ctermbg=235 cterm=none guibg=#2a2a2a gui=none ctermfg=253 guifg=#dcdccc
@@ -78,3 +77,6 @@ hi htmlBoldItalic ctermbg=0 ctermfg=15 guibg=bg guifg=fg gui=bold,italic
 hi htmlBoldUnderline ctermbg=0 ctermfg=15 guibg=bg guifg=fg gui=bold,underline
 hi htmlBoldUnderlineItalic ctermbg=0 ctermfg=15 guibg=bg guifg=fg gui=bold,underline,italic
 hi htmlUnderlineItalic ctermbg=0 ctermfg=15 guibg=bg guifg=fg gui=underline,italic
+
+" ColorColumn 80 line color
+hi ColorColumn ctermbg=236

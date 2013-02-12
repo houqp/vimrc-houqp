@@ -106,8 +106,12 @@ set nu
 set cursorline
 " highlight current column
 "set cursorcolumn
-set ignorecase smartcase    " 搜索时忽略大小写，但在有一个或以上大写字母时仍保持对大小写敏感
-set hidden                  " 允许在有未保存的修改时切换缓冲区，此时的修改由 vim 负责保存
+" highlight colorcolumn 80
+set colorcolumn=80
+" 搜索时忽略大小写，但在有一个或以上大写字母时仍保持对大小写敏感
+set ignorecase smartcase
+" 允许在有未保存的修改时切换缓冲区，此时的修改由 vim 负责保存
+set hidden
 "set the number of changes that are remembered
 set undolevels=200
 set modifiable
