@@ -71,6 +71,7 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-repeat'
 "Bundle 'tpope/vim-surround'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'bronson/vim-trailing-whitespace'
 
 " --- themes ---
 "Bundle 'chriskempson/vim-tomorrow-theme'

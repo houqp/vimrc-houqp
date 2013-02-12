@@ -153,3 +153,7 @@ commit staged changes: `Gcommit`
 view revisions for current file: `Glog`
 
 show complete commit logs: `Glog --`
+
+
+# vim-trailing-whitespace
+use `FixWhitespace` command to automatically remove all trailing whitespaces.
