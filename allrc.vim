@@ -94,11 +94,11 @@ set noexpandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-"show tab 
+"show tab
 set list
-"set listchars=tab:▸\ 
+"set listchars=tab:▸\
 " start with : and fill the remaining with spaces
-set listchars=tab:\:\ 
+set listchars=tab:\:\
 set autoindent
 set cindent
 
@@ -141,8 +141,8 @@ au BufRead,BufNewFile *.py set ft=python
 "autocmd BufRead *.js set syntax=jquery
 " @TODO this does not work after LoadSession()
 autocmd FileType javascript set syntax=jquery
-"autocmd FileType markdown Voom markdown 
-"autocmd FileType asciidoc Voom asciidoc 
+"autocmd FileType markdown Voom markdown
+"autocmd FileType asciidoc Voom asciidoc
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -165,14 +165,14 @@ set autochdir
 set autoread
 
 " reload vimrc when it is changed
-autocmd! BufWritePost .vimrc,.gvimrc,allrc.vim 
+autocmd! BufWritePost .vimrc,.gvimrc,allrc.vim
 			\	if has("gui_running") |
 			\		source $MYGVIMRC |
 			\	else |
 			\		source $MYVIMRC |
 			\	endif
 
-" auto disable input method 
+" auto disable input method
 autocmd! InsertLeave * set imdisable
 autocmd! InsertEnter * set noimdisable
 
@@ -271,7 +271,7 @@ let g:tagbar_type_asciidoc = {
 
 
 """"""""""""""""""""""""""""""
-" Vim-LaTex	
+" Vim-LaTex
 """"""""""""""""""""""""""""""
 " IMPORTANT: grep will sometimes skip displaying the file name if you
 " search in a singe file. This will confuse Latex-Suite. Set your grep
@@ -301,7 +301,7 @@ let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 let showmarks_ignore_type = "hqm"
 " Hilight lower & upper marks
 let showmarks_hlline_lower = 1
-let showmarks_hlline_upper = 1 
+let showmarks_hlline_upper = 1
 
 
 """"""""""""""""""""""""""""""
@@ -369,7 +369,7 @@ set encoding=utf-8 " Necessary to show unicode glyphs
 "set laststatus=2
 
 " Format the statusline
-"set statusline=\ [CWD:\%r%{CurDir()}%h]\ %{HasPaste()}%f%m%r%h%w\ 
+"set statusline=\ [CWD:\%r%{CurDir()}%h]\ %{HasPaste()}%f%m%r%h%w\
 		"\[TYPE=%Y]\ \ Line:\ %l/%L:%c\ [ASCII=\%03.3b,\ HEX=\%02.2B]
 
 function! CurDir()
@@ -424,10 +424,10 @@ endif
 
 " session is only enabled for gvim with no arguments
 " if g:session_dir != "", then session_mode is set
-" Session.vim not found, set session_mode 
+" Session.vim not found, set session_mode
 
-autocmd! GUIEnter * 
-			\	if argc() == 0 | 
+autocmd! GUIEnter *
+			\	if argc() == 0 |
 			\		if filereadable("Session.vim") |
 			\			let g:session_dir = CurDir() |
 			\			source Session.vim |
@@ -441,7 +441,7 @@ autocmd! VimLeave * call SaveSession()
 nmap <leader>ms :call SaveSession()<cr>
 
 function! SaveSession()
-	if g:session_dir != "" 
+	if g:session_dir != ""
 		" session_mode is set
 		if g:session_dir != "?"
 			" already loaded from a session, save to the original Session.vim
