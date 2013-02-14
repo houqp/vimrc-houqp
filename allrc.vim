@@ -98,7 +98,7 @@ set shiftwidth=4
 set list
 "set listchars=tab:▸\
 " start with : and fill the remaining with spaces
-set listchars=tab:\:\
+set listchars=tab:\:\ "we have a space here
 set autoindent
 set cindent
 
