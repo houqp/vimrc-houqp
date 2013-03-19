@@ -155,5 +155,10 @@ view revisions for current file: `Glog`
 show complete commit logs: `Glog --`
 
 
+### GitGutter
+
+Toggle GitGutter: `GitGutterToggle`
+
+
 ### vim-trailing-whitespace
 use `FixWhitespace` command to automatically remove all trailing whitespaces.
