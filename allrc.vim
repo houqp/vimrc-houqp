@@ -38,9 +38,10 @@ Bundle 'lilydjwg/colorizer'
 Bundle 'othree/html5.vim'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'mattn/zencoding-vim'
-Bundle 'nono/jquery.vim'
+"Bundle 'nono/jquery.vim'
 Bundle 'tpope/vim-haml'
 Bundle 'groenewege/vim-less'
+Bundle 'othree/javascript-libraries-syntax.vim'
 
 " --- dev tools ---
 Bundle 'SirVer/ultisnips'
@@ -139,10 +140,6 @@ autocmd FileType haml setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType dokuwiki setlocal expandtab shiftwidth=2 softtabstop=2
 au BufRead,BufNewFile *.md set ft=markdown
 au BufRead,BufNewFile *.py set ft=python
-"au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
-"autocmd BufRead *.js set syntax=jquery
-" @TODO this does not work after LoadSession()
-autocmd FileType javascript set syntax=jquery
 "autocmd FileType markdown Voom markdown
 "autocmd FileType asciidoc Voom asciidoc
 
