@@ -162,3 +162,6 @@ Toggle GitGutter: `GitGutterToggle`
 
 ### vim-trailing-whitespace
 use `FixWhitespace` command to automatically remove all trailing whitespaces.
+
+### tcomment_vim
+toggle comment: `gc`

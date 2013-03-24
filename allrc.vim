@@ -56,6 +56,7 @@ Bundle 'superjudge/tasklist-pathogen'
 Bundle 'mileszs/ack.vim'
 Bundle 'matchit.zip'
 Bundle 'Rip-Rip/clang_complete'
+Bundle 'tomtom/tcomment_vim'
 
 " --- misc ---
 Bundle 'L9'
