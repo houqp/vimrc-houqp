@@ -158,7 +158,7 @@ show complete commit logs: `Glog --`
 
 ### GitGutter
 
-Toggle GitGutter: `GitGutterToggle`
+Toggle GitGutter: `<leader>gd` or `:GitGutterToggle`
 
 jump bwteen hunks: `]h`, `[h`
 

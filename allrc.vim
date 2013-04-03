@@ -531,7 +531,8 @@ let g:used_javascript_libs = 'angularjs'
 """"""""""""""""""""""""""""""
 " turn off by default
 let g:gitgutter_enabled = 0
-" clear SignColumn color
-highlight clear SignColumn
+" gitgutter display toggle
+nmap <leader>gd :GitGutterToggle<CR>
+" for jumpping between hunks
 nmap <silent> ]h :<C-U>execute v:count1 . "GitGutterNextHunk"<CR>
 nmap <silent> [h :<C-U>execute v:count1 . "GitGutterPrevHunk"<CR>
