@@ -518,3 +518,20 @@ function! SmallerFont()
   call AdjustFontSize(-1)
 endfunction
 command! SmallerFont call SmallerFont()
+
+
+""""""""""""""""""""""""""""""
+" JavaScript libraries plugin
+""""""""""""""""""""""""""""""
+let g:used_javascript_libs = 'angularjs'
+
+
+""""""""""""""""""""""""""""""
+" GitGutter
+""""""""""""""""""""""""""""""
+" turn off by default
+let g:gitgutter_enabled = 0
+" clear SignColumn color
+highlight clear SignColumn
+nmap <silent> ]h :<C-U>execute v:count1 . "GitGutterNextHunk"<CR>
+nmap <silent> [h :<C-U>execute v:count1 . "GitGutterPrevHunk"<CR>

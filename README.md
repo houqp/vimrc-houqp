@@ -85,7 +85,8 @@ VOoM supports lots of format, check out this [page](http://vim-voom.github.com) 
 
 ### easymotion
 
-The default leader for easymotion has been changed to <Leader><Leader> to avoid conflcts. So use `<Leader><Leader>w` to trigger the word motion.
+The default leader for easymotion has been changed to <Leader><Leader> to avoid
+conflcts. So use `<Leader><Leader>w` to trigger the word motion.
 
 
 ### UltiSnips
@@ -158,6 +159,8 @@ show complete commit logs: `Glog --`
 ### GitGutter
 
 Toggle GitGutter: `GitGutterToggle`
+
+jump bwteen hunks: `]h`, `[h`
 
 
 ### vim-trailing-whitespace
