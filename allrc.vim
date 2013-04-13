@@ -106,6 +106,8 @@ set autoindent
 set cindent
 
 set nu
+" set scroll offset
+set so=7
 " highlight current line
 set cursorline
 " highlight current column
