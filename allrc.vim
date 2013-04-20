@@ -42,6 +42,7 @@ Bundle 'mattn/zencoding-vim'
 Bundle 'tpope/vim-haml'
 Bundle 'groenewege/vim-less'
 Bundle 'othree/javascript-libraries-syntax.vim'
+Bundle 'kchmck/vim-coffee-script'
 
 " --- dev tools ---
 Bundle 'SirVer/ultisnips'
