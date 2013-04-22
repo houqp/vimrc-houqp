@@ -77,6 +77,7 @@ Bundle 'tpope/vim-repeat'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'vim-scripts/YankRing.vim'
 
 " --- themes ---
 "Bundle 'chriskempson/vim-tomorrow-theme'
