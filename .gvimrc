@@ -22,4 +22,6 @@ endif
 "hide tool bar and menu bar
 set guioptions-=T
 set guioptions-=m
+" remove scroll bar
+set guioptions-=r
 
