@@ -30,6 +30,9 @@ Bundle 'octave.vim--'
 Bundle 'scilab.vim'
 Bundle 'johnbintz/vim-puppet'
 Bundle 'xolox/vim-lua-ftplugin'
+" deps for vim-lua-ftplugin
+Bundle 'xolox/vim-misc'
+
 "Bundle 'houqp/vim-dokuwiki'
 "Bundle 'xolox/vim-lua-inspect'
 
@@ -77,7 +80,7 @@ Bundle 'tpope/vim-repeat'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'airblade/vim-gitgutter'
-Bundle 'vim-scripts/YankRing.vim'
+"Bundle 'vim-scripts/YankRing.vim'
 
 " --- themes ---
 "Bundle 'chriskempson/vim-tomorrow-theme'
