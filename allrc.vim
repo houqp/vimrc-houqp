@@ -82,6 +82,11 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'airblade/vim-gitgutter'
 "Bundle 'vim-scripts/YankRing.vim'
+" for vimfiler
+Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/vimfiler.vim'
+
+
 
 " --- themes ---
 "Bundle 'chriskempson/vim-tomorrow-theme'
@@ -545,3 +550,26 @@ nmap <leader>gd :GitGutterToggle<CR>
 " for jumpping between hunks
 nmap <silent> ]h :<C-U>execute v:count1 . "GitGutterNextHunk"<CR>
 nmap <silent> [h :<C-U>execute v:count1 . "GitGutterPrevHunk"<CR>
+
+
+""""""""""""""""""""""""""""""
+" GitGutter
+""""""""""""""""""""""""""""""
+"call vimfiler#set_execute_file('vim', 'vim')
+"call vimfiler#set_execute_file('txt', 'notepad')
+
+" Edit file by tabedit.
+"let g:vimfiler_edit_action = 'tabopen'
+
+let g:vimfiler_as_default_explorer = 1
+
+" Enable file operation commands.
+"let g:vimfiler_safe_mode_by_default = 0
+
+" Like Textmate icons.
+"let g:vimfiler_tree_leaf_icon = ' '
+"let g:vimfiler_tree_opened_icon = '▾'
+"let g:vimfiler_tree_closed_icon = '▸'
+"let g:vimfiler_file_icon = '-'
+"let g:vimfiler_marked_file_icon = '*'
+

@@ -166,5 +166,15 @@ jump bwteen hunks: `]h`, `[h`
 ### vim-trailing-whitespace
 use `FixWhitespace` command to automatically remove all trailing whitespaces.
 
+
 ### tcomment_vim
 toggle comment: `gc`
+
+
+### VimFiler
+rename file: `r`
+delete file: `d`
+cd vim current dir: `gc`
+expand tree: `t`
+expand tree recursively: `T`
+show hidden files: `.`
