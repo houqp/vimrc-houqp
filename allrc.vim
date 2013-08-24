@@ -38,7 +38,7 @@ Bundle 'saltstack/salt-vim'
 "Bundle 'xolox/vim-lua-inspect'
 
 " --- web dev ---
-Bundle 'lilydjwg/colorizer'
+"Bundle 'lilydjwg/colorizer'
 Bundle 'othree/html5.vim'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'mattn/zencoding-vim'
@@ -373,6 +373,8 @@ map <leader>h :call ToggleHexMode()<cr>
 nmap <leader>w :w!<cr>
 imap <C-s> <esc>:w<cr>a
 
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
 
 """"""""""""""""""""""""""""""""
 " Command mode related mappings
