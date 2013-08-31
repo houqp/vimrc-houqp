@@ -555,7 +555,7 @@ nmap <silent> [h :<C-U>execute v:count1 . "GitGutterPrevHunk"<CR>
 
 
 """"""""""""""""""""""""""""""
-" GitGutter
+" Vimfiler
 """"""""""""""""""""""""""""""
 "call vimfiler#set_execute_file('vim', 'vim')
 "call vimfiler#set_execute_file('txt', 'notepad')
@@ -564,6 +564,18 @@ nmap <silent> [h :<C-U>execute v:count1 . "GitGutterPrevHunk"<CR>
 "let g:vimfiler_edit_action = 'tabopen'
 
 let g:vimfiler_as_default_explorer = 1
+
+let g:vimfiler_ignore_pattern = '^\(' .
+		\ '.*\.\(o\|a\|so\|swp\|swo\)' .
+		\ '\|' .
+		\ 'tags' .
+		\ '\|' .
+		\ '\.git' .
+		\ '\|' .
+		\ '\.svn' .
+		\ '\|' .
+		\ 'cscope\.\(files\|in\.out\|out\|po\.out\)' .
+	\ '\)$'
 
 " Enable file operation commands.
 "let g:vimfiler_safe_mode_by_default = 0
