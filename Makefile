@@ -11,3 +11,5 @@ install_vundle:
 install:install_vundle
 	cd ~ && ln -s .vim/.vimrc .vimrc
 	cd ~ && ln -s .vim/.gvimrc .gvimrc
+	echo "Now you can open Vim and install all the plugins using vundle."
+	echo "You also need libclang for autocomplete."
