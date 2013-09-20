@@ -587,3 +587,11 @@ let g:vimfiler_ignore_pattern = '^\(' .
 "let g:vimfiler_file_icon = '-'
 "let g:vimfiler_marked_file_icon = '*'
 
+
+""""""""""""""""""""""""""""""
+" ack.vim
+""""""""""""""""""""""""""""""
+
+" use silver searcher for ack.vim
+let g:ackprg = 'ag --nogroup --nocolor --colum'
+
