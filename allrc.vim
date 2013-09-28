@@ -10,7 +10,8 @@ set rtp+=~/.vim/bundles/vim-dokuwiki/
 let g:dokuwiki_enable_key_mappings = 1
 
 set rtp+=~/.vim/bundles/mytemplates/
-set rtp+=~/.vim/bundles/cscope-related/
+" replaced with autload_cscope.vim
+"set rtp+=~/.vim/bundles/cscope-related/
 set rtp+=~/.vim/bundles/linux-kernel.vim/
 set rtp+=~/.vim/bundles/notify.vim/
 call vundle#rc()
@@ -64,6 +65,7 @@ Bundle 'matchit.zip'
 Bundle 'Rip-Rip/clang_complete'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'editorconfig/editorconfig-vim'
+Bundle 'autoload_cscope.vim'
 
 " --- misc ---
 Bundle 'L9'
