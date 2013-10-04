@@ -34,6 +34,7 @@ Bundle 'xolox/vim-lua-ftplugin'
 " deps for vim-lua-ftplugin
 Bundle 'xolox/vim-misc'
 Bundle 'saltstack/salt-vim'
+Bundle 'derekwyatt/vim-scala'
 
 "Bundle 'houqp/vim-dokuwiki'
 "Bundle 'xolox/vim-lua-inspect'
