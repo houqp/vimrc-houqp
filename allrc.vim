@@ -35,6 +35,8 @@ Bundle 'xolox/vim-lua-ftplugin'
 Bundle 'xolox/vim-misc'
 Bundle 'saltstack/salt-vim'
 Bundle 'derekwyatt/vim-scala'
+Bundle 'jnwhiteh/vim-golang'
+
 
 "Bundle 'houqp/vim-dokuwiki'
 "Bundle 'xolox/vim-lua-inspect'
@@ -567,7 +569,7 @@ nmap <silent> [h :<C-U>execute v:count1 . "GitGutterPrevHunk"<CR>
 "let g:vimfiler_edit_action = 'tabopen'
 
 let g:vimfiler_as_default_explorer = 1
-
+let g:vimfiler_enable_auto_cd = 1
 let g:vimfiler_ignore_pattern = '^\(' .
 		\ '.*\.\(o\|a\|so\|swp\|swo\)' .
 		\ '\|' .
