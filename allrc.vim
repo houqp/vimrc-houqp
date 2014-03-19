@@ -51,6 +51,7 @@ Bundle 'tpope/vim-haml'
 Bundle 'groenewege/vim-less'
 Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'ap/vim-css-color'
 
 " --- dev tools ---
 Bundle 'SirVer/ultisnips'
