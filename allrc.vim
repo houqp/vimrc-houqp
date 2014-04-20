@@ -43,27 +43,32 @@ NeoBundle 'Shougo/vimproc', { 'build': {
       \   'unix': 'make -f make_unix.mak',
       \ } }
 
-NeoBundle 'gmarik/vundle'
-
 " --- languages ---
 NeoBundle 'c.vim'
 NeoBundle 'echofunc.vim'
 NeoBundle 'moin.vim'
 NeoBundle 'sukima/xmledit'
-NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
+NeoBundle 'git://git.code.sf.net/p/vim-latex/vim-latex'
 NeoBundle 'maxima.vim'
 NeoBundle 'Puppet-Syntax-Highlighting'
 NeoBundle 'bufexplorer.zip'
 NeoBundle 'octave.vim--'
 NeoBundle 'scilab.vim'
 NeoBundle 'johnbintz/vim-puppet'
-NeoBundle 'xolox/vim-lua-ftplugin'
-" deps for vim-lua-ftplugin
-NeoBundle 'xolox/vim-misc'
+NeoBundleLazy 'xolox/vim-lua-ftplugin' , {
+      \ 'autoload' : {'filetypes' : 'lua'},
+      \ 'depends' : 'xolox/vim-misc',
+      \ }
 NeoBundle 'saltstack/salt-vim'
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'jnwhiteh/vim-golang'
 
+
+NeoBundle 'Valloric/YouCompleteMe'
+NeoBundleLazy 'klen/python-mode', {
+      \ 'autoload' : {
+      \   'filetypes' : 'python',
+      \ }}
 
 "NeoBundle 'houqp/vim-dokuwiki'
 "NeoBundle 'xolox/vim-lua-inspect'
@@ -628,4 +633,28 @@ let g:vimfiler_ignore_pattern = '^\(' .
 
 " use silver searcher for ack.vim
 let g:ackprg = 'ag --nogroup --nocolor --colum'
+
+
+""""""""""""""""""""""""""""""
+" python-mode
+""""""""""""""""""""""""""""""
+let g:pymode_virtualenv=1 " Auto fix vim python paths if virtualenv enabled
+let g:pymode_folding=1  " Enable python folding
+let g:pymode_rope = 0
+
+""""""""""""""""""""""""""""""
+" YouCompleteMe
+""""""""""""""""""""""""""""""
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_filetype_blacklist =
+  \ get( g:, 'ycm_filetype_blacklist',
+  \   get( g:, 'ycm_filetypes_to_completely_ignore', {
+  \     'notes' : 1,
+  \     'markdown' : 1,
+  \     'text' : 1,
+  \     'unite' : 1,
+  \ } ) )
 
