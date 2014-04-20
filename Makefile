@@ -7,6 +7,7 @@ all:
 
 install_vundle:
 	git clone http://github.com/gmarik/vundle.git ./bundle/vundle
+	git clone http://github.com/Shougo/neobundle.vim.git ./bundle/neovundle.vim
 
 install:install_vundle
 	cd ~ && ln -s .vim/.vimrc .vimrc

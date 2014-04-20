@@ -4,6 +4,7 @@
 set nocompatible
 filetype off
 
+"@TODO remove vundle  20.04 2014 (houqp)
 set rtp+=~/.vim/bundle/vundle/
 
 set rtp+=~/.vim/bundles/vim-dokuwiki/
