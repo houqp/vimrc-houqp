@@ -56,9 +56,10 @@ NeoBundle 'bufexplorer.zip'
 NeoBundle 'octave.vim--'
 NeoBundle 'scilab.vim'
 NeoBundle 'johnbintz/vim-puppet'
-NeoBundle 'xolox/vim-lua-ftplugin'
-" deps for vim-lua-ftplugin
-NeoBundle 'xolox/vim-misc'
+NeoBundleLazy 'xolox/vim-lua-ftplugin' , {
+      \ 'autoload' : {'filetypes' : 'lua'},
+      \ 'depends' : 'xolox/vim-misc',
+      \ }
 NeoBundle 'saltstack/salt-vim'
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'jnwhiteh/vim-golang'
