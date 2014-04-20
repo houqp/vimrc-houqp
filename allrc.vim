@@ -8,99 +8,126 @@ set rtp+=~/.vim/bundle/vundle/
 
 set rtp+=~/.vim/bundles/vim-dokuwiki/
 let g:dokuwiki_enable_key_mappings = 1
-
 set rtp+=~/.vim/bundles/mytemplates/
 " replaced with autload_cscope.vim
 "set rtp+=~/.vim/bundles/cscope-related/
 set rtp+=~/.vim/bundles/linux-kernel.vim/
 set rtp+=~/.vim/bundles/notify.vim/
-call vundle#rc()
 
-Bundle 'gmarik/vundle'
+" Setting up NeoBundle - the vim plugin bundler
+" Credit:  http://www.erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
+let iCanHazVundle=1
+let neobundle_readme=expand('~/.vim/bundle/neobundle.vim/README.md')
+if !filereadable(neobundle_readme)
+  echo "Installing neobundle.vim."
+  echo ""
+  silent !mkdir -p ~/.vim/bundle
+  silent !git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+  let iCanHazVundle=0
+endif
+
+set rtp+=~/.vim/bundle/neobundle.vim/
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+
+" Let NeoBundle manage NeoBundle
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" Recommended to install
+" After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
+NeoBundle 'Shougo/vimproc', { 'build': {
+      \   'windows': 'make -f make_mingw32.mak',
+      \   'cygwin': 'make -f make_cygwin.mak',
+      \   'mac': 'make -f make_mac.mak',
+      \   'unix': 'make -f make_unix.mak',
+      \ } }
+
+NeoBundle 'gmarik/vundle'
 
 " --- languages ---
-Bundle 'c.vim'
-Bundle 'echofunc.vim'
-Bundle 'moin.vim'
-Bundle 'sukima/xmledit'
-Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
-Bundle 'maxima.vim'
-Bundle 'Puppet-Syntax-Highlighting'
-Bundle 'bufexplorer.zip'
-Bundle 'octave.vim--'
-Bundle 'scilab.vim'
-Bundle 'johnbintz/vim-puppet'
-Bundle 'xolox/vim-lua-ftplugin'
+NeoBundle 'c.vim'
+NeoBundle 'echofunc.vim'
+NeoBundle 'moin.vim'
+NeoBundle 'sukima/xmledit'
+NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
+NeoBundle 'maxima.vim'
+NeoBundle 'Puppet-Syntax-Highlighting'
+NeoBundle 'bufexplorer.zip'
+NeoBundle 'octave.vim--'
+NeoBundle 'scilab.vim'
+NeoBundle 'johnbintz/vim-puppet'
+NeoBundle 'xolox/vim-lua-ftplugin'
 " deps for vim-lua-ftplugin
-Bundle 'xolox/vim-misc'
-Bundle 'saltstack/salt-vim'
-Bundle 'derekwyatt/vim-scala'
-Bundle 'jnwhiteh/vim-golang'
+NeoBundle 'xolox/vim-misc'
+NeoBundle 'saltstack/salt-vim'
+NeoBundle 'derekwyatt/vim-scala'
+NeoBundle 'jnwhiteh/vim-golang'
 
 
-"Bundle 'houqp/vim-dokuwiki'
-"Bundle 'xolox/vim-lua-inspect'
+"NeoBundle 'houqp/vim-dokuwiki'
+"NeoBundle 'xolox/vim-lua-inspect'
 
 " --- web dev ---
-"Bundle 'lilydjwg/colorizer'
-Bundle 'othree/html5.vim'
-Bundle 'hail2u/vim-css3-syntax'
-Bundle 'mattn/emmet-vim'
-"Bundle 'nono/jquery.vim'
-Bundle 'tpope/vim-haml'
-Bundle 'groenewege/vim-less'
-Bundle 'othree/javascript-libraries-syntax.vim'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'ap/vim-css-color'
+"NeoBundle 'lilydjwg/colorizer'
+NeoBundle 'othree/html5.vim'
+NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'mattn/emmet-vim'
+"NeoBundle 'nono/jquery.vim'
+NeoBundle 'tpope/vim-haml'
+NeoBundle 'groenewege/vim-less'
+NeoBundle 'othree/javascript-libraries-syntax.vim'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'ap/vim-css-color'
 
 " --- dev tools ---
-Bundle 'SirVer/ultisnips'
-Bundle 'tpope/vim-fugitive'
+NeoBundle 'SirVer/ultisnips'
+NeoBundle 'tpope/vim-fugitive'
 " > better alternative for taglist
-Bundle 'majutsushi/tagbar'
-Bundle 'po.vim'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'VOoM'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'po.vim'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'VOoM'
 " > show TODO, FIXME etc.
-Bundle 'superjudge/tasklist-pathogen'
+NeoBundle 'superjudge/tasklist-pathogen'
 " > for fast search inside codes
-Bundle 'mileszs/ack.vim'
-Bundle 'matchit.zip'
-Bundle 'Rip-Rip/clang_complete'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'editorconfig/editorconfig-vim'
-Bundle 'autoload_cscope.vim'
+NeoBundle 'mileszs/ack.vim'
+NeoBundle 'matchit.zip'
+NeoBundle 'Rip-Rip/clang_complete'
+NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundle 'autoload_cscope.vim'
 
 " --- misc ---
-Bundle 'L9'
+NeoBundle 'L9'
 " > better alternative for FuzzyFinder
-Bundle 'kien/ctrlp.vim'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'scrooloose/vim-statline'
-Bundle 'AutoComplPop'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'scrooloose/vim-statline'
+NeoBundle 'AutoComplPop'
 " > toggle quickfix and location list
-Bundle 'milkypostman/vim-togglelist'
+NeoBundle 'milkypostman/vim-togglelist'
 " > pairs of bracket mappings
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-repeat'
-"Bundle 'tpope/vim-surround'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'bronson/vim-trailing-whitespace'
-Bundle 'airblade/vim-gitgutter'
-"Bundle 'vim-scripts/YankRing.vim'
+NeoBundle 'tpope/vim-unimpaired'
+NeoBundle 'tpope/vim-repeat'
+"NeoBundle 'tpope/vim-surround'
+NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'bronson/vim-trailing-whitespace'
+NeoBundle 'airblade/vim-gitgutter'
+"NeoBundle 'vim-scripts/YankRing.vim'
 " for vimfiler
-Bundle 'Shougo/unite.vim'
-Bundle 'Shougo/vimfiler.vim'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler.vim'
 
 
 
 " --- themes ---
-"Bundle 'chriskempson/vim-tomorrow-theme'
-"Bundle 'daylerees/colour-schemes', { 'rtp': 'vim-themes/' }
-"Bundle 'nanotech/jellybeans.vim'
+"NeoBundle 'chriskempson/vim-tomorrow-theme'
+"NeoBundle 'daylerees/colour-schemes', { 'rtp': 'vim-themes/' }
+"NeoBundle 'nanotech/jellybeans.vim'
 
 filetype plugin indent on
 
+NeoBundleCheck
 
 "Set mapleader
 let mapleader = ","
