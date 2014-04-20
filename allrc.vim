@@ -42,8 +42,6 @@ NeoBundle 'Shougo/vimproc', { 'build': {
       \   'unix': 'make -f make_unix.mak',
       \ } }
 
-NeoBundle 'gmarik/vundle'
-
 " --- languages ---
 NeoBundle 'c.vim'
 NeoBundle 'echofunc.vim'
