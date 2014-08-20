@@ -12,10 +12,7 @@ Then issue following command in `.vim` directory:
 $ make install
 ```
 
-This will clone the latest Vundle plugin for you.
-
-The last thing you need to do is to call `:BundleInstall` in vim.
-
+NOTE: you will need libclang to install the YouComplateMe plugin.
 
 
 # Usage
