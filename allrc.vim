@@ -56,9 +56,10 @@ NeoBundleLazy 'xolox/vim-lua-ftplugin' , {
 NeoBundle 'saltstack/salt-vim'
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'jnwhiteh/vim-golang'
+NeoBundle 'ekalinin/Dockerfile.vim'
 
 
-NeoBundle 'Valloric/YouCompleteMe'
+"NeoBundle 'Valloric/YouCompleteMe'
 NeoBundleLazy 'klen/python-mode', {
       \ 'autoload' : {
       \   'filetypes' : 'python',
@@ -115,8 +116,8 @@ NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'airblade/vim-gitgutter'
 "NeoBundle 'vim-scripts/YankRing.vim'
 " for vimfiler
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimfiler.vim'
+"NeoBundle 'Shougo/unite.vim'
+"NeoBundle 'Shougo/vimfiler.vim'
 
 
 
