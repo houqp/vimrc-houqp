@@ -1,6 +1,12 @@
 set nocompatible
 filetype off
 
+" python support for neovim
+if has('neovim')
+  let s:python_host_init = 'python -c "import neovim; neovim.start_host()"'
+  let &initpython = s:python_host_init
+endif
+
 set rtp+=~/.vim/bundles/vim-dokuwiki/
 let g:dokuwiki_enable_key_mappings = 1
 set rtp+=~/.vim/bundles/mytemplates/
