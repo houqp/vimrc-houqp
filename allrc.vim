@@ -1,11 +1,13 @@
 set nocompatible
 filetype off
 
-" python support for neovim
 if has('neovim')
-  let s:python_host_init = 'python -c "import neovim; neovim.start_host()"'
-  let &initpython = s:python_host_init
+  " The python_setup script must be sourced before plugins that need python
+  runtime! plugin/python_setup.vim
+  " Use unnamed registers for clipboard
+  set unnamedclip
 endif
+
 
 set rtp+=~/.vim/bundles/vim-dokuwiki/
 let g:dokuwiki_enable_key_mappings = 1
