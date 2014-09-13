@@ -167,7 +167,11 @@ set cursorline
 " highlight current column
 "set cursorcolumn
 " highlight colorcolumn 80
-set colorcolumn=80
+if exists('+colorcolumn')
+	set colorcolumn=80
+else
+	au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
 " 搜索时忽略大小写，但在有一个或以上大写字母时仍保持对大小写敏感
 set ignorecase smartcase
 " 允许在有未保存的修改时切换缓冲区，此时的修改由 vim 负责保存
