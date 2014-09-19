@@ -63,7 +63,7 @@ NeoBundleLazy 'xolox/vim-lua-ftplugin' , {
       \ }
 NeoBundle 'saltstack/salt-vim'
 NeoBundle 'derekwyatt/vim-scala'
-NeoBundle 'jnwhiteh/vim-golang'
+NeoBundle 'fatih/vim-go'
 NeoBundle 'ekalinin/Dockerfile.vim'
 
 
@@ -89,7 +89,7 @@ NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'ap/vim-css-color'
 
 " --- dev tools ---
-NeoBundle 'SirVer/ultisnips'
+"NeoBundle 'SirVer/ultisnips'
 NeoBundle 'tpope/vim-fugitive'
 " > better alternative for taglist
 NeoBundle 'majutsushi/tagbar'
