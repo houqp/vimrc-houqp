@@ -1,6 +1,14 @@
 set nocompatible
 filetype off
 
+let vimplug_file = expand('~/.vim/autoload/plug.vim')
+if !filereadable(vimplug_file)
+	echo "Installing plug.vim."
+	echo ""
+	silent !mkdir -p ~/.vim/autoload
+	silent !curl -fLo ~/.vim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
 if has('neovim')
   " The python_setup script must be sourced before plugins that need python
   runtime! plugin/python_setup.vim
@@ -8,140 +16,110 @@ if has('neovim')
   set unnamedclip
 endif
 
-
-set rtp+=~/.vim/bundles/vim-dokuwiki/
-let g:dokuwiki_enable_key_mappings = 1
 set rtp+=~/.vim/bundles/mytemplates/
-" replaced with autload_cscope.vim
-"set rtp+=~/.vim/bundles/cscope-related/
-set rtp+=~/.vim/bundles/linux-kernel.vim/
-set rtp+=~/.vim/bundles/notify.vim/
 
-" Setting up NeoBundle - the vim plugin bundler
-" Credit:  http://www.erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
-let iCanHazVundle=1
-let neobundle_readme=expand('~/.vim/bundle/neobundle.vim/README.md')
-if !filereadable(neobundle_readme)
-  echo "Installing neobundle.vim."
-  echo ""
-  silent !mkdir -p ~/.vim/bundle
-  silent !git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-  let iCanHazVundle=0
-endif
-
-set rtp+=~/.vim/bundle/neobundle.vim/
-call neobundle#rc(expand('~/.vim/bundle/'))
-
-
-" Let NeoBundle manage NeoBundle
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" Recommended to install
-" After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
-NeoBundle 'Shougo/vimproc', { 'build': {
-      \   'windows': 'make -f make_mingw32.mak',
-      \   'cygwin': 'make -f make_cygwin.mak',
-      \   'mac': 'make -f make_mac.mak',
-      \   'unix': 'make -f make_unix.mak',
-      \ } }
+call plug#begin('~/.vim/plugged')
 
 " --- languages ---
-NeoBundle 'c.vim'
-NeoBundle 'echofunc.vim'
-NeoBundle 'moin.vim'
-NeoBundle 'sukima/xmledit'
-NeoBundle 'git://git.code.sf.net/p/vim-latex/vim-latex'
-NeoBundle 'maxima.vim'
-NeoBundle 'Puppet-Syntax-Highlighting'
-NeoBundle 'bufexplorer.zip'
-NeoBundle 'octave.vim--'
-NeoBundle 'scilab.vim'
-NeoBundle 'johnbintz/vim-puppet'
-NeoBundleLazy 'xolox/vim-lua-ftplugin' , {
-      \ 'autoload' : {'filetypes' : 'lua'},
-      \ 'depends' : 'xolox/vim-misc',
-      \ }
-NeoBundle 'saltstack/salt-vim'
-NeoBundle 'derekwyatt/vim-scala'
-NeoBundle 'fatih/vim-go'
-NeoBundle 'ekalinin/Dockerfile.vim'
-
-
-"NeoBundle 'Valloric/YouCompleteMe'
-NeoBundleLazy 'klen/python-mode', {
-      \ 'autoload' : {
-      \   'filetypes' : 'python',
-      \ }}
-
-"NeoBundle 'houqp/vim-dokuwiki'
-"NeoBundle 'xolox/vim-lua-inspect'
+Plug 'c.vim' , { 'for' : 'c' }
+Plug 'echofunc.vim' , { 'for' : ['c', 'cpp'] }
+Plug 'sukima/xmledit' , { 'for' : 'xml' }
+Plug 'git://git.code.sf.net/p/vim-latex/vim-latex' , { 'for' : 'latex' }
+Plug 'maxima.vim' , { 'for' : 'maxima' }
+Plug 'Puppet-Syntax-Highlighting'
+Plug 'octave.vim--' , { 'for' : 'octave' }
+Plug 'johnbintz/vim-puppet' , { 'for' : 'puppet' }
+Plug 'xolox/vim-lua-ftplugin' , { 'for' : 'lua' }
+Plug 'saltstack/salt-vim' , { 'for' : ['yaml', 'sls'] }
+Plug 'derekwyatt/vim-scala' , { 'for' : 'scala' }
+Plug 'fatih/vim-go' , { 'for' : 'go' }
+Plug 'ekalinin/Dockerfile.vim' , { 'for' : 'Dockerfile' }
+"Plug 'Valloric/YouCompleteMe'
+Plug 'klen/python-mode' , { 'for' : 'python' }
+Plug 'xolox/vim-misc' , { 'for' : 'lua' }
+Plug 'po.vim' , { 'for' : 'po' }
 
 " --- web dev ---
-"NeoBundle 'lilydjwg/colorizer'
-NeoBundle 'othree/html5.vim'
-NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'mattn/emmet-vim'
-"NeoBundle 'nono/jquery.vim'
-NeoBundle 'tpope/vim-haml'
-NeoBundle 'groenewege/vim-less'
-NeoBundle 'othree/javascript-libraries-syntax.vim'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'ap/vim-css-color'
+"Plug 'lilydjwg/colorizer'
+Plug 'othree/html5.vim' , { 'for' : 'html' }
+Plug 'hail2u/vim-css3-syntax' , { 'for' : ['html', 'css'] }
+Plug 'mattn/emmet-vim' , { 'for' : 'html' }
+Plug 'tpope/vim-haml' , { 'for' : 'haml' }
+Plug 'groenewege/vim-less' , { 'for' : 'less' }
+Plug 'othree/javascript-libraries-syntax.vim' , { 'for' : 'js' }
+Plug 'kchmck/vim-coffee-script' , { 'for' : 'coffee' }
+Plug 'ap/vim-css-color' , { 'for': 'css' }
 
 " --- dev tools ---
-"NeoBundle 'SirVer/ultisnips'
-NeoBundle 'tpope/vim-fugitive'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'tpope/vim-fugitive'
 " > better alternative for taglist
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'po.vim'
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'VOoM'
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdcommenter'
+Plug 'VOoM'
 " > show TODO, FIXME etc.
-NeoBundle 'superjudge/tasklist-pathogen'
+Plug 'superjudge/tasklist-pathogen'
 " > for fast search inside codes
-NeoBundle 'mileszs/ack.vim'
-NeoBundle 'matchit.zip'
-NeoBundle 'Rip-Rip/clang_complete'
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'editorconfig/editorconfig-vim'
-NeoBundle 'autoload_cscope.vim'
+Plug 'mileszs/ack.vim'
+Plug 'matchit.zip'
+Plug 'Rip-Rip/clang_complete'
+Plug 'tomtom/tcomment_vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'autoload_cscope.vim' , { 'for': ['c', 'cpp'] }
 
 " --- misc ---
-NeoBundle 'L9'
+Plug 'L9'
 " > better alternative for FuzzyFinder
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'scrooloose/vim-statline'
-NeoBundle 'AutoComplPop'
+Plug 'kien/ctrlp.vim'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'AutoComplPop'
 " > toggle quickfix and location list
-NeoBundle 'milkypostman/vim-togglelist'
+Plug 'milkypostman/vim-togglelist'
 " > pairs of bracket mappings
-NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'tpope/vim-repeat'
-"NeoBundle 'tpope/vim-surround'
-NeoBundle 'Lokaltog/vim-powerline'
-NeoBundle 'bronson/vim-trailing-whitespace'
-NeoBundle 'airblade/vim-gitgutter'
-"NeoBundle 'vim-scripts/YankRing.vim'
-" for vimfiler
-"NeoBundle 'Shougo/unite.vim'
-"NeoBundle 'Shougo/vimfiler.vim'
-
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-repeat'
+Plug 'bling/vim-airline'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'airblade/vim-gitgutter'
 
 
 " --- themes ---
-"NeoBundle 'chriskempson/vim-tomorrow-theme'
-"NeoBundle 'daylerees/colour-schemes', { 'rtp': 'vim-themes/' }
-"NeoBundle 'nanotech/jellybeans.vim'
+"Plug 'chriskempson/vim-tomorrow-theme'
+"Plug 'daylerees/colour-schemes', { 'rtp': 'vim-themes/' }
+"Plug 'nanotech/jellybeans.vim'
+
+call plug#end()
 
 filetype plugin indent on
 
-NeoBundleCheck
 
 "Set mapleader
 let mapleader = ","
 
 syntax enable
+
+""""""""""""""""""""""""""""""
+" airline
+""""""""""""""""""""""""""""""
+set laststatus=2
+let g:airline_theme='wombat'
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline_detect_modified=1
+let g:airline_detect_paste=1
+let g:airline_mode_map = {
+  \ '__' : '-',
+  \ 'n'  : 'N',
+  \ 'i'  : 'I',
+  \ 'R'  : 'R',
+  \ 'c'  : 'C',
+  \ 'v'  : 'V',
+  \ 'V'  : 'V',
+  \ '' : 'V',
+  \ 's'  : 'S',
+  \ 'S'  : 'S',
+  \ '' : 'S',
+  \ }
 
 """"""""""""""""""""""""""""""
 " Tab and indent
@@ -269,7 +247,7 @@ let g:ctrlp_working_path_mode = 0
 " exclude files from file search
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll|o|a|swp|dep)$|tags',
+  \ 'file': '\v\.(exe|so|dll|o|a|swp|swo|swn|dep)$|tags',
   \ }
 " exclude files from MRU
 let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*|.*\.swp$|.*\.o$'
@@ -375,12 +353,6 @@ set grepprg=grep\ -nH\ $*
 " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor='latex'
-
-
-""""""""""""""""""""""""""""""
-" Use vim in man page
-""""""""""""""""""""""""""""""
-let $PAGER=''
 
 
 """"""""""""""""""""""""""""""
@@ -509,48 +481,6 @@ inoremap <c-j> <ESC>/<+.\{-1,}><cr>c/+>/e<cr>
 
 
 """"""""""""""""""""""""""""""
-" Session management
-""""""""""""""""""""""""""""""
-set sessionoptions-=blank,help
-set sessionoptions+=resize,winpos
-if !exists("g:session_dir")
-	let g:session_dir = ""
-endif
-
-" session is only enabled for gvim with no arguments
-" if g:session_dir != "", then session_mode is set
-" Session.vim not found, set session_mode
-
-autocmd! GUIEnter *
-			\	if argc() == 0 |
-			\		if filereadable("Session.vim") |
-			\			let g:session_dir = CurDir() |
-			\			source Session.vim |
-			\			source $MYGVIMRC |
-			\		else |
-			\			let g:session_dir = "?" |
-			\ endif
-
-autocmd! VimLeave * call SaveSession()
-
-nmap <leader>ms :call SaveSession()<cr>
-
-function! SaveSession()
-	if g:session_dir != ""
-		" session_mode is set
-		if g:session_dir != "?"
-			" already loaded from a session, save to the original Session.vim
-			execute 'mksession! ' . g:session_dir . '/Session.vim'
-		else
-			" session_mode is set, create a new Session.vim
-			mksession! Session.vim
-			let g:session_dir = CurDir()
-		endif
-	endif
-endfunction
-
-
-""""""""""""""""""""""""""""""
 " Font size helper function
 " From: http://vim.wikia.com/wiki/Change_font_size_quickly
 """"""""""""""""""""""""""""""
@@ -637,7 +567,6 @@ let g:vimfiler_ignore_pattern = '^\(' .
 """"""""""""""""""""""""""""""
 " ack.vim
 """"""""""""""""""""""""""""""
-
 " use silver searcher for ack.vim
 let g:ackprg = 'ag --nogroup --nocolor --colum'
 
@@ -664,4 +593,3 @@ let g:ycm_filetype_blacklist =
   \     'text' : 1,
   \     'unite' : 1,
   \ } ) )
-

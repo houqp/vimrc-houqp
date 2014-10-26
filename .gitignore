@@ -1,4 +1,5 @@
 .netrwhist
 *.swp
 *Session.vim*
-bundle/
+plugged/
+autoload/
