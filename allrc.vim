@@ -26,7 +26,6 @@ Plug 'echofunc.vim' , { 'for' : ['c', 'cpp'] }
 Plug 'sukima/xmledit' , { 'for' : 'xml' }
 Plug 'git://git.code.sf.net/p/vim-latex/vim-latex' , { 'for' : 'latex' }
 Plug 'maxima.vim' , { 'for' : 'maxima' }
-Plug 'Puppet-Syntax-Highlighting'
 Plug 'octave.vim--' , { 'for' : 'octave' }
 Plug 'johnbintz/vim-puppet' , { 'for' : 'puppet' }
 Plug 'xolox/vim-lua-ftplugin' , { 'for' : 'lua' }
@@ -55,7 +54,6 @@ Plug 'jlanzarotta/bufexplorer'
 Plug 'tpope/vim-fugitive'
 " > better alternative for taglist
 Plug 'majutsushi/tagbar'
-Plug 'scrooloose/nerdcommenter'
 Plug 'VOoM'
 " > show TODO, FIXME etc.
 Plug 'superjudge/tasklist-pathogen'
@@ -63,6 +61,7 @@ Plug 'superjudge/tasklist-pathogen'
 Plug 'mileszs/ack.vim'
 Plug 'matchit.zip'
 Plug 'Rip-Rip/clang_complete'
+" Plug 'scrooloose/nerdcommenter'
 Plug 'tomtom/tcomment_vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'autoload_cscope.vim' , { 'for': ['c', 'cpp'] }
@@ -82,11 +81,10 @@ Plug 'bling/vim-airline'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'airblade/vim-gitgutter'
 
-
 " --- themes ---
-"Plug 'chriskempson/vim-tomorrow-theme'
-"Plug 'daylerees/colour-schemes', { 'rtp': 'vim-themes/' }
-"Plug 'nanotech/jellybeans.vim'
+" Plug 'chriskempson/vim-tomorrow-theme'
+" Plug 'daylerees/colour-schemes', { 'rtp': 'vim-themes/' }
+" Plug 'nanotech/jellybeans.vim'
 
 call plug#end()
 

@@ -17,8 +17,6 @@ NOTE: you will need libclang to install the YouComplateMe plugin.
 
 # Usage
 ### Mappings
-`<leader>ms`: save current session to .Session.vim file.
-
 `<leader><TAB>`: switch to previous window.
 
 `<leader>tl`: toggle TagBar window.
@@ -84,19 +82,6 @@ VOoM supports lots of format, check out this [page](http://vim-voom.github.com) 
 
 The default leader for easymotion has been changed to <Leader><Leader> to avoid
 conflcts. So use `<Leader><Leader>w` to trigger the word motion.
-
-
-### UltiSnips
-
-in insert mode, press:
-
-expand snips: `<TAB>`
-
-jump forward: `<Ctrl>j`
-
-jump backward: `<Ctrl>k`
-
-list snips: `<Ctrl><TAB>`
 
 
 ### CtrlP
@@ -166,17 +151,3 @@ use `FixWhitespace` command to automatically remove all trailing whitespaces.
 
 ### tcomment_vim
 toggle comment: `gc`
-
-
-### VimFiler
-rename file: `r`
-
-delete file: `d`
-
-cd vim current dir: `gc`
-
-expand tree: `t`
-
-expand tree recursively: `T`
-
-show hidden files: `.`
