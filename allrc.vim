@@ -37,6 +37,7 @@ Plug 'ekalinin/Dockerfile.vim' , { 'for' : 'Dockerfile' }
 Plug 'klen/python-mode' , { 'for' : 'python' }
 Plug 'xolox/vim-misc' , { 'for' : 'lua' }
 Plug 'po.vim' , { 'for' : 'po' }
+Plug 'rust-lang/rust.vim' , { 'for' : 'rust' }
 
 " --- web dev ---
 "Plug 'lilydjwg/colorizer'
