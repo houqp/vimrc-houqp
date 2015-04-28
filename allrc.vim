@@ -38,6 +38,8 @@ Plug 'klen/python-mode' , { 'for' : 'python' }
 Plug 'xolox/vim-misc' , { 'for' : 'lua' }
 Plug 'po.vim' , { 'for' : 'po' }
 Plug 'rust-lang/rust.vim' , { 'for' : 'rust' }
+Plug 'cespare/vim-toml', { 'for': 'toml' }
+
 
 " --- web dev ---
 "Plug 'lilydjwg/colorizer'
