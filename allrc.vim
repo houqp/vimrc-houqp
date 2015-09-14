@@ -244,7 +244,7 @@ let g:ctrlp_by_filename = 1
 " avoid opening file in following window
 let g:ctrlp_reuse_window = 'netrw\|help\|quickfix'
 " don't manage working directory
-let g:ctrlp_working_path_mode = 0
+let g:ctrlp_working_path_mode = 'r'
 " exclude files from file search
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
