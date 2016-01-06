@@ -594,3 +594,10 @@ let g:ycm_filetype_blacklist =
   \     'text' : 1,
   \     'unite' : 1,
   \ } ) )
+
+let g:pymode_lint_ignore = "E111,E114,E121"
+
+""""""""""""""""""""""""""""""
+" vim-go
+""""""""""""""""""""""""""""""
+let g:go_fmt_command = "goimports"
