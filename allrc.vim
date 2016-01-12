@@ -61,7 +61,6 @@ Plug 'VOoM'
 " > show TODO, FIXME etc.
 Plug 'superjudge/tasklist-pathogen'
 " > for fast search inside codes
-Plug 'mileszs/ack.vim'
 Plug 'matchit.zip'
 Plug 'Rip-Rip/clang_complete'
 " Plug 'scrooloose/nerdcommenter'
@@ -566,13 +565,6 @@ let g:vimfiler_ignore_pattern = '^\(' .
 
 
 """"""""""""""""""""""""""""""
-" ack.vim
-""""""""""""""""""""""""""""""
-" use silver searcher for ack.vim
-let g:ackprg = 'ag --nogroup --nocolor --colum'
-
-
-""""""""""""""""""""""""""""""
 " python-mode
 """"""""""""""""""""""""""""""
 let g:pymode_virtualenv=1 " Auto fix vim python paths if virtualenv enabled
@@ -601,3 +593,18 @@ let g:pymode_lint_ignore = "E111,E114,E121"
 " vim-go
 """"""""""""""""""""""""""""""
 let g:go_fmt_command = "goimports"
+
+""""""""""""""""""""""""""""""
+" use ag for grep
+""""""""""""""""""""""""""""""
+if executable('ag')
+  " Note we extract the column as well as the file and line number
+  set grepprg=ag\ --nogroup\ --nocolor\ --column
+  set grepformat=%f:%l:%c%m
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+  " bind \ (backward slash) to grep shortcut
+  command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+endif
