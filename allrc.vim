@@ -53,7 +53,6 @@ Plug 'kchmck/vim-coffee-script' , { 'for' : 'coffee' }
 Plug 'ap/vim-css-color' , { 'for': 'css' }
 
 " --- dev tools ---
-Plug 'jlanzarotta/bufexplorer'
 Plug 'tpope/vim-fugitive'
 " > better alternative for taglist
 Plug 'majutsushi/tagbar'
@@ -236,7 +235,7 @@ set ignorecase
 """""""""""""""""""""""""""""""
 "let g:ctrlp_map = '<leader>f'
 nmap <leader>f :CtrlPMixed<cr>
-nmap <leader>bf :CtrlPBuffer<cr>
+nmap <leader>be :CtrlPBuffer<cr>
 nmap <leader>r :CtrlPMRU<cr>
 
 " default search by filename
