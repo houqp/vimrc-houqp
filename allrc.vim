@@ -102,7 +102,7 @@ syntax enable
 " airline
 """"""""""""""""""""""""""""""
 set laststatus=2
-let g:airline_theme='wombat'
+let g:airline_theme='bubblegum'
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_detect_modified=1
@@ -606,5 +606,5 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
   " bind \ (backward slash) to grep shortcut
-  command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+  command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 endif
