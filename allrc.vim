@@ -68,6 +68,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'autoload_cscope.vim' , { 'for': ['c', 'cpp'] }
 
 " --- misc ---
+Plug 'jeetsukumaran/vim-buffergator'
 Plug 'L9'
 " > better alternative for FuzzyFinder
 Plug 'kien/ctrlp.vim'
@@ -231,11 +232,17 @@ set ignorecase
 
 
 """""""""""""""""""""""""""""""
+" vim-buffergator
+"""""""""""""""""""""""""""""""
+let g:buffergator_suppress_keymaps = 1
+nmap <leader>be :BuffergatorOpen<cr>
+
+"""""""""""""""""""""""""""""""
 " CtrlP
 """""""""""""""""""""""""""""""
 "let g:ctrlp_map = '<leader>f'
 nmap <leader>f :CtrlPMixed<cr>
-nmap <leader>be :CtrlPBuffer<cr>
+nmap <leader>bf :CtrlPBuffer<cr>
 nmap <leader>r :CtrlPMRU<cr>
 
 " default search by filename
