@@ -245,8 +245,8 @@ nmap <leader>f :CtrlPMixed<cr>
 nmap <leader>bf :CtrlPBuffer<cr>
 nmap <leader>r :CtrlPMRU<cr>
 
-" search by full path
-let g:ctrlp_by_filename = 0
+" search by filename
+let g:ctrlp_by_filename = 1
 " avoid opening file in following window
 let g:ctrlp_reuse_window = 'netrw\|help\|quickfix'
 " don't manage working directory
