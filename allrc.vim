@@ -71,7 +71,7 @@ Plug 'autoload_cscope.vim' , { 'for': ['c', 'cpp'] }
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'L9'
 " > better alternative for FuzzyFinder
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'AutoComplPop'
 " > toggle quickfix and location list
@@ -251,19 +251,29 @@ let g:ctrlp_by_filename = 1
 let g:ctrlp_reuse_window = 'netrw\|help\|quickfix'
 " don't manage working directory
 let g:ctrlp_working_path_mode = 'r'
+" exclude files from MRU
+let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*|.*\.swp$|.*\.o$'
+" set custom list commands
+if executable('ag')
+  let list_fallback_cmd = 'find %s -type f'
+else
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let list_fallback_cmd = 'ag %s -l --nocolor -g ""'
+endif
+let g:ctrlp_user_command = {
+  \ 'types': {
+    \ 1: ['.git', 'cd %s && git ls-files'],
+    \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+    \ },
+  \ 'fallback': list_fallback_cmd
+  \ }
+" disable cache since the search if fast enough
+let g:ctrlp_use_caching = 0
 " exclude files from file search
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
   \ 'file': '\v\.(exe|so|dll|o|a|swp|swo|swn|dep)$|tags',
   \ }
-" exclude files from MRU
-let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*|.*\.swp$|.*\.o$'
-if executable('ag')
-  let g:ctrlp_user_command = 'find %s -type f'
-else
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
 " open file in current window
 let g:ctrlp_open_new_file = 'r'
 " follow links in searching
