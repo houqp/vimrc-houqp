@@ -245,8 +245,8 @@ nmap <leader>f :CtrlPMixed<cr>
 nmap <leader>bf :CtrlPBuffer<cr>
 nmap <leader>r :CtrlPMRU<cr>
 
-" default search by filename
-let g:ctrlp_by_filename = 1
+" search by full path
+let g:ctrlp_by_filename = 0
 " avoid opening file in following window
 let g:ctrlp_reuse_window = 'netrw\|help\|quickfix'
 " don't manage working directory
@@ -258,7 +258,12 @@ let g:ctrlp_custom_ignore = {
   \ }
 " exclude files from MRU
 let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*|.*\.swp$|.*\.o$'
-"let g:ctrlp_user_command = 'find %s -type f'
+if executable('ag')
+  let g:ctrlp_user_command = 'find %s -type f'
+else
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
 " open file in current window
 let g:ctrlp_open_new_file = 'r'
 " follow links in searching
@@ -354,7 +359,18 @@ let g:tagbar_type_javascript = {
 " IMPORTANT: grep will sometimes skip displaying the file name if you
 " search in a singe file. This will confuse Latex-Suite. Set your grep
 " program to always generate a file-name.
-set grepprg=grep\ -nH\ $*
+if executable('ag')
+  """"""""""""""""""""""""""""""
+  " use ag for grep
+  """"""""""""""""""""""""""""""
+  " Note we extract the column as well as the file and line number
+  set grepprg=ag\ --nogroup\ --nocolor\ --column
+  set grepformat=%f:%l:%c%m
+  " bind \ (backward slash) to grep shortcut
+  command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+else
+  set grepprg=grep\ -nH\ $*
+endif
 
 " OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
 " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
@@ -600,18 +616,3 @@ let g:pymode_lint_ignore = "E111,E114,E121"
 " vim-go
 """"""""""""""""""""""""""""""
 let g:go_fmt_command = "goimports"
-
-""""""""""""""""""""""""""""""
-" use ag for grep
-""""""""""""""""""""""""""""""
-if executable('ag')
-  " Note we extract the column as well as the file and line number
-  set grepprg=ag\ --nogroup\ --nocolor\ --column
-  set grepformat=%f:%l:%c%m
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-  " bind \ (backward slash) to grep shortcut
-  command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-endif
