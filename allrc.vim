@@ -24,7 +24,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'c.vim' , { 'for' : 'c' }
 Plug 'echofunc.vim' , { 'for' : ['c', 'cpp'] }
 Plug 'sukima/xmledit' , { 'for' : 'xml' }
-Plug 'git://git.code.sf.net/p/vim-latex/vim-latex' , { 'for' : 'latex' }
+" Plug 'git://git.code.sf.net/p/vim-latex/vim-latex' , { 'for' : 'latex' }
+Plug 'lervag/vimtex', { 'for' : 'latex' }
 Plug 'maxima.vim' , { 'for' : 'maxima' }
 Plug 'octave.vim--' , { 'for' : 'octave' }
 Plug 'johnbintz/vim-puppet' , { 'for' : 'puppet' }
@@ -62,7 +63,6 @@ Plug 'superjudge/tasklist-pathogen'
 " > for fast search inside codes
 Plug 'matchit.zip'
 Plug 'Rip-Rip/clang_complete'
-" Plug 'scrooloose/nerdcommenter'
 Plug 'tomtom/tcomment_vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'autoload_cscope.vim' , { 'for': ['c', 'cpp'] }
