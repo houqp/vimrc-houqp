@@ -145,11 +145,11 @@ set so=7
 set cursorline
 " highlight current column
 "set cursorcolumn
-" highlight colorcolumn 80
+" highlight colorcolumn 100
 if exists('+colorcolumn')
-	set colorcolumn=80
+	set colorcolumn=100
 else
-	au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+	au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>100v.\+', -1)
 endif
 " 搜索时忽略大小写，但在有一个或以上大写字母时仍保持对大小写敏感
 set ignorecase smartcase
