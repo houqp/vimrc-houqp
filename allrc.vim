@@ -24,7 +24,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'c.vim' , { 'for' : 'c' }
 Plug 'echofunc.vim' , { 'for' : ['c', 'cpp'] }
 Plug 'sukima/xmledit' , { 'for' : 'xml' }
-" Plug 'git://git.code.sf.net/p/vim-latex/vim-latex' , { 'for' : 'latex' }
 Plug 'lervag/vimtex', { 'for' : 'latex' }
 Plug 'maxima.vim' , { 'for' : 'maxima' }
 Plug 'octave.vim--' , { 'for' : 'octave' }
@@ -40,6 +39,7 @@ Plug 'xolox/vim-misc' , { 'for' : 'lua' }
 Plug 'po.vim' , { 'for' : 'po' }
 Plug 'rust-lang/rust.vim' , { 'for' : 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
+Plug 'spwhitt/vim-nix', { 'for': 'nix' }
 
 
 " --- web dev ---
