@@ -41,6 +41,7 @@ Plug 'rust-lang/rust.vim' , { 'for' : 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'spwhitt/vim-nix', { 'for': 'nix' }
 Plug 'tfnico/vim-gradle', { 'for': 'gradle' }
+Plug 'elixir-lang/vim-elixir', { 'for': 'exs' }
 
 
 " --- web dev ---
