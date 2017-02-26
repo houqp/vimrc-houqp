@@ -68,6 +68,7 @@ Plug 'Rip-Rip/clang_complete'
 Plug 'tomtom/tcomment_vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'autoload_cscope.vim' , { 'for': ['c', 'cpp'] }
+Plug 'JamshedVesuna/vim-markdown-preview' , { 'for': ['markdown'] }
 
 " --- misc ---
 Plug 'jeetsukumaran/vim-buffergator'
@@ -628,3 +629,13 @@ let g:pymode_lint_ignore = "E111,E114,E121"
 " vim-go
 """"""""""""""""""""""""""""""
 let g:go_fmt_command = "goimports"
+
+
+""""""""""""""""""""""""""""""
+" vim-markdown-preview
+""""""""""""""""""""""""""""""
+let vim_markdown_preview_hotkey='<C-m>'
+" display image
+let vim_markdown_preview_toggle=1
+" remove temp file after open in browser
+let vim_markdown_preview_temp_file=1
