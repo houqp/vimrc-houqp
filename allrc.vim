@@ -96,8 +96,11 @@ call plug#end()
 
 filetype plugin indent on
 
+" use lazyredraw to speed things up. Ruby syntax highlight is too slow wihtout this
+set lazyredraw
+autocmd VimEnter * redraw!  " workaround for missing statusline when entering vim in some terminals
 
-"Set mapleader
+" Set mapleader
 let mapleader = ","
 
 syntax enable
@@ -140,6 +143,13 @@ set list
 set listchars=tab:\:\ "we have a space here
 set autoindent
 set cindent
+
+" persistent undo support
+if !isdirectory($HOME."/.vim/undo-dir")
+	call mkdir($HOME."/.vim/undo-dir", "", 0700)
+endif
+set undodir=~/.vim/undo-dir
+set undofile
 
 set nu
 " set scroll offset
@@ -641,3 +651,9 @@ let vim_markdown_preview_hotkey='<C-m>'
 let vim_markdown_preview_toggle=1
 " remove temp file after open in browser
 let vim_markdown_preview_temp_file=1
+
+""""""""""""""""""""""""""""""
+" Ruby syntax highlight is horrible in Vim
+""""""""""""""""""""""""""""""
+autocmd FileType ruby set regexpengine=1 foldmethod=manual norelativenumber nocursorline
+	\ expandtab tabstop=4 softtabstop=4 shiftwidth=4
