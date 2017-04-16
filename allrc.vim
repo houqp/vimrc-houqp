@@ -248,8 +248,8 @@ nmap <leader>f :CtrlPMixed<cr>
 nmap <leader>bf :CtrlPBuffer<cr>
 nmap <leader>r :CtrlPMRU<cr>
 
-" search by filename
-let g:ctrlp_by_filename = 1
+" search by fullpath
+let g:ctrlp_by_filename = 0
 " avoid opening file in following window
 let g:ctrlp_reuse_window = 'netrw\|help\|quickfix'
 " don't manage working directory
@@ -288,6 +288,8 @@ let g:ctrlp_prompt_mappings = {
   \ 'PrtCurLeft()':         ['<c-b>', '<left>', '<c-^>'],
   \ 'PrtCurRight()':        ['<c-f>', '<right>'],
   \ }
+" show more results in completion window
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:100'
 
 
 """""""""""""""""""""""""""""""
