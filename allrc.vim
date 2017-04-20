@@ -29,7 +29,7 @@ Plug 'maxima.vim' , { 'for' : 'maxima' }
 Plug 'octave.vim--' , { 'for' : 'octave' }
 Plug 'johnbintz/vim-puppet' , { 'for' : 'puppet' }
 Plug 'xolox/vim-lua-ftplugin' , { 'for' : 'lua' }
-Plug 'saltstack/salt-vim' , { 'for' : ['yaml', 'sls'] }
+Plug 'saltstack/salt-vim' , { 'for' : ['yaml', 'yml', 'sls'] }
 Plug 'derekwyatt/vim-scala' , { 'for' : 'scala' }
 Plug 'fatih/vim-go' , { 'for' : 'go' }
 Plug 'ekalinin/Dockerfile.vim' , { 'for' : 'Dockerfile' }
@@ -41,7 +41,7 @@ Plug 'rust-lang/rust.vim' , { 'for' : 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'spwhitt/vim-nix', { 'for': 'nix' }
 Plug 'tfnico/vim-gradle', { 'for': 'gradle' }
-Plug 'elixir-lang/vim-elixir', { 'for': 'exs' }
+Plug 'elixir-lang/vim-elixir', { 'for': ['exs', 'ex', 'eex'] }
 
 
 " --- web dev ---
