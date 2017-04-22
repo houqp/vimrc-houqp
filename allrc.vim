@@ -156,8 +156,6 @@ set nu
 set so=7
 " highlight current line
 set cursorline
-" highlight current column
-"set cursorcolumn
 " highlight colorcolumn 100
 if exists('+colorcolumn')
 	set colorcolumn=100
@@ -615,8 +613,9 @@ let g:vimfiler_ignore_pattern = '^\(' .
 """"""""""""""""""""""""""""""
 " python-mode
 """"""""""""""""""""""""""""""
-let g:pymode_virtualenv=1 " Auto fix vim python paths if virtualenv enabled
-let g:pymode_folding=1  " Enable python folding
+let g:pymode_virtualenv = 1 " Auto fix vim python paths if virtualenv enabled
+" Disable python folding because it makes autocomplete really slow
+let g:pymode_folding = 0
 let g:pymode_rope = 0
 
 """"""""""""""""""""""""""""""
