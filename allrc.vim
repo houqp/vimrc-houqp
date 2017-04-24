@@ -391,6 +391,7 @@ if executable('ag')
   set grepformat=%f:%l:%c%m
   " bind \ (backward slash) to grep shortcut
   command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+  command! -complete=file -bar Agc silent! grep! <cword>|cwindow|redraw!
 else
   set grepprg=grep\ -nH\ $*
 endif

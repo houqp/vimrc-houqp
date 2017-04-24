@@ -118,3 +118,6 @@ NASM
 Yat
 IPSec
 CycleGAN
+framebuffer
+Blitbuffer
+vinfo

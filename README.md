@@ -47,6 +47,10 @@ NOTE: you will need libclang to install the YouComplateMe plugin.
 
 `<Alt><F5>`: issue make command in current directory.
 
+### Commands
+
+`Ag KEYWORD`: search keyword using ag.
+`Agc`: search current word under cursor using ag.
 
 ### Use sessions for project management
 Because I use different color scheme for .gvimrc and .vimrc, so I only
