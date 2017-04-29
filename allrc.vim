@@ -132,7 +132,7 @@ let g:airline_mode_map = {
 " Tab and indent
 """"""""""""""""""""""""""""""
 " expand tab to spaces
-set noexpandtab
+set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
