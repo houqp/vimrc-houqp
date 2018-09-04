@@ -21,12 +21,12 @@ set rtp+=~/.vim/bundles/mytemplates/
 call plug#begin('~/.vim/plugged')
 
 " --- languages ---
-Plug 'c.vim' , { 'for' : 'c' }
-Plug 'echofunc.vim' , { 'for' : ['c', 'cpp'] }
+Plug 'vim-scripts/c.vim' , { 'for' : 'c' }
+Plug 'vim-scripts/echofunc.vim' , { 'for' : ['c', 'cpp'] }
 Plug 'sukima/xmledit' , { 'for' : 'xml' }
 Plug 'lervag/vimtex', { 'for' : 'latex' }
-Plug 'maxima.vim' , { 'for' : 'maxima' }
-Plug 'octave.vim--' , { 'for' : 'octave' }
+Plug 'vim-scripts/maxima.vim' , { 'for' : 'maxima' }
+Plug 'vim-scripts/octave.vim--' , { 'for' : 'octave' }
 Plug 'johnbintz/vim-puppet' , { 'for' : 'puppet' }
 Plug 'xolox/vim-lua-ftplugin' , { 'for' : 'lua' }
 Plug 'saltstack/salt-vim' , { 'for' : ['yaml', 'yml', 'sls'] }
@@ -34,9 +34,9 @@ Plug 'derekwyatt/vim-scala' , { 'for' : 'scala' }
 Plug 'fatih/vim-go' , { 'for' : 'go' }
 Plug 'ekalinin/Dockerfile.vim' , { 'for' : 'Dockerfile' }
 "Plug 'Valloric/YouCompleteMe'
-Plug 'klen/python-mode' , { 'for' : 'python' }
+" Plug 'klen/python-mode' , { 'for' : 'python' }
 Plug 'xolox/vim-misc' , { 'for' : 'lua' }
-Plug 'po.vim' , { 'for' : 'po' }
+Plug 'vim-scripts/po.vim' , { 'for' : 'po' }
 Plug 'rust-lang/rust.vim' , { 'for' : 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'spwhitt/vim-nix', { 'for': 'nix' }
@@ -59,24 +59,15 @@ Plug 'ap/vim-css-color' , { 'for': 'css' }
 Plug 'tpope/vim-fugitive'
 " > better alternative for taglist
 Plug 'majutsushi/tagbar'
-Plug 'VOoM'
-" > show TODO, FIXME etc.
-Plug 'superjudge/tasklist-pathogen'
 " > for fast search inside codes
-Plug 'matchit.zip'
-Plug 'Rip-Rip/clang_complete'
 Plug 'tomtom/tcomment_vim'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'autoload_cscope.vim' , { 'for': ['c', 'cpp'] }
+Plug 'vim-scripts/autoload_cscope.vim' , { 'for': ['c', 'cpp'] }
 Plug 'JamshedVesuna/vim-markdown-preview' , { 'for': ['markdown'] }
 
 " --- misc ---
-Plug 'jeetsukumaran/vim-buffergator'
-Plug 'L9'
 " > better alternative for FuzzyFinder
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'Lokaltog/vim-easymotion'
-Plug 'AutoComplPop'
 " > toggle quickfix and location list
 Plug 'milkypostman/vim-togglelist'
 " > pairs of bracket mappings
@@ -85,7 +76,6 @@ Plug 'tpope/vim-repeat'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'airblade/vim-gitgutter'
 
 " --- themes ---
 " Plug 'chriskempson/vim-tomorrow-theme'
@@ -618,6 +608,8 @@ let g:pymode_virtualenv = 1 " Auto fix vim python paths if virtualenv enabled
 " Disable python folding because it makes autocomplete really slow
 let g:pymode_folding = 0
 let g:pymode_rope = 0
+" Ignore long line error
+let g:pymode_lint_ignore="E501"
 
 """"""""""""""""""""""""""""""
 " YouCompleteMe
@@ -657,3 +649,8 @@ let vim_markdown_preview_temp_file=1
 """"""""""""""""""""""""""""""
 autocmd FileType ruby set regexpengine=1 foldmethod=manual norelativenumber nocursorline
 	\ expandtab tabstop=4 softtabstop=4 shiftwidth=4
+
+""""""""""""""""""""""""""""""
+" disable the stupid ex mode
+""""""""""""""""""""""""""""""
+nnoremap Q <Nop>
