@@ -22,11 +22,8 @@ call plug#begin('~/.vim/plugged')
 
 " --- languages ---
 Plug 'vim-scripts/c.vim' , { 'for' : 'c' }
-Plug 'vim-scripts/echofunc.vim' , { 'for' : ['c', 'cpp'] }
 Plug 'sukima/xmledit' , { 'for' : 'xml' }
 Plug 'lervag/vimtex', { 'for' : 'latex' }
-Plug 'vim-scripts/maxima.vim' , { 'for' : 'maxima' }
-Plug 'vim-scripts/octave.vim--' , { 'for' : 'octave' }
 Plug 'johnbintz/vim-puppet' , { 'for' : 'puppet' }
 Plug 'xolox/vim-lua-ftplugin' , { 'for' : 'lua' }
 Plug 'saltstack/salt-vim' , { 'for' : ['yaml', 'yml', 'sls'] }
@@ -36,12 +33,11 @@ Plug 'ekalinin/Dockerfile.vim' , { 'for' : 'Dockerfile' }
 "Plug 'Valloric/YouCompleteMe'
 " Plug 'klen/python-mode' , { 'for' : 'python' }
 Plug 'xolox/vim-misc' , { 'for' : 'lua' }
-Plug 'vim-scripts/po.vim' , { 'for' : 'po' }
 Plug 'rust-lang/rust.vim' , { 'for' : 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'spwhitt/vim-nix', { 'for': 'nix' }
 Plug 'tfnico/vim-gradle', { 'for': 'gradle' }
-Plug 'elixir-lang/vim-elixir', { 'for': ['exs', 'ex', 'eex'] }
+Plug 'elixir-editors/vim-elixir', { 'for': ['exs', 'ex', 'eex'] }
 
 
 " --- web dev ---
