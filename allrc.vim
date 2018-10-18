@@ -144,7 +144,8 @@ set so=7
 set cursorline
 " highlight colorcolumn 100
 if exists('+colorcolumn')
-	set colorcolumn=100
+    set colorcolumn=100
+    highlight ColorColumn guibg=#333333
 else
 	au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>100v.\+', -1)
 endif
