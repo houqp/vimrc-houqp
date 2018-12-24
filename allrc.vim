@@ -30,7 +30,8 @@ Plug 'saltstack/salt-vim' , { 'for' : ['yaml', 'yml', 'sls'] }
 Plug 'derekwyatt/vim-scala' , { 'for' : 'scala' }
 Plug 'fatih/vim-go' , { 'for' : 'go' }
 Plug 'ekalinin/Dockerfile.vim' , { 'for' : 'Dockerfile' }
-"Plug 'Valloric/YouCompleteMe'
+Plug 'racer-rust/vim-racer', { 'for': ['rs', 'rust'] }
+Plug 'Valloric/YouCompleteMe'
 " Plug 'klen/python-mode' , { 'for' : 'python' }
 Plug 'xolox/vim-misc' , { 'for' : 'lua' }
 Plug 'rust-lang/rust.vim' , { 'for' : 'rust' }
@@ -77,6 +78,7 @@ Plug 'bronson/vim-trailing-whitespace'
 " Plug 'chriskempson/vim-tomorrow-theme'
 " Plug 'daylerees/colour-schemes', { 'rtp': 'vim-themes/' }
 " Plug 'nanotech/jellybeans.vim'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
@@ -222,6 +224,7 @@ filetype plugin on
 """"""""""""""""""""""""""""""
 " Omni
 """"""""""""""""""""""""""""""
+set omnifunc=syntaxcomplete#Complete
 imap <C-L> <C-x><C-o>
 set completeopt=longest,menu
 
@@ -646,6 +649,11 @@ let vim_markdown_preview_temp_file=1
 """"""""""""""""""""""""""""""
 autocmd FileType ruby set regexpengine=1 foldmethod=manual norelativenumber nocursorline
 	\ expandtab tabstop=4 softtabstop=4 shiftwidth=4
+
+""""""""""""""""""""""""""""""
+" show argument list and return type in racer completion
+""""""""""""""""""""""""""""""
+let g:racer_experimental_completer = 1
 
 """"""""""""""""""""""""""""""
 " disable the stupid ex mode

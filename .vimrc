@@ -10,7 +10,9 @@ if &term =~ '256color'
 endif
 
 "colorscheme base16-eighties
-colorscheme freya-term
+" colorscheme freya-term
+colorscheme gruvbox
+set background=dark  " for gruvbox
 
 set backspace=2
 
