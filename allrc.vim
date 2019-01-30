@@ -39,6 +39,7 @@ Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'spwhitt/vim-nix', { 'for': 'nix' }
 Plug 'tfnico/vim-gradle', { 'for': 'gradle' }
 Plug 'elixir-editors/vim-elixir', { 'for': ['exs', 'ex', 'eex'] }
+Plug 'leafgarland/typescript-vim', { 'for': ['ts'] }
 
 
 " --- web dev ---
