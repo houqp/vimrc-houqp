@@ -39,7 +39,9 @@ Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'spwhitt/vim-nix', { 'for': 'nix' }
 Plug 'tfnico/vim-gradle', { 'for': 'gradle' }
 Plug 'elixir-editors/vim-elixir', { 'for': ['exs', 'ex', 'eex'] }
-Plug 'leafgarland/typescript-vim', { 'for': ['ts'] }
+Plug 'leafgarland/typescript-vim', { 'for': 'ts' }
+Plug 'posva/vim-vue', { 'for': 'vue' }
+" Plug 'HerringtonDarkholme/yats.vim', { 'for': 'ts' }
 
 
 " --- web dev ---
@@ -510,8 +512,6 @@ endfunction
 """"""""""""""""""""""""""""""
 " Place holder
 """"""""""""""""""""""""""""""
-"mark place holder
-match Todo /<+.\++>/
 "nnoremap <c-j> /<+.\{-1,}+><cr>c/+>/e<cr>
 "inoremap <c-j> <ESC>/<+.\{-1,}+><cr>c/+>/e<cr>
 nnoremap <c-j> /<+.\{-1,}><cr>c/+>/e<cr>
