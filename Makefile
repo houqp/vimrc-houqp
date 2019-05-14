@@ -10,4 +10,13 @@ install:
 	-cd ~ && ln -s .vim/.gvimrc .gvimrc
 	-cd ~ && ln -s .vim .nvim
 	-cd ~ && ln -s .vimrc .nvimrc
-	@echo "You also need libclang for autocomplete."
+	@echo "You also need cmake, go, cargo, npm, jdk, libclang for autocomplete."
+	@echo "Mac: brew install llvm python python3 npm cmake go"
+	@echo "     brew cask install java"
+	@echo "     pip install neovim --upgrade"
+	cd ~/.vim/plugged/YouCompleteMe/ && ./install.py \
+		--clang-completer \
+		--rust-completer \
+		--java-completer \
+		--ts-completer \
+		--go-completer
