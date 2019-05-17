@@ -14,6 +14,8 @@ install:
 	@echo "Mac: brew install llvm python python3 npm cmake go ctags"
 	@echo "     brew cask install java"
 	@echo "     pip install neovim --upgrade"
+	@echo ""
+	@echo "After all plugin installed, remember to run :GoUpdateBinaries"
 	cd ~/.vim/plugged/YouCompleteMe/ && ./install.py \
 		--clang-completer \
 		--rust-completer \
