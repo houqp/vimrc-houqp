@@ -15,8 +15,10 @@ install:
 	@echo "     brew cask install java"
 	@echo "     pip install neovim --upgrade"
 	@echo ""
+	@echo "Linux: sudo apt-get install neovim clang cmake python3-dev"
+	@echo ""
 	@echo "After all plugin installed, remember to run :GoUpdateBinaries"
-	cd ~/.vim/plugged/YouCompleteMe/ && ./install.py \
+	cd ~/.vim/plugged/YouCompleteMe/ && python3 ./install.py \
 		--clang-completer \
 		--rust-completer \
 		--java-completer \
