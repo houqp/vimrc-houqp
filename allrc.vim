@@ -41,7 +41,6 @@ Plug 'tfnico/vim-gradle', { 'for': 'gradle' }
 Plug 'elixir-editors/vim-elixir', { 'for': ['exs', 'ex', 'eex'] }
 Plug 'leafgarland/typescript-vim', { 'for': 'ts' }
 Plug 'posva/vim-vue', { 'for': 'vue' }
-" Plug 'HerringtonDarkholme/yats.vim', { 'for': 'ts' }
 
 
 " --- web dev ---
@@ -180,10 +179,6 @@ set tags=tags;
 autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 autocmd FileType haml setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType dokuwiki setlocal expandtab shiftwidth=2 softtabstop=2
-au BufRead,BufNewFile *.md set ft=markdown
-au BufRead,BufNewFile *.py set ft=python
-"autocmd FileType markdown Voom markdown
-"autocmd FileType asciidoc Voom asciidoc
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -17,7 +17,8 @@ install:
 	@echo ""
 	@echo "Linux: sudo apt-get install neovim clang cmake python3-dev"
 	@echo ""
-	@echo "After all plugin installed, remember to run :GoUpdateBinaries"
+	@echo "After all plugin installed, remember to run :GoUpdateBinaries and install rustfmt:"
+	@echo "rustup component add rustfmt"
 	cd ~/.vim/plugged/YouCompleteMe/ && python3 ./install.py \
 		--clang-completer \
 		--rust-completer \
