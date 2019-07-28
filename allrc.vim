@@ -32,7 +32,7 @@ Plug 'fatih/vim-go' , { 'for' : 'go' }
 Plug 'ekalinin/Dockerfile.vim' , { 'for' : 'Dockerfile' }
 Plug 'racer-rust/vim-racer', { 'for': ['rs', 'rust'] }
 Plug 'Valloric/YouCompleteMe'
-" Plug 'klen/python-mode' , { 'for' : 'python' }
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plug 'xolox/vim-misc' , { 'for' : 'lua' }
 Plug 'rust-lang/rust.vim' , { 'for' : 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
@@ -41,6 +41,8 @@ Plug 'tfnico/vim-gradle', { 'for': 'gradle' }
 Plug 'elixir-editors/vim-elixir', { 'for': ['exs', 'ex', 'eex'] }
 Plug 'leafgarland/typescript-vim', { 'for': 'ts' }
 Plug 'posva/vim-vue', { 'for': 'vue' }
+Plug 'hashivim/vim-terraform', { 'for': ['tf', 'terraform'] }
+" Plug 'HerringtonDarkholme/yats.vim', { 'for': 'ts' }
 
 
 " --- web dev ---
@@ -176,7 +178,6 @@ set tags=tags;
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " For special file type
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 autocmd FileType haml setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType dokuwiki setlocal expandtab shiftwidth=2 softtabstop=2
 
@@ -215,8 +216,6 @@ autocmd! InsertEnter * set noimdisable
 " 让 Tohtml 产生有 CSS 语法的 html
 " syntax/2html.vim，可以用:runtime! syntax/2html.vim
 let html_use_css=1
-
-filetype plugin on
 
 
 """"""""""""""""""""""""""""""
@@ -600,12 +599,13 @@ let g:vimfiler_ignore_pattern = '^\(' .
 """"""""""""""""""""""""""""""
 " python-mode
 """"""""""""""""""""""""""""""
+let g:pymode_python = 'python3'
 let g:pymode_virtualenv = 1 " Auto fix vim python paths if virtualenv enabled
 " Disable python folding because it makes autocomplete really slow
 let g:pymode_folding = 0
 let g:pymode_rope = 0
 " Ignore long line error
-let g:pymode_lint_ignore="E501"
+let g:pymode_lint_ignore = ["E501"]
 
 """"""""""""""""""""""""""""""
 " YouCompleteMe
@@ -623,7 +623,6 @@ let g:ycm_filetype_blacklist =
   \     'unite' : 1,
   \ } ) )
 
-let g:pymode_lint_ignore = "E111,E114,E121"
 
 """"""""""""""""""""""""""""""
 " vim-go
@@ -655,3 +654,8 @@ let g:racer_experimental_completer = 1
 " disable the stupid ex mode
 """"""""""""""""""""""""""""""
 nnoremap Q <Nop>
+
+""""""""""""""""""""""""""""""
+" Allow vim-terraform to align settings automatically with Tabularize.
+""""""""""""""""""""""""""""""
+let g:terraform_align=1
