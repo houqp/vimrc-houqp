@@ -9,7 +9,6 @@ install:
 	-cd ~ && ln -s .vim/.vimrc .vimrc
 	-cd ~ && ln -s .vim/.gvimrc .gvimrc
 	-cd ~ && ln -s .vim .config/nvim
-	-cd ~ && ln -s .vim/.vimrc .config/nvim/init.vim
 	@echo "You also need cmake, go, cargo, npm, jdk, libclang for autocomplete."
 	@echo "Mac: brew install llvm python python3 npm cmake go ctags"
 	@echo "     brew cask install java"
