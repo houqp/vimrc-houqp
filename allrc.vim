@@ -46,7 +46,6 @@ Plug 'hashivim/vim-terraform', { 'for': ['tf', 'terraform'] }
 
 
 " --- web dev ---
-"Plug 'lilydjwg/colorizer'
 Plug 'othree/html5.vim' , { 'for' : 'html' }
 Plug 'hail2u/vim-css3-syntax' , { 'for' : ['html', 'css'] }
 Plug 'mattn/emmet-vim' , { 'for' : 'html' }
@@ -54,7 +53,7 @@ Plug 'tpope/vim-haml' , { 'for' : 'haml' }
 Plug 'groenewege/vim-less' , { 'for' : 'less' }
 Plug 'othree/javascript-libraries-syntax.vim' , { 'for' : 'js' }
 Plug 'kchmck/vim-coffee-script' , { 'for' : 'coffee' }
-Plug 'ap/vim-css-color' , { 'for': 'css' }
+Plug 'norcalli/nvim-colorizer.lua'
 
 " --- dev tools ---
 Plug 'tpope/vim-fugitive'
@@ -135,6 +134,8 @@ set list
 set listchars=tab:\:\ "we have a space here
 set autoindent
 set cindent
+" enable true color in terminal
+set termguicolors
 
 " persistent undo support
 if !isdirectory($HOME."/.vim/undo-dir")
@@ -659,3 +660,8 @@ nnoremap Q <Nop>
 " Allow vim-terraform to align settings automatically with Tabularize.
 """"""""""""""""""""""""""""""
 let g:terraform_align=1
+
+""""""""""""""""""""""""""""""
+" enable color highlight for all file types
+""""""""""""""""""""""""""""""
+lua require'colorizer'.setup()
