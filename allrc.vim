@@ -606,7 +606,7 @@ let g:pymode_virtualenv = 1 " Auto fix vim python paths if virtualenv enabled
 let g:pymode_folding = 0
 let g:pymode_rope = 0
 " Ignore long line error
-let g:pymode_lint_ignore = ["E501"]
+let g:pymode_lint_ignore = ["E501", "W0611"]
 
 """"""""""""""""""""""""""""""
 " YouCompleteMe
