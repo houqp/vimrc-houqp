@@ -664,4 +664,6 @@ let g:terraform_align=1
 """"""""""""""""""""""""""""""
 " enable color highlight for all file types
 """"""""""""""""""""""""""""""
-lua require'colorizer'.setup()
+if has('nvim')
+    lua require'colorizer'.setup()
+endif
