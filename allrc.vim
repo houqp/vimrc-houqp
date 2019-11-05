@@ -447,15 +447,10 @@ cnoremap <C-B> <left>
 """""""""""""""""""""""""""""""""""""
 function! ToggleSpellCheck()
 	setlocal spell!
-	"@TODO: save old value
-	"s:old_balloonexpr = balloonexpr
-	set balloonexpr=SpellBalloon()
-	set ballooneval!
-endfunction
-
-function! SpellBalloon()
-	let lines = spellsuggest( spellbadword(v:beval_text)[0], 5, 0 )
-	return join( lines, has("balloon_multiline") ? "\n" : "" )
+    highlight SpellBad ctermfg=1 guifg=#BF616A gui=underline
+    highlight SpellCap ctermfg=1 guifg=#BF616A gui=underline
+    highlight SpellLocal ctermfg=1 guifg=#BF616A gui=underline
+    highlight SpellRare ctermfg=1 guifg=#BF616A gui=underline
 endfunction
 
 iab szie size
