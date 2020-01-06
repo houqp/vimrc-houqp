@@ -623,7 +623,10 @@ let g:ycm_filetype_blacklist =
 """"""""""""""""""""""""""""""
 " vim-go
 """"""""""""""""""""""""""""""
-let g:go_fmt_command = "goimports"
+let g:go_fmt_command = "gofmt"
+let g:go_fmt_options = {
+  \ 'gofmt': '-s',
+  \ }
 
 
 """"""""""""""""""""""""""""""
