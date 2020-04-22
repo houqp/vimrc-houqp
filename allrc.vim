@@ -665,3 +665,8 @@ let g:terraform_align=1
 if has('nvim')
     lua require'colorizer'.setup()
 endif
+
+""""""""""""""""""""""""""""""
+" Rust related settings
+""""""""""""""""""""""""""""""
+let g:rustfmt_autosave = 1
