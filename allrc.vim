@@ -672,3 +672,8 @@ endif
 " Rust related settings
 """"""""""""""""""""""""""""""
 let g:rustfmt_autosave = 1
+
+""""""""""""""""""""""""""""""
+" Jenkinsfile highlight
+""""""""""""""""""""""""""""""
+au BufNewFile,BufRead Jenkinsfile setf groovy
