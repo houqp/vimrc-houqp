@@ -31,7 +31,8 @@ Plug 'derekwyatt/vim-scala' , { 'for' : 'scala' }
 Plug 'fatih/vim-go' , { 'for' : 'go' }
 Plug 'ekalinin/Dockerfile.vim' , { 'for' : 'Dockerfile' }
 Plug 'racer-rust/vim-racer', { 'for': ['rs', 'rust'] }
-Plug 'Valloric/YouCompleteMe'
+Plug 'zchee/vim-flatbuffers', { 'for': ['fbs'] }
+" Plug 'Valloric/YouCompleteMe'
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plug 'xolox/vim-misc' , { 'for' : 'lua' }
 Plug 'rust-lang/rust.vim' , { 'for' : 'rust' }
