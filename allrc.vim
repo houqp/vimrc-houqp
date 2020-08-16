@@ -77,6 +77,7 @@ Plug 'tpope/vim-repeat'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'rhysd/vim-grammarous', { 'for': ['markdown'] }
 
 " --- themes ---
 " Plug 'chriskempson/vim-tomorrow-theme'
