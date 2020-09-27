@@ -31,7 +31,7 @@ Plug 'derekwyatt/vim-scala' , { 'for' : 'scala' }
 Plug 'fatih/vim-go' , { 'for' : 'go' }
 Plug 'ekalinin/Dockerfile.vim' , { 'for' : 'Dockerfile' }
 Plug 'racer-rust/vim-racer', { 'for': ['rs', 'rust'] }
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plug 'xolox/vim-misc' , { 'for' : 'lua' }
 Plug 'rust-lang/rust.vim' , { 'for' : 'rust' }
@@ -43,6 +43,7 @@ Plug 'leafgarland/typescript-vim', { 'for': 'ts' }
 Plug 'posva/vim-vue', { 'for': 'vue' }
 Plug 'hashivim/vim-terraform', { 'for': ['tf', 'terraform'] }
 " Plug 'HerringtonDarkholme/yats.vim', { 'for': 'ts' }
+Plug 'keith/swift.vim', { 'for': 'swift' }
 
 
 " --- web dev ---
