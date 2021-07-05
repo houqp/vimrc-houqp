@@ -37,7 +37,6 @@ Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plug 'xolox/vim-misc' , { 'for' : 'lua' }
 Plug 'rust-lang/rust.vim' , { 'for' : 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
-Plug 'spwhitt/vim-nix', { 'for': 'nix' }
 Plug 'tfnico/vim-gradle', { 'for': 'gradle' }
 Plug 'elixir-editors/vim-elixir', { 'for': ['exs', 'ex', 'eex'] }
 Plug 'leafgarland/typescript-vim', { 'for': 'ts' }
@@ -61,7 +60,6 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'tpope/vim-fugitive'
 " > better alternative for taglist
 Plug 'majutsushi/tagbar'
-" > for fast search inside codes
 Plug 'tomtom/tcomment_vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-scripts/autoload_cscope.vim' , { 'for': ['c', 'cpp'] }
@@ -69,7 +67,7 @@ Plug 'JamshedVesuna/vim-markdown-preview' , { 'for': ['markdown'] }
 
 " --- misc ---
 " > better alternative for FuzzyFinder
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
 " > toggle quickfix and location list
 Plug 'milkypostman/vim-togglelist'
 " > pairs of bracket mappings
@@ -78,6 +76,8 @@ Plug 'tpope/vim-repeat'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'airblade/vim-rooter'  " needed to make FZF command run on project root
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 " --- themes ---
 " Plug 'chriskempson/vim-tomorrow-theme'
@@ -239,7 +239,15 @@ let g:buffergator_suppress_keymaps = 1
 nmap <leader>be :BuffergatorOpen<cr>
 
 """""""""""""""""""""""""""""""
-" CtrlP
+" FZF
+"""""""""""""""""""""""""""""""
+let g:fzf_command_prefix = 'Fzf'
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
+
+nmap <C-p> :FZF<cr>
+
+"""""""""""""""""""""""""""""""
+" CtrlP (not used anymore)
 """""""""""""""""""""""""""""""
 "let g:ctrlp_map = '<leader>f'
 nmap <leader>f :CtrlPMixed<cr>
