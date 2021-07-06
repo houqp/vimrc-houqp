@@ -54,7 +54,6 @@ Plug 'tpope/vim-haml' , { 'for' : 'haml' }
 Plug 'groenewege/vim-less' , { 'for' : 'less' }
 Plug 'othree/javascript-libraries-syntax.vim' , { 'for' : 'js' }
 Plug 'kchmck/vim-coffee-script' , { 'for' : 'coffee' }
-Plug 'norcalli/nvim-colorizer.lua'
 
 " --- dev tools ---
 Plug 'tpope/vim-fugitive'
@@ -64,20 +63,22 @@ Plug 'tomtom/tcomment_vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-scripts/autoload_cscope.vim' , { 'for': ['c', 'cpp'] }
 Plug 'JamshedVesuna/vim-markdown-preview' , { 'for': ['markdown'] }
+Plug 'norcalli/nvim-colorizer.lua'
 
 " --- misc ---
 " > better alternative for FuzzyFinder
 " Plug 'ctrlpvim/ctrlp.vim'
 " > toggle quickfix and location list
-Plug 'milkypostman/vim-togglelist'
+" Plug 'milkypostman/vim-togglelist'
 " > pairs of bracket mappings
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'airblade/vim-rooter'  " needed to make FZF command run on project root
+" Plug 'airblade/vim-rooter'  " needed to make FZF command run on project root
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " --- themes ---
 " Plug 'chriskempson/vim-tomorrow-theme'
@@ -242,16 +243,24 @@ nmap <leader>be :BuffergatorOpen<cr>
 " FZF
 """""""""""""""""""""""""""""""
 let g:fzf_command_prefix = 'Fzf'
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
+let g:fzf_layout = { 'window': { 'width': 1, 'height': 1 } }
 
-nmap <C-p> :FZF<cr>
+nmap <C-p> :FzfGitFiles<cr>
+
+function! s:find_git_root()
+  return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+endfunction
+command! FzfProjectFiles execute 'FzfFiles' s:find_git_root()
+nmap <leader>f :FzfProjectFiles<cr>
+
+nmap <leader>bf :FzfBuffers<cr>
 
 """""""""""""""""""""""""""""""
 " CtrlP (not used anymore)
 """""""""""""""""""""""""""""""
 "let g:ctrlp_map = '<leader>f'
-nmap <leader>f :CtrlPMixed<cr>
-nmap <leader>bf :CtrlPBuffer<cr>
+" nmap <leader>f :CtrlPMixed<cr>
+" nmap <leader>bf :CtrlPBuffer<cr>
 nmap <leader>r :CtrlPMRU<cr>
 
 " search by fullpath
