@@ -428,12 +428,6 @@ let showmarks_hlline_upper = 1
 """"""""""""""""""""""""""""""
 " switch between two windows
 nmap <leader><TAB> :wincmd p<cr>
-"nmap CTRL-F1 :!cts<cr>
-"F5 for compling
-nmap <M-F5> :make<cr>
-"jumpping between the errors
-nmap <M-F7> :cn<cr>
-nmap <M-F8> :cp<cr>
 
 "Pressing ,ss will toggle and untoggle spell checking
 map <leader>ss :call ToggleSpellCheck()<cr>
