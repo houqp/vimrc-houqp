@@ -62,7 +62,6 @@ Plug 'majutsushi/tagbar'
 Plug 'tomtom/tcomment_vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-scripts/autoload_cscope.vim' , { 'for': ['c', 'cpp'] }
-Plug 'JamshedVesuna/vim-markdown-preview' , { 'for': ['markdown'] }
 Plug 'norcalli/nvim-colorizer.lua'
 
 " --- misc ---
@@ -648,15 +647,6 @@ let g:go_fmt_options = {
   \ }
 let g:go_imports_autosave = 1
 
-
-""""""""""""""""""""""""""""""
-" vim-markdown-preview
-""""""""""""""""""""""""""""""
-let vim_markdown_preview_hotkey='<C-m>'
-" display image
-let vim_markdown_preview_toggle=1
-" remove temp file after open in browser
-let vim_markdown_preview_temp_file=1
 
 """"""""""""""""""""""""""""""
 " Ruby syntax highlight is horrible in Vim
