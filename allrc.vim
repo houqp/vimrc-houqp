@@ -78,6 +78,7 @@ Plug 'bronson/vim-trailing-whitespace'
 " Plug 'airblade/vim-rooter'  " needed to make FZF command run on project root
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'vimwiki/vimwiki'
 
 " --- themes ---
 " Plug 'chriskempson/vim-tomorrow-theme'
@@ -680,3 +681,9 @@ let g:rustfmt_autosave = 1
 " Jenkinsfile highlight
 """"""""""""""""""""""""""""""
 au BufNewFile,BufRead Jenkinsfile setf groovy
+
+""""""""""""""""""""""""""""""
+" vimwiki
+""""""""""""""""""""""""""""""
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
