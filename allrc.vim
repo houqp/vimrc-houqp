@@ -37,13 +37,13 @@ Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plug 'xolox/vim-misc' , { 'for' : 'lua' }
 Plug 'rust-lang/rust.vim' , { 'for' : 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
-Plug 'spwhitt/vim-nix', { 'for': 'nix' }
 Plug 'tfnico/vim-gradle', { 'for': 'gradle' }
 Plug 'elixir-editors/vim-elixir', { 'for': ['exs', 'ex', 'eex'] }
 Plug 'leafgarland/typescript-vim', { 'for': 'ts' }
 Plug 'posva/vim-vue', { 'for': 'vue' }
 Plug 'hashivim/vim-terraform', { 'for': ['tf', 'terraform'] }
 " Plug 'HerringtonDarkholme/yats.vim', { 'for': 'ts' }
+Plug 'keith/swift.vim', { 'for': 'swift' }
 
 
 " --- web dev ---
@@ -54,23 +54,21 @@ Plug 'tpope/vim-haml' , { 'for' : 'haml' }
 Plug 'groenewege/vim-less' , { 'for' : 'less' }
 Plug 'othree/javascript-libraries-syntax.vim' , { 'for' : 'js' }
 Plug 'kchmck/vim-coffee-script' , { 'for' : 'coffee' }
-Plug 'norcalli/nvim-colorizer.lua'
 
 " --- dev tools ---
 Plug 'tpope/vim-fugitive'
 " > better alternative for taglist
 Plug 'majutsushi/tagbar'
-" > for fast search inside codes
 Plug 'tomtom/tcomment_vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-scripts/autoload_cscope.vim' , { 'for': ['c', 'cpp'] }
-Plug 'JamshedVesuna/vim-markdown-preview' , { 'for': ['markdown'] }
+Plug 'norcalli/nvim-colorizer.lua'
 
 " --- misc ---
 " > better alternative for FuzzyFinder
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
 " > toggle quickfix and location list
-Plug 'milkypostman/vim-togglelist'
+" Plug 'milkypostman/vim-togglelist'
 " > pairs of bracket mappings
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
@@ -78,6 +76,10 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'rhysd/vim-grammarous', { 'for': ['markdown'] }
+" Plug 'airblade/vim-rooter'  " needed to make FZF command run on project root
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'vimwiki/vimwiki'
 
 " --- themes ---
 " Plug 'chriskempson/vim-tomorrow-theme'
@@ -239,11 +241,27 @@ let g:buffergator_suppress_keymaps = 1
 nmap <leader>be :BuffergatorOpen<cr>
 
 """""""""""""""""""""""""""""""
-" CtrlP
+" FZF
+"""""""""""""""""""""""""""""""
+let g:fzf_command_prefix = 'Fzf'
+let g:fzf_layout = { 'window': { 'width': 1, 'height': 1 } }
+
+nmap <C-p> :FzfGitFiles<cr>
+
+function! s:find_git_root()
+  return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+endfunction
+command! FzfProjectFiles execute 'FzfFiles' s:find_git_root()
+nmap <leader>f :FzfProjectFiles<cr>
+
+nmap <leader>bf :FzfBuffers<cr>
+
+"""""""""""""""""""""""""""""""
+" CtrlP (not used anymore)
 """""""""""""""""""""""""""""""
 "let g:ctrlp_map = '<leader>f'
-nmap <leader>f :CtrlPMixed<cr>
-nmap <leader>bf :CtrlPBuffer<cr>
+" nmap <leader>f :CtrlPMixed<cr>
+" nmap <leader>bf :CtrlPBuffer<cr>
 nmap <leader>r :CtrlPMRU<cr>
 
 " search by fullpath
@@ -411,12 +429,6 @@ let showmarks_hlline_upper = 1
 """"""""""""""""""""""""""""""
 " switch between two windows
 nmap <leader><TAB> :wincmd p<cr>
-"nmap CTRL-F1 :!cts<cr>
-"F5 for compling
-nmap <M-F5> :make<cr>
-"jumpping between the errors
-nmap <M-F7> :cn<cr>
-nmap <M-F8> :cp<cr>
 
 "Pressing ,ss will toggle and untoggle spell checking
 map <leader>ss :call ToggleSpellCheck()<cr>
@@ -633,15 +645,6 @@ let g:go_imports_autosave = 1
 
 
 """"""""""""""""""""""""""""""
-" vim-markdown-preview
-""""""""""""""""""""""""""""""
-let vim_markdown_preview_hotkey='<C-m>'
-" display image
-let vim_markdown_preview_toggle=1
-" remove temp file after open in browser
-let vim_markdown_preview_temp_file=1
-
-""""""""""""""""""""""""""""""
 " Ruby syntax highlight is horrible in Vim
 """"""""""""""""""""""""""""""
 autocmd FileType ruby set regexpengine=1 foldmethod=manual norelativenumber nocursorline
@@ -679,3 +682,9 @@ let g:rustfmt_autosave = 1
 " Jenkinsfile highlight
 """"""""""""""""""""""""""""""
 au BufNewFile,BufRead Jenkinsfile setf groovy
+
+""""""""""""""""""""""""""""""
+" vimwiki
+""""""""""""""""""""""""""""""
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
