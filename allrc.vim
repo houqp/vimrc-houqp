@@ -251,6 +251,7 @@ function! s:find_git_root()
 endfunction
 command! FzfProjectFiles execute 'FzfFiles' s:find_git_root()
 nmap <leader>f :FzfProjectFiles<cr>
+nmap <leader>r :FzfRg<cr>
 
 nmap <leader>bf :FzfBuffers<cr>
 
@@ -260,7 +261,7 @@ nmap <leader>bf :FzfBuffers<cr>
 "let g:ctrlp_map = '<leader>f'
 " nmap <leader>f :CtrlPMixed<cr>
 " nmap <leader>bf :CtrlPBuffer<cr>
-nmap <leader>r :CtrlPMRU<cr>
+" nmap <leader>r :CtrlPMRU<cr>
 
 " search by fullpath
 let g:ctrlp_by_filename = 0
