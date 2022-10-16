@@ -100,6 +100,9 @@ let mapleader = ","
 
 syntax enable
 
+" Disable mouse so we can let terminal manage double click to paste
+set mouse=
+
 """"""""""""""""""""""""""""""
 " airline
 """"""""""""""""""""""""""""""
