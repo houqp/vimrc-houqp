@@ -391,23 +391,6 @@ let g:tagbar_type_javascript = {
 """"""""""""""""""""""""""""""
 " Vim-LaTex
 """"""""""""""""""""""""""""""
-" IMPORTANT: grep will sometimes skip displaying the file name if you
-" search in a singe file. This will confuse Latex-Suite. Set your grep
-" program to always generate a file-name.
-if executable('ag')
-  """"""""""""""""""""""""""""""
-  " use ag for grep
-  """"""""""""""""""""""""""""""
-  " Note we extract the column as well as the file and line number
-  set grepprg=ag\ --nogroup\ --nocolor\ --column
-  set grepformat=%f:%l:%c%m
-  " bind \ (backward slash) to grep shortcut
-  command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-  command! -complete=file -bar Agc silent! grep! <cword>|cwindow|redraw!
-else
-  set grepprg=grep\ -nH\ $*
-endif
-
 " OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
 " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
 " The following changes the default filetype back to 'tex':
