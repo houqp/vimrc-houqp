@@ -34,11 +34,6 @@ end
 
 local packer_bootstrap = ensure_packer()
 
-if packer_bootstrap then
-  require("packer").sync()
-  return
-end
-
 -- Setup packer
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Package manager
@@ -59,6 +54,11 @@ require('packer').startup(function(use)
     requires = { "hrsh7th/nvim-cmp" },
   })
 end)
+
+if packer_bootstrap then
+  require("packer").sync()
+  return
+end
 
 -- have a fixed column for the diagnostics to appear in
 -- this removes the jitter when lsp warnings/errors flow in
