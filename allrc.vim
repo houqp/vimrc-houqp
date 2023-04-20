@@ -687,3 +687,10 @@ au BufNewFile,BufRead Jenkinsfile setf groovy
 """"""""""""""""""""""""""""""
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
+
+""""""""""""""""""""""""""""""
+" live markdown render
+""""""""""""""""""""""""""""""
+" disable live render auto start, use :ComposerStart command to manually start
+" the render
+let g:markdown_composer_autostart = 0
