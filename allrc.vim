@@ -16,6 +16,16 @@ if has('neovim')
   set unnamedclip
 endif
 
+function! BuildComposer(info)
+  if a:info.status != 'unchanged' || a:info.force
+    if has('nvim')
+      !cargo build --release --locked
+    else
+      !cargo build --release --locked --no-default-features --features json-rpc
+    endif
+  endif
+endfunction
+
 set rtp+=~/.vim/bundles/mytemplates/
 
 call plug#begin('~/.vim/plugged')
@@ -32,6 +42,7 @@ Plug 'fatih/vim-go' , { 'for' : 'go' }
 Plug 'ekalinin/Dockerfile.vim' , { 'for' : 'Dockerfile' }
 Plug 'racer-rust/vim-racer', { 'for': ['rs', 'rust'] }
 Plug 'zchee/vim-flatbuffers', { 'for': ['fbs'] }
+Plug 'LnL7/vim-nix', { 'for': ['nix'] }
 " Plug 'Valloric/YouCompleteMe'
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plug 'xolox/vim-misc' , { 'for' : 'lua' }
@@ -44,6 +55,7 @@ Plug 'posva/vim-vue', { 'for': 'vue' }
 Plug 'hashivim/vim-terraform', { 'for': ['tf', 'terraform'] }
 " Plug 'HerringtonDarkholme/yats.vim', { 'for': 'ts' }
 Plug 'keith/swift.vim', { 'for': 'swift' }
+Plug 'euclio/vim-markdown-composer', { 'for': ['md', 'markdown'], 'do': function('BuildComposer') }
 
 
 " --- web dev ---
