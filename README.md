@@ -1,7 +1,3 @@
-This is houqp's vim configuration, use at your own risk. ;-P
-
-
-
 # Installation
 
 Move the whole repository into your home directory and rename to `.vim`.
@@ -14,9 +10,22 @@ $ make install
 
 NOTE: you will need libclang to install the YouComplateMe plugin.
 
+# Configuration
+
+Plugin specific lua configs are mananaged in `lua/plugins` including treesitter and lspconfig.
+
+Most of the syntax highlights are supported through treesitter.
+
+Plug installed dependencies are managed in `allrc.vim`. Packer installed
+dependencies are managed in `nvim/init.lua`. Configs in `lua/plugins` are
+manually sourced in `init.lua`.
 
 # Usage
 ### Mappings
+`<leader>do`: Show error message in popup.
+
+`K`: Show LSP popup, e.g. type info.
+
 `<leader><TAB>`: switch to previous window.
 
 `<leader>tl`: toggle TagBar window.
@@ -52,34 +61,10 @@ NOTE: you will need libclang to install the YouComplateMe plugin.
 `Ag KEYWORD`: search keyword using ag.
 `Agc`: search current word under cursor using ag.
 
-### Use sessions for project management
-Because I use different color scheme for .gvimrc and .vimrc, so I only
-enabled auto session management in GUI. Every time you fire up GVim with no arguments,
-the session mode will be set and you can use `<Leader><Leader>ms` to save a
-session on current directory.
-
-Then you can easily recover your previous workspace by fire up GVim in the
-same directory, where Session.vim is saved. When you quit GVim, it will automatically
-save the session for you.
-
-
-
 # Tips for installed plugins
-### Colorizer
-
-Colorizer is turned off by default, use command `ColorToggle` to turn it on.
-
-
 ### BufExplorer
 
 `:help bufexplorer`
-
-
-### VOoM
-
-`:Voom format`
-
-VOoM supports lots of format, check out this [page](http://vim-voom.github.com) for the list.
 
 
 ### easymotion
