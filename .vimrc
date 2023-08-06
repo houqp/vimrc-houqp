@@ -17,6 +17,3 @@ set background=dark  " for gruvbox
 set backspace=2
 
 source $HOME/.vim/nvim/init.lua
-source $HOME/.vim/nvim/keymap.lua
-source $HOME/.vim/nvim/cmp.lua
-source $HOME/.vim/nvim/rust-tools.lua

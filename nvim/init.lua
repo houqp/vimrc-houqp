@@ -41,3 +41,8 @@ end
 -- have a fixed column for the diagnostics to appear in
 -- this removes the jitter when lsp warnings/errors flow in
 vim.wo.signcolumn = "yes"
+
+require("plugins/keymap")
+require("plugins/cmp")
+require("plugins/rust-tools")
+require("plugins/nvim-lspconfig")

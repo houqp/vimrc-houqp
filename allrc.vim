@@ -36,7 +36,6 @@ Plug 'sukima/xmledit' , { 'for' : 'xml' }
 Plug 'lervag/vimtex', { 'for' : 'latex' }
 Plug 'johnbintz/vim-puppet' , { 'for' : 'puppet' }
 Plug 'xolox/vim-lua-ftplugin' , { 'for' : 'lua' }
-Plug 'saltstack/salt-vim' , { 'for' : ['yaml', 'yml', 'sls'] }
 Plug 'derekwyatt/vim-scala' , { 'for' : 'scala' }
 Plug 'fatih/vim-go' , { 'for' : 'go' }
 Plug 'ekalinin/Dockerfile.vim' , { 'for' : 'Dockerfile' }
@@ -50,8 +49,6 @@ Plug 'rust-lang/rust.vim' , { 'for' : 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'tfnico/vim-gradle', { 'for': 'gradle' }
 Plug 'elixir-editors/vim-elixir', { 'for': ['exs', 'ex', 'eex'] }
-Plug 'leafgarland/typescript-vim', { 'for': 'ts' }
-Plug 'posva/vim-vue', { 'for': 'vue' }
 Plug 'hashivim/vim-terraform', { 'for': ['tf', 'terraform'] }
 " Plug 'HerringtonDarkholme/yats.vim', { 'for': 'ts' }
 Plug 'keith/swift.vim', { 'for': 'swift' }
@@ -64,8 +61,6 @@ Plug 'hail2u/vim-css3-syntax' , { 'for' : ['html', 'css'] }
 Plug 'mattn/emmet-vim' , { 'for' : 'html' }
 Plug 'tpope/vim-haml' , { 'for' : 'haml' }
 Plug 'groenewege/vim-less' , { 'for' : 'less' }
-Plug 'othree/javascript-libraries-syntax.vim' , { 'for' : 'js' }
-Plug 'kchmck/vim-coffee-script' , { 'for' : 'coffee' }
 
 " --- dev tools ---
 Plug 'tpope/vim-fugitive'
@@ -139,7 +134,7 @@ let g:airline_mode_map = {
   \ }
 
 """"""""""""""""""""""""""""""
-" Tab and indent
+" Default tab and indent
 """"""""""""""""""""""""""""""
 " expand tab to spaces
 set expandtab
@@ -390,16 +385,6 @@ let g:tagbar_type_php = {
     \ }
 \ }
 
-let g:tagbar_type_javascript = {
-	\ 'ctagstype' : 'JavaScript',
-	\ 'kinds'     : [
-		\ 'o:objects',
-		\ 'f:functions',
-		\ 'a:arrays',
-		\ 's:strings'
-	\ ]
-\ }
-
 """"""""""""""""""""""""""""""
 " Vim-LaTex
 """"""""""""""""""""""""""""""
@@ -551,12 +536,6 @@ function! SmallerFont()
   call AdjustFontSize(-1)
 endfunction
 command! SmallerFont call SmallerFont()
-
-
-""""""""""""""""""""""""""""""
-" JavaScript libraries plugin
-""""""""""""""""""""""""""""""
-let g:used_javascript_libs = 'angularjs'
 
 
 """"""""""""""""""""""""""""""
