@@ -9,10 +9,10 @@ if &term =~ '256color'
   set t_ut=
 endif
 
-"colorscheme base16-eighties
+" colorscheme base16-eighties
 " colorscheme freya-term
-colorscheme gruvbox
 set background=dark  " for gruvbox
+colorscheme everforest
 
 set backspace=2
 

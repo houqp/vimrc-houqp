@@ -31,36 +31,19 @@ set rtp+=~/.vim/bundles/mytemplates/
 call plug#begin('~/.vim/plugged')
 
 " --- languages ---
-Plug 'vim-scripts/c.vim' , { 'for' : 'c' }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'sukima/xmledit' , { 'for' : 'xml' }
 Plug 'lervag/vimtex', { 'for' : 'latex' }
-Plug 'johnbintz/vim-puppet' , { 'for' : 'puppet' }
-Plug 'xolox/vim-lua-ftplugin' , { 'for' : 'lua' }
-Plug 'derekwyatt/vim-scala' , { 'for' : 'scala' }
 Plug 'fatih/vim-go' , { 'for' : 'go' }
-Plug 'ekalinin/Dockerfile.vim' , { 'for' : 'Dockerfile' }
 Plug 'racer-rust/vim-racer', { 'for': ['rs', 'rust'] }
 Plug 'zchee/vim-flatbuffers', { 'for': ['fbs'] }
-Plug 'LnL7/vim-nix', { 'for': ['nix'] }
-" Plug 'Valloric/YouCompleteMe'
-Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
-Plug 'xolox/vim-misc' , { 'for' : 'lua' }
 Plug 'rust-lang/rust.vim' , { 'for' : 'rust' }
-Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'tfnico/vim-gradle', { 'for': 'gradle' }
-Plug 'elixir-editors/vim-elixir', { 'for': ['exs', 'ex', 'eex'] }
-Plug 'hashivim/vim-terraform', { 'for': ['tf', 'terraform'] }
-" Plug 'HerringtonDarkholme/yats.vim', { 'for': 'ts' }
-Plug 'keith/swift.vim', { 'for': 'swift' }
 Plug 'euclio/vim-markdown-composer', { 'for': ['md', 'markdown'], 'do': function('BuildComposer') }
 
-
 " --- web dev ---
-Plug 'othree/html5.vim' , { 'for' : 'html' }
-Plug 'hail2u/vim-css3-syntax' , { 'for' : ['html', 'css'] }
 Plug 'mattn/emmet-vim' , { 'for' : 'html' }
 Plug 'tpope/vim-haml' , { 'for' : 'haml' }
-Plug 'groenewege/vim-less' , { 'for' : 'less' }
 
 " --- dev tools ---
 Plug 'tpope/vim-fugitive'
@@ -69,7 +52,7 @@ Plug 'majutsushi/tagbar'
 Plug 'tomtom/tcomment_vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-scripts/autoload_cscope.vim' , { 'for': ['c', 'cpp'] }
-Plug 'norcalli/nvim-colorizer.lua'
+Plug 'norcalli/nvim-colorizer.lua'  " hight RBG code by color
 
 " --- misc ---
 " > better alternative for FuzzyFinder
@@ -90,9 +73,7 @@ Plug 'vimwiki/vimwiki'
 
 " --- themes ---
 " Plug 'chriskempson/vim-tomorrow-theme'
-" Plug 'daylerees/colour-schemes', { 'rtp': 'vim-themes/' }
-" Plug 'nanotech/jellybeans.vim'
-Plug 'morhetz/gruvbox'
+Plug 'sainnhe/everforest'
 
 call plug#end()
 
@@ -141,6 +122,14 @@ set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" For special file type
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd FileType haml setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType dokuwiki setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType terraform setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType nix setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+
 "show tab
 set list
 "set listchars=tab:▸\
@@ -191,13 +180,6 @@ set tags=tags;
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" For special file type
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd FileType haml setlocal expandtab shiftwidth=2 softtabstop=2
-autocmd FileType dokuwiki setlocal expandtab shiftwidth=2 softtabstop=2
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " For search
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set hlsearch
@@ -210,8 +192,7 @@ map <silent> <leader><cr> :noh<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Auto motion for vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"工作目录随文件变
-"autocmd BufEnter * cd %:p:h
+" change working dir to folder that hosts current file being edited
 set autochdir
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -227,11 +208,6 @@ autocmd! BufWritePost .vimrc,.gvimrc,allrc.vim
 " auto disable input method
 autocmd! InsertLeave * set imdisable
 autocmd! InsertEnter * set noimdisable
-
-" 让 Tohtml 产生有 CSS 语法的 html
-" syntax/2html.vim，可以用:runtime! syntax/2html.vim
-let html_use_css=1
-
 
 """"""""""""""""""""""""""""""
 " Omni
@@ -673,3 +649,10 @@ let g:vimwiki_list = [{'path': '~/vimwiki/',
 " disable live render auto start, use :ComposerStart command to manually start
 " the render
 let g:markdown_composer_autostart = 0
+
+""""""""""""""""""""""""""""""
+" everforest colorscheme
+""""""""""""""""""""""""""""""
+" For better performance
+let g:everforest_better_performance = 1
+let g:everforest_background = 'medium'
