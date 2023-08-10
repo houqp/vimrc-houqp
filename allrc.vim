@@ -40,6 +40,7 @@ Plug 'zchee/vim-flatbuffers', { 'for': ['fbs'] }
 Plug 'rust-lang/rust.vim' , { 'for' : 'rust' }
 Plug 'tfnico/vim-gradle', { 'for': 'gradle' }
 Plug 'euclio/vim-markdown-composer', { 'for': ['md', 'markdown'], 'do': function('BuildComposer') }
+Plug 'hashivim/vim-terraform', { 'for': ['tf', 'terraform'] } " for auto format on save
 
 " --- web dev ---
 Plug 'mattn/emmet-vim' , { 'for' : 'html' }
