@@ -1,9 +1,12 @@
 local lspconfig = require("lspconfig")
 
 vim.api.nvim_create_autocmd('LspAttach', {
-  callback = function(args)
+  callback = function(ev)
+    local opts = { buffer = ev.buf }
     -- Press `K` in normal mode to show LSP over for type info
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = args.buf })
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
   end,
 })
 
@@ -25,3 +28,11 @@ lspconfig.tsserver.setup {
 }
 
 lspconfig.pyright.setup {}
+
+lspconfig.ccls.setup {
+  init_options = {
+    cache = {
+      directory = ".ccls-cache";
+    };
+  }
+}
