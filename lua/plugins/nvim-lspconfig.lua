@@ -29,6 +29,18 @@ lspconfig.tsserver.setup {
 
 lspconfig.pyright.setup {}
 
+lspconfig.gopls.setup({
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+      gofumpt = true,
+    },
+  },
+})
+
 lspconfig.ccls.setup {
   init_options = {
     cache = {
