@@ -177,6 +177,7 @@ require("lazy").setup({
   {"tpope/vim-repeat", event = "VeryLazy"},
   {
     "vim-airline/vim-airline",
+    event = "VeryLazy",
     dependencies = {"vim-airline/vim-airline-themes"},
     config = function()
       vim.cmd([[
@@ -210,6 +211,7 @@ require("lazy").setup({
 
   {
     "junegunn/fzf",
+    event = "VeryLazy",
     build = "./install --all",
     dependencies = {
       {
