@@ -1,3 +1,4 @@
+source $HOME/.vim/nvim/init.lua
 source ~/.vim/allrc.vim
 
 set t_Co=256
@@ -12,8 +13,5 @@ endif
 " colorscheme base16-eighties
 " colorscheme freya-term
 set background=dark  " for gruvbox
-colorscheme everforest
 
 set backspace=2
-
-source $HOME/.vim/nvim/init.lua

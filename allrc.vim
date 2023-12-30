@@ -1,83 +1,6 @@
 set nocompatible
 filetype off
 
-let vimplug_file = expand('~/.vim/autoload/plug.vim')
-if !filereadable(vimplug_file)
-	echo "Installing plug.vim."
-	echo ""
-	silent !mkdir -p ~/.vim/autoload
-	silent !curl -fLo ~/.vim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-endif
-
-if has('neovim')
-  " The python_setup script must be sourced before plugins that need python
-  runtime! plugin/python_setup.vim
-  " Use unnamed registers for clipboard
-  set unnamedclip
-endif
-
-function! BuildComposer(info)
-  if a:info.status != 'unchanged' || a:info.force
-    if has('nvim')
-      !cargo build --release --locked
-    else
-      !cargo build --release --locked --no-default-features --features json-rpc
-    endif
-  endif
-endfunction
-
-set rtp+=~/.vim/bundles/mytemplates/
-
-call plug#begin('~/.vim/plugged')
-
-" --- languages ---
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'sukima/xmledit' , { 'for' : 'xml' }
-Plug 'lervag/vimtex', { 'for' : 'latex' }
-Plug 'fatih/vim-go' , { 'for' : 'go' }
-Plug 'racer-rust/vim-racer', { 'for': ['rs', 'rust'] }
-Plug 'zchee/vim-flatbuffers', { 'for': ['fbs'] }
-Plug 'rust-lang/rust.vim' , { 'for' : 'rust' }
-Plug 'tfnico/vim-gradle', { 'for': 'gradle' }
-Plug 'euclio/vim-markdown-composer', { 'for': ['md', 'markdown'], 'do': function('BuildComposer') }
-Plug 'hashivim/vim-terraform', { 'for': ['tf', 'terraform'] } " for auto format on save
-
-" --- web dev ---
-Plug 'mattn/emmet-vim' , { 'for' : 'html' }
-Plug 'tpope/vim-haml' , { 'for' : 'haml' }
-
-" --- dev tools ---
-Plug 'tpope/vim-fugitive'
-" > better alternative for taglist
-Plug 'majutsushi/tagbar'
-Plug 'tomtom/tcomment_vim'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'vim-scripts/autoload_cscope.vim' , { 'for': ['c', 'cpp'] }
-Plug 'norcalli/nvim-colorizer.lua'  " hight RBG code by color
-
-" --- misc ---
-" > better alternative for FuzzyFinder
-" Plug 'ctrlpvim/ctrlp.vim'
-" > toggle quickfix and location list
-" Plug 'milkypostman/vim-togglelist'
-" > pairs of bracket mappings
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-repeat'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'bronson/vim-trailing-whitespace'
-Plug 'rhysd/vim-grammarous', { 'for': ['markdown'] }
-" Plug 'airblade/vim-rooter'  " needed to make FZF command run on project root
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'vimwiki/vimwiki'
-
-" --- themes ---
-" Plug 'chriskempson/vim-tomorrow-theme'
-Plug 'sainnhe/everforest'
-
-call plug#end()
-
 filetype plugin indent on
 
 " use lazyredraw to speed things up. Ruby syntax highlight is too slow wihtout this
@@ -133,9 +56,8 @@ autocmd FileType nix setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
 "show tab
 set list
-"set listchars=tab:▸\
-" start with : and fill the remaining with spaces
-set listchars=tab:\:\ "we have a space here
+" start with ▸ and fill the remaining with spaces
+set listchars=tab:▸\ " we have an extra space at the end
 set autoindent
 set cindent
 " enable true color in terminal
@@ -514,53 +436,6 @@ function! SmallerFont()
 endfunction
 command! SmallerFont call SmallerFont()
 
-
-""""""""""""""""""""""""""""""
-" GitGutter
-""""""""""""""""""""""""""""""
-" turn off by default
-let g:gitgutter_enabled = 0
-" gitgutter display toggle
-nmap <leader>gd :GitGutterToggle<CR>
-" for jumpping between hunks
-nmap <silent> ]h :<C-U>execute v:count1 . "GitGutterNextHunk"<CR>
-nmap <silent> [h :<C-U>execute v:count1 . "GitGutterPrevHunk"<CR>
-
-
-""""""""""""""""""""""""""""""
-" Vimfiler
-""""""""""""""""""""""""""""""
-"call vimfiler#set_execute_file('vim', 'vim')
-"call vimfiler#set_execute_file('txt', 'notepad')
-
-" Edit file by tabedit.
-"let g:vimfiler_edit_action = 'tabopen'
-
-let g:vimfiler_as_default_explorer = 1
-let g:vimfiler_enable_auto_cd = 1
-let g:vimfiler_ignore_pattern = '^\(' .
-		\ '.*\.\(o\|a\|so\|swp\|swo\)' .
-		\ '\|' .
-		\ 'tags' .
-		\ '\|' .
-		\ '\.git' .
-		\ '\|' .
-		\ '\.svn' .
-		\ '\|' .
-		\ 'cscope\.\(files\|in\.out\|out\|po\.out\)' .
-	\ '\)$'
-
-" Enable file operation commands.
-"let g:vimfiler_safe_mode_by_default = 0
-
-" Like Textmate icons.
-"let g:vimfiler_tree_leaf_icon = ' '
-"let g:vimfiler_tree_opened_icon = '▾'
-"let g:vimfiler_tree_closed_icon = '▸'
-"let g:vimfiler_file_icon = '-'
-"let g:vimfiler_marked_file_icon = '*'
-
-
 """"""""""""""""""""""""""""""
 " python-mode
 """"""""""""""""""""""""""""""
@@ -571,23 +446,6 @@ let g:pymode_folding = 0
 let g:pymode_rope = 0
 " Ignore long line error
 let g:pymode_lint_ignore = ["E501", "W0611"]
-
-""""""""""""""""""""""""""""""
-" YouCompleteMe
-""""""""""""""""""""""""""""""
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_add_preview_to_completeopt = 1
-let g:ycm_filetype_blacklist =
-  \ get( g:, 'ycm_filetype_blacklist',
-  \   get( g:, 'ycm_filetypes_to_completely_ignore', {
-  \     'notes' : 1,
-  \     'markdown' : 1,
-  \     'text' : 1,
-  \     'unite' : 1,
-  \ } ) )
-
 
 """"""""""""""""""""""""""""""
 " vim-go
@@ -622,13 +480,6 @@ let g:terraform_align=1
 let g:terraform_fmt_on_save=1
 
 """"""""""""""""""""""""""""""
-" enable color highlight for all file types
-""""""""""""""""""""""""""""""
-if has('nvim')
-    lua require'colorizer'.setup()
-endif
-
-""""""""""""""""""""""""""""""
 " Rust related settings
 """"""""""""""""""""""""""""""
 let g:rustfmt_autosave = 1
@@ -639,21 +490,8 @@ let g:rustfmt_autosave = 1
 au BufNewFile,BufRead Jenkinsfile setf groovy
 
 """"""""""""""""""""""""""""""
-" vimwiki
-""""""""""""""""""""""""""""""
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
-
-""""""""""""""""""""""""""""""
 " live markdown render
 """"""""""""""""""""""""""""""
 " disable live render auto start, use :ComposerStart command to manually start
 " the render
 let g:markdown_composer_autostart = 0
-
-""""""""""""""""""""""""""""""
-" everforest colorscheme
-""""""""""""""""""""""""""""""
-" For better performance
-let g:everforest_better_performance = 1
-let g:everforest_background = 'medium'

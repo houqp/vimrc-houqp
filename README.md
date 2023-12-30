@@ -8,8 +8,6 @@ Then issue following command in `.vim` directory:
 $ make install
 ```
 
-NOTE: you will need libclang to install the YouComplateMe plugin.
-
 # Configuration
 
 Plugin specific lua configs are mananaged in `lua/plugins` including treesitter and lspconfig.
