@@ -217,13 +217,13 @@ require("lazy").setup({
         config = function()
           vim.cmd([[
             let g:fzf_vim = {}
-            let g:fzf_vim.command_prefix = 'Fzf'
-            let g:fzf_vim.layout = { 'window': { 'width': 1, 'height': 1 } }
+            let g:fzf_layout = { 'window': { 'width': 1, 'height': 1 } }
 
             nmap <C-p> :GitFiles<cr>
             nmap <leader>r :Rg<cr>
             nmap <leader>f :ProjectFiles<cr>
             nmap <leader>bf :Buffers<cr>
+            nmap <leader>c :Commits<cr>
 
             function! s:find_git_root()
               return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
