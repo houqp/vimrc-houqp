@@ -4,7 +4,6 @@
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
   "cmp-vsnip": { "branch": "main", "commit": "989a8a73c44e926199bfd05fa7a516d51f2d2752" },
   "editorconfig-vim": { "branch": "master", "commit": "95cb75e21d11206dad4bd3895c99459bdaa13dd1" },
-  "emmet-vim": { "branch": "master", "commit": "def5d57a1ae5afb1b96ebe83c4652d1c03640f4d" },
   "everforest": { "branch": "master", "commit": "72f101bd63228a1a45012325e39c5280ec22c828" },
   "fzf": { "branch": "master", "commit": "8d20f3d5c4e2645e623ed43487501dfe76a86b98" },
   "fzf.vim": { "branch": "master", "commit": "1e054c1d075d87903647db9320116d360eb8b024" },

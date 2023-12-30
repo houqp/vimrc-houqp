@@ -12,49 +12,31 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+vim.g.mapleader = "," -- Make sure to set `mapleader` before lazy so mappings are correct
+
 require("lazy").setup({
   ----------------
   -- languages ---
   ----------------
   {
-    'neovim/nvim-lspconfig', -- Configurations for Nvim LSP
-    config = function()
-      local lspconfig = require("lspconfig")
-
-      vim.api.nvim_create_autocmd('LspAttach', {
-        callback = function(args)
-          -- Press `K` in normal mode to show LSP over for type info
-          vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = args.buf })
-        end,
-      })
-
-      local on_attach = function(client, bufnr)
-        -- format on save
-        if client.server_capabilities.documentFormattingProvider then
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            group = vim.api.nvim_create_augroup("Format", { clear = true }),
-            buffer = bufnr,
-            callback = function() vim.lsp.buf.format({ async = false }) end
-          })
-        end
-      end
-
-      lspconfig.tsserver.setup {
-        on_attach = on_attach,
-        filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-        cmd = { "typescript-language-server", "--stdio" }
-      }
-
-      lspconfig.pyright.setup {}
-    end,
+    'neovim/nvim-lspconfig',
+    config = require("plugins/nvim-lspconfig"),
   },
 
   -- rust related
-  {"rust-lang/rust.vim", ft = {"rs", "rust"}},
-  {"racer-rust/vim-racer", ft = {"rs", "rust"}},
   {
-    'simrat39/rust-tools.nvim',
-    ft = {"rs", "rust"},
+    "rust-lang/rust.vim", ft = {"rs", "rust"},
+    config = function() vim.g.rustfmt_autosave = 1 end,
+  },
+  {
+    "racer-rust/vim-racer", ft = {"rs", "rust"},
+    config = function()
+      -- show argument list and return type in racer completion
+      vim.g.racer_experimental_completer = 1
+    end,
+  },
+  {
+    'simrat39/rust-tools.nvim', ft = {"rs", "rust"},
     config = function()
       local rt = require("rust-tools")
       rt.setup({
@@ -82,14 +64,47 @@ require("lazy").setup({
     end,
   },
 
-  {"fatih/vim-go", ft = "go"},
+  {
+    "fatih/vim-go",
+    ft = "go",
+    config = function()
+      vim.cmd([[
+        let g:go_fmt_command = "gofmt"
+        let g:go_fmt_options = {
+          \ 'gofmt': '-s',
+          \ }
+        let g:go_imports_autosave = 1
+      ]])
+    end,
+  },
   {"tfnico/vim-gradle", ft = "gradle"},
-  {"euclio/vim-markdown-composer", ft = {"md", "markdown"}, build = "cargo build --release --locked"},
-  {"hashivim/vim-terraform", ft = {"tf", "terraform"}}, -- for auto format on save
+  {
+    -- live markdown render
+    "euclio/vim-markdown-composer",
+    ft = {"md", "markdown"},
+    build = "cargo build --release --locked",
+    config = function()
+      -- disable live render auto start, use :ComposerStart command to manually start the render
+      vim.g.markdown_composer_autostart = 0
+    end,
+  },
+  {
+    -- for auto format on save
+    "hashivim/vim-terraform",
+    ft = {"tf", "terraform"},
+    config = function()
+      vim.cmd([[
+        """"""""""""""""""""""""""""""
+        " Allow vim-terraform to align settings automatically with Tabularize.
+        """"""""""""""""""""""""""""""
+        let g:terraform_align=1
+        let g:terraform_fmt_on_save=1
+      ]])
+    end,
+  },
   {"zchee/vim-flatbuffers", ft = "fbs"},
 
   -- web dev
-  {"mattn/emmet-vim", ft = "html" },
   {"tpope/vim-haml", ft = "haml" },
 
   -- Autocompletion framework
@@ -141,14 +156,18 @@ require("lazy").setup({
       })
     end,
   },
-  {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = require("plugins/nvim-treesitter"),
+  },
 
   -- dev tools ---
   {
     "tpope/vim-fugitive",
     cmd = "Git",
   },
-  { 
+  {
     "tomtom/tcomment_vim", -- for fast comment/uncomment
     keys = {"v"},  -- load plugin when we start visual selection
   },
@@ -156,16 +175,65 @@ require("lazy").setup({
   {"norcalli/nvim-colorizer.lua", event = "VeryLazy"},  -- hight RBG code by color
   {"tpope/vim-unimpaired", event = "VeryLazy"},
   {"tpope/vim-repeat", event = "VeryLazy"},
-  "vim-airline/vim-airline",
-  "vim-airline/vim-airline-themes",
+  {
+    "vim-airline/vim-airline",
+    dependencies = {"vim-airline/vim-airline-themes"},
+    config = function()
+      vim.cmd([[
+        set laststatus=2
+        let g:airline_theme='bubblegum'
+        let g:airline_left_sep=''
+        let g:airline_right_sep=''
+        let g:airline_detect_modified=1
+        let g:airline_detect_paste=1
+        let g:airline_mode_map = {
+          \ '__' : '-',
+          \ 'n'  : 'N',
+          \ 'i'  : 'I',
+          \ 'R'  : 'R',
+          \ 'c'  : 'C',
+          \ 'v'  : 'V',
+          \ 'V'  : 'V',
+          \ '' : 'V',
+          \ 's'  : 'S',
+          \ 'S'  : 'S',
+          \ '' : 'S',
+          \ }
+      ]])
+    end,
+  },
   {
     "bronson/vim-trailing-whitespace",
     event = "VeryLazy",
   },
   {"rhysd/vim-grammarous", ft = "markdown"},
 
-  {"junegunn/fzf", build = "./install --all"},
-  {"junegunn/fzf.vim"},
+  {
+    "junegunn/fzf",
+    build = "./install --all",
+    dependencies = {
+      {
+        "junegunn/fzf.vim",
+        config = function()
+          vim.cmd([[
+            let g:fzf_vim = {}
+            let g:fzf_vim.command_prefix = 'Fzf'
+            let g:fzf_vim.layout = { 'window': { 'width': 1, 'height': 1 } }
+
+            nmap <C-p> :GitFiles<cr>
+            nmap <leader>r :Rg<cr>
+            nmap <leader>f :ProjectFiles<cr>
+            nmap <leader>bf :Buffers<cr>
+
+            function! s:find_git_root()
+              return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+            endfunction
+            command! ProjectFiles execute 'Files' s:find_git_root()
+          ]])
+        end
+      }
+    },
+  },
 
   --- themes ---
   {
@@ -189,8 +257,4 @@ require("lazy").setup({
 -- this removes the jitter when lsp warnings/errors flow in
 vim.wo.signcolumn = "yes"
 
-require("plugins/keymap")
--- require("plugins/cmp")
--- require("plugins/rust-tools")
--- require("plugins/nvim-lspconfig")
--- require("plugins/nvim-treesitter")
+vim.api.nvim_set_keymap('n', '<leader>do', '<cmd>lua vim.diagnostic.open_float()<CR>', { noremap = true, silent = true })
