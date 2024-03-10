@@ -32,9 +32,11 @@ require("lazy").setup({
     opts = {
       outline_window = {
         position = 'left',
+        width = 25,
       },
       preview_window = {
         auto_preview = true,
+        width = 70,
       },
       keymaps = {
         goto_location = '<Cr>',
