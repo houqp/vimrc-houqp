@@ -22,6 +22,8 @@ manually sourced in `init.lua`.
 ### Mappings
 `<leader>do`: Show error message in popup.
 
+`<leader>o`: Show symbol outline.
+
 `K`: Show LSP popup, e.g. type info.
 
 `<leader><TAB>`: switch to previous window.

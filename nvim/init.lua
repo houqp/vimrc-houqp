@@ -22,6 +22,28 @@ require("lazy").setup({
     'neovim/nvim-lspconfig',
     config = require("plugins/nvim-lspconfig"),
   },
+  {
+    "hedyhli/outline.nvim",
+    lazy = true,
+    cmd = { "Outline", "OutlineOpen" },
+    keys = { -- Example mapping to toggle outline
+      { "<leader>o", "<cmd>Outline<CR>", desc = "Toggle outline" },
+    },
+    opts = {
+      outline_window = {
+        position = 'left',
+      },
+      preview_window = {
+        auto_preview = true,
+      },
+      keymaps = {
+        goto_location = '<Cr>',
+        goto_and_close = '<S-Cr>',
+        -- jump to location while keeping focus in outline window
+        peek_location = 'o',
+      },
+    },
+  },
 
   -- rust related
   {
