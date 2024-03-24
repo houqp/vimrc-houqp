@@ -246,15 +246,53 @@ require("lazy").setup({
             let g:fzf_layout = { 'window': { 'width': 1, 'height': 1 } }
 
             nmap <C-p> :GitFiles<cr>
-            nmap <leader>r :Rg<cr>
+            nmap <leader>r :RgGitRoot<cr>
             nmap <leader>f :ProjectFiles<cr>
             nmap <leader>bf :Buffers<cr>
             nmap <leader>c :Commits<cr>
 
             function! s:find_git_root()
-              return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+              return systemlist('git -C ' . shellescape(expand('%:p:h')) . ' rev-parse --show-toplevel')[0]
             endfunction
             command! ProjectFiles execute 'Files' s:find_git_root()
+
+            " RgIn taken from: https://github.com/junegunn/fzf.vim/issues/837#issuecomment-1561860707
+
+            " RgIn: Start ripgrep in the specified directory
+            "
+            " Usage
+            "   :RgIn start_dir search_term
+            "
+            " If the command was called with a bang ("RgIn!"), make the search window
+            " fullscreen
+            function! s:rg_in(showFullscreen, ...)
+              let l:start_dir=expand(a:1)
+
+              if !isdirectory(l:start_dir)
+                throw 'not a valid directory: ' .. l:start_dir
+              endif
+
+              " a:000 contains the argument list → Join the arguments after the first one
+              let l:pattern=(join(a:000[1:], ' '))
+
+              let l:rg_cmd = "rg --color=always --line-number --no-binary --no-heading --smart-case " .. shellescape(l:pattern)
+              let l:has_column = 0
+              call fzf#vim#grep(
+              \   l:rg_cmd,
+              \   l:has_column,
+              \   fzf#vim#with_preview({
+              \     'dir': l:start_dir,
+              \     'options': ['--prompt=' .. l:start_dir .. "> ", '--query=' .. l:pattern],
+              \   }),
+              \   a:showFullscreen
+              \ )
+            endfunction
+
+            command! RgGitRoot call s:rg_in(0, s:find_git_root())
+            " See this: https://vi.stackexchange.com/questions/13965/what-is-command-bang-nargs-in-a-vimrc-file
+            " -bang: The command can also be called as "RgIn!" to make the search window fullscreen
+            " <bang>0: If there is no bang, pass 0 to the function, otherwise 1
+            command! -bang -nargs=+ -complete=dir RgIn call s:rg_in(<bang>0, <f-args>)
           ]])
         end
       }
