@@ -9,8 +9,7 @@ autocmd VimEnter * redraw!  " workaround for missing statusline when entering vi
 
 syntax enable
 
-" Disable mouse so we can let terminal manage double click to paste
-set mouse=
+set mouse=a  " enable mouse mode in terminal
 
 """"""""""""""""""""""""""""""
 " Default tab and indent
