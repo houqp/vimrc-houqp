@@ -10,6 +10,10 @@ autocmd VimEnter * redraw!  " workaround for missing statusline when entering vi
 syntax enable
 
 set mouse=a  " enable mouse mode in terminal
+" copy selected text by default on click release
+vmap <LeftRelease> "*ygv
+vmap <2-LeftRelease> "*ygv
+vmap <3-LeftRelease> "*ygv
 
 """"""""""""""""""""""""""""""
 " Default tab and indent
