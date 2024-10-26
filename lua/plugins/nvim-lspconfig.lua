@@ -60,5 +60,7 @@ return function()
 
   -- python
   lspconfig.pyright.setup {}
-  lspconfig.ruff_lsp.setup{}
+  lspconfig.ruff_lsp.setup {
+    on_attach = on_attach,  -- lint python code on save
+  }
 end
