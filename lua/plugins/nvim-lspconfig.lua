@@ -24,7 +24,7 @@ return function()
 
   lspconfig.biome.setup{}
 
-  lspconfig.tsserver.setup {
+  lspconfig.ts_ls.setup {
     on_attach = on_attach,
     filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
     cmd = { "typescript-language-server", "--stdio" }
@@ -54,13 +54,13 @@ return function()
   lspconfig.rubocop.setup{
     cmd = { "bundle", "exec", "rubocop", "--lsp" }
   }
-  lspconfig.ruby_ls.setup{
+  lspconfig.ruby_lsp.setup{
     cmd = { "bundle", "exec", "ruby-lsp" }
   }
 
   -- python
   lspconfig.pyright.setup {}
-  lspconfig.ruff_lsp.setup {
+  lspconfig.ruff.setup {
     on_attach = on_attach,  -- lint python code on save
   }
 end
