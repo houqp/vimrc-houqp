@@ -187,6 +187,7 @@ require("lazy").setup({
   },
 
   -- dev tools ---
+  {"github/copilot.vim", event = "VeryLazy"},
   {
     "tpope/vim-fugitive",
     cmd = "Git",
