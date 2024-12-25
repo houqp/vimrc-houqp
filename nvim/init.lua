@@ -126,6 +126,12 @@ require("lazy").setup({
       ]])
     end,
   },
+  {
+    -- for auto format starlark files
+    name = "buildifier.nvim",
+    dir = "~/.vim/lua/plugins/buildifier.nvim",
+    ft = {"bzl", "bazel", "starlark"},
+  },
   {"zchee/vim-flatbuffers", ft = "fbs"},
 
   -- web dev
