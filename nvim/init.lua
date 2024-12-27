@@ -1,3 +1,7 @@
+local version = vim.version()
+if version.major == 0 and version.minor < 10 then
+  vim.notify("Warning: Neovim version is below 0.10. Some features may not work correctly.", vim.log.levels.WARN)
+end
 -- Install lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -319,7 +323,7 @@ lazy_plugin_specs = {
     end,
   }
 }
-if not vim.fn.has('nvim-0.10') then
+if version.major == 0 and version.minor < 10 then
   -- starting from 0.10, commenting is implemented as a builtin feature:
   -- https://github.com/neovim/neovim/pull/28176/files
   table.insert(lazy_plugin_specs, #lazy_plugin_specs + 1, {
