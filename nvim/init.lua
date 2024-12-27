@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = "," -- Make sure to set `mapleader` before lazy so mappings are correct
 
-require("lazy").setup({
+lazy_plugin_specs = {
   ----------------
   -- languages ---
   ----------------
@@ -198,10 +198,6 @@ require("lazy").setup({
     "tpope/vim-fugitive",
     cmd = "Git",
   },
-  {
-    "tomtom/tcomment_vim", -- for fast comment/uncomment
-    keys = {"v"},  -- load plugin when we start visual selection
-  },
   "editorconfig/editorconfig-vim",
   {"norcalli/nvim-colorizer.lua", event = "VeryLazy"},  -- hight RBG code by color
   {"tpope/vim-unimpaired", event = "VeryLazy"},
@@ -322,7 +318,16 @@ require("lazy").setup({
       ]])
     end,
   }
-})
+}
+if not vim.fn.has('nvim-0.10') then
+  -- starting from 0.10, commenting is implemented as a builtin feature:
+  -- https://github.com/neovim/neovim/pull/28176/files
+  table.insert(lazy_plugin_specs, #lazy_plugin_specs + 1, {
+    "tomtom/tcomment_vim", -- for fast comment/uncomment
+    event = "VeryLazy",
+  })
+end
+require("lazy").setup(lazy_plugin_specs)
 
 -- have a fixed column for the diagnostics to appear in
 -- this removes the jitter when lsp warnings/errors flow in
