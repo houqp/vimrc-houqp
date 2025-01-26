@@ -1,0 +1,7 @@
+[*.lua]
+indent_style = space
+indent_size = 2
+
+[{*.vim,.vimrc,.gvimrc}]
+indent_style = space
+indent_size = 2
