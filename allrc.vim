@@ -14,6 +14,8 @@ set mouse=a  " enable mouse mode in terminal
 vmap <2-LeftRelease> "*ygv
 vmap <3-LeftRelease> "*ygv
 
+set encoding=utf-8 " Necessary to show unicode glyphs
+
 """"""""""""""""""""""""""""""
 " Default tab and indent
 """"""""""""""""""""""""""""""
@@ -158,20 +160,6 @@ iab SZIE SIZE
 """"""""""""""""""""""""""""""
 " Statusline
 """"""""""""""""""""""""""""""
-set encoding=utf-8 " Necessary to show unicode glyphs
-
-function! CurDir()
-    let curdir = substitute(getcwd(), '/Users/amir/', "~/", "g")
-    return curdir
-endfunction
-
-function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    else
-        return ''
-    endif
-endfunction
 
 """"""""""""""""""""""""""""""
 " Toggle hex mode
@@ -187,12 +175,6 @@ function! ToggleHexMode()
     let s:hexMode = "Y"
   endif
 endfunction
-
-""""""""""""""""""""""""""""""
-" Place holder
-""""""""""""""""""""""""""""""
-nnoremap <c-j> /<+.\{-1,}><cr>c/+>/e<cr>
-inoremap <c-j> <ESC>/<+.\{-1,}><cr>c/+>/e<cr>
 
 """"""""""""""""""""""""""""""
 " Font size helper function
