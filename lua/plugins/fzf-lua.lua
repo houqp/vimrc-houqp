@@ -1,5 +1,10 @@
 return function()
   local fzf_lua = require('fzf-lua')
+  fzf_lua.setup({
+    winopts = {
+      fullscreen = true,
+    }
+  })
 
   local function get_git_root()
     -- Get the directory of the current file
