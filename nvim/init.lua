@@ -280,7 +280,20 @@ lazy_plugin_specs = {
         colorscheme everforest
       ]])
     end,
-  }
+  },
+
+  -- UI ---
+  ---- lsp progress report
+  {
+    "j-hui/fidget.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "neovim/nvim-lspconfig",
+    },
+    opts = {
+      -- required for plugin to load :(
+    },
+  },
 }
 if version.major == 0 and version.minor < 10 then
   -- starting from 0.10, commenting is implemented as a builtin feature:
