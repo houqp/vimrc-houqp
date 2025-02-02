@@ -252,7 +252,25 @@ lazy_plugin_specs = {
       vim.opt.termguicolors = true
 
       -- empty setup using defaults
-      require("nvim-tree").setup()
+      require("nvim-tree").setup({
+        actions = {
+          open_file = {
+            window_picker = {
+              enable = false,  -- Disables window selection prompt
+            },
+            resize_window = false,
+            quit_on_open = false,
+            eject = false,
+          },
+        },
+        view = {
+          -- preserve_window_proportions = true,
+          float = {
+            enable = true,
+            quit_on_focus_loss = false,
+          },
+        },
+      })
     end,
   },
   {
