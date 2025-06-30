@@ -243,6 +243,9 @@ lazy_plugin_specs = {
   {
     "nvim-tree/nvim-tree.lua",
     event = "VeryLazy",
+    keys = {
+      { "<leader>t", "<cmd>NvimTreeToggle<CR>", desc = "Toggle nvim-tree" },
+    },
     config = function()
       -- disable netrw at the very start of your init.lua
       vim.g.loaded_netrw = 1
@@ -263,11 +266,21 @@ lazy_plugin_specs = {
             eject = false,
           },
         },
+
         view = {
           -- preserve_window_proportions = true,
           float = {
             enable = true,
-            quit_on_focus_loss = false,
+            -- setting it to false will keep the split window open if tree is
+            -- opened directly on the current split buffer, however, it will
+            -- keep the toggle popup open too, which is not a desired behavior
+            quit_on_focus_loss = true,
+            open_win_config = {
+                relative = "editor",
+                width = math.floor(vim.api.nvim_list_uis()[1].width * 0.3),
+                -- status line takes 2, header takes 1, border takes 2, add 1 for margin
+                height = vim.api.nvim_list_uis()[1].height - 6,
+            }
           },
         },
       })

@@ -28,6 +28,8 @@ manually sourced in `init.lua`.
 
 `<leader><TAB>`: switch to previous window.
 
+`<leader>t`: toggle nvim-tree popup.
+
 `<leader>tl`: toggle TagBar window.
 
 `<leader>f`: find files.
