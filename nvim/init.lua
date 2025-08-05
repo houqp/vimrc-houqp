@@ -117,6 +117,11 @@ lazy_plugin_specs = {
     end,
   },
   {
+    -- for markdown doc and chat buffer rendering
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = {"md", "markdown", "codecompanion"}
+  },
+  {
     -- for auto format on save
     "hashivim/vim-terraform",
     ft = {"tf", "terraform"},
@@ -201,6 +206,21 @@ lazy_plugin_specs = {
   {
     "tpope/vim-fugitive",
     cmd = "Git",
+  },
+  {
+    "olimorris/codecompanion.nvim",
+    event = "VeryLazy",
+    opts = {
+      extensions = {
+        spinner = {},
+      },
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "franco-ruggeri/codecompanion-spinner.nvim",
+    },
+    config = require("plugins/codecompanion"),
   },
   "editorconfig/editorconfig-vim",
   {"norcalli/nvim-colorizer.lua", event = "VeryLazy"},  -- hight RBG code by color
