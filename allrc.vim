@@ -108,10 +108,6 @@ autocmd! BufWritePost .vimrc,.gvimrc,allrc.vim
 			\		source $MYVIMRC |
 			\	endif
 
-" auto disable input method
-autocmd! InsertLeave * set imdisable
-autocmd! InsertEnter * set noimdisable
-
 """"""""""""""""""""""""""""""
 " Some other mappings
 """"""""""""""""""""""""""""""
