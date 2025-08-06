@@ -1,5 +1,8 @@
 return function()
   require("codecompanion").setup({
+    opts = {
+      -- log_level = "DEBUG", -- or "TRACE"
+    },
     strategies = {
       chat = {
         fold_context = true,
@@ -14,16 +17,6 @@ return function()
           name = "copilot",
           model = "claude-sonnet-4",
         },
-        -- keymaps = {
-        --   completion = {
-        --     modes = {
-        --       i = "<C-r>",
-        --     },
-        --     index = 1,
-        --     callback = "keymaps.completion",
-        --     description = "Completion Menu",
-        --   },
-        -- },
       },
       inline = {
         adapter = {
