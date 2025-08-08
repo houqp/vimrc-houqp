@@ -83,5 +83,42 @@ return function()
         end,
       },
     },
+    prompt_library = {
+      ["Fix clippy errors"] = {
+        strategy = "workflow",
+        description = "Use a workflow to fix all clippy errors",
+        opts = {
+          is_default = false,
+          short_name = "clippy",
+        },
+        prompts = {
+          {
+            {
+              name = "Setup Test",
+              role = "user",
+              opts = { auto_submit = false },
+              content = function()
+                -- Enable turbo mode!!!
+                vim.g.codecompanion_auto_tool_mode = true
+
+                return [[### Instructions
+
+Fix all clippy errors from `cargo clippy --all-targets --all-features -- -D warnings`
+
+### Steps to Follow
+
+You are required to write code following the instructions provided above and test the correctness by running the designated test suite. Follow these steps exactly:
+
+1. Update all the impacted files using the @{insert_edit_into_file} tool
+2. Then use the @{cmd_runner} tool to run the clippy command (do this after you have updated the code)
+3. Make sure you trigger both tools in the same response
+
+We'll repeat this cycle until the clippy command exits without error. Ensure no deviations from these steps.]]
+              end,
+            },
+          },
+        },
+      },
+    },
   })
 end
