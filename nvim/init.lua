@@ -357,7 +357,12 @@ if version.major == 0 and version.minor < 10 then
     event = "VeryLazy",
   })
 end
-require("lazy").setup(lazy_plugin_specs)
+require("lazy").setup(lazy_plugin_specs, {
+  rocks = {
+    enabled = false, -- This line disables LuaRocks support
+    hererocks = false, -- This line disables hererocks support
+  },
+})
 
 -- have a fixed column for the diagnostics to appear in
 -- this removes the jitter when lsp warnings/errors flow in
