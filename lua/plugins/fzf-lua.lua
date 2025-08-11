@@ -1,10 +1,5 @@
 return function()
   local fzf_lua = require('fzf-lua')
-  fzf_lua.setup({
-    winopts = {
-      fullscreen = true,
-    }
-  })
 
   local function get_git_root()
     -- Get the directory of the current file
@@ -16,6 +11,16 @@ return function()
     -- Return the Git root directory (first line of output)
     return git_root[1]
   end
+  local git_root = get_git_root()
+
+  fzf_lua.setup({
+    files = { cwd = git_root },
+    grep = { cwd = git_root },
+    -- full screen popup
+    winopts = {
+      fullscreen = true,
+    }
+  })
 
   vim.keymap.set('n', '<C-p>', fzf_lua.git_files, { desc = 'Find files tracked in git repo' })
 
