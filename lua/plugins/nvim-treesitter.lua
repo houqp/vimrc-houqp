@@ -4,6 +4,7 @@ return function()
     ensure_installed = {
       "c",
       "cpp",
+      "diff",
       "java",
       "lua",
       "vim",
