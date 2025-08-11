@@ -119,7 +119,10 @@ lazy_plugin_specs = {
   {
     -- for markdown doc and chat buffer rendering
     "MeanderingProgrammer/render-markdown.nvim",
-    ft = {"md", "markdown", "codecompanion"}
+    ft = {"md", "markdown", "codecompanion"},
+    config = function()
+      require('render-markdown').setup({ latex = { enabled = false } })
+    end,
   },
   {
     -- for auto format on save
