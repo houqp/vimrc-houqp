@@ -9,13 +9,19 @@ return function()
         icons = {
           chat_context = "📎️", -- You can also apply an icon to the fold
         },
-
         opts = {
           completion_provider = "cmp", -- blink|cmp|coc|default
         },
         adapter = {
           name = "copilot",
           model = "claude-sonnet-4",
+        },
+        tools = {
+          opts = {
+            folds = {
+              enabled = false,  -- expand tool output by default
+            }
+          },
         },
       },
       inline = {
@@ -70,10 +76,9 @@ return function()
             wrap = true,
           },
         },
-        show_token_count = true, -- Show the token count for each response?
         show_settings = false, -- Show LLM settings at the top of the chat buffer?
 
-
+        show_token_count = true, -- Show the token count for each response?
         ---Customize how tokens are displayed
         ---@param tokens number
         ---@param adapter CodeCompanion.Adapter
