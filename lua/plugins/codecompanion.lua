@@ -89,6 +89,51 @@ return function()
       },
     },
     prompt_library = {
+      ["Rust edit"] = {
+        strategy = "workflow",
+        description = "Use a workflow to edit rust code in agent mode",
+        opts = {
+          is_default = true,
+          short_name = "agent_edit",
+        },
+        prompts = {
+          {
+            {
+              role = "system",
+              content = "You are an expert rust programmer",
+            },
+            {
+              name = "Agent Edit",
+              role = "user",
+              opts = { auto_submit = false },
+              content = function()
+                -- Enable turbo mode!!!
+                vim.g.codecompanion_auto_tool_mode = true
+
+                return [[### Instructions
+
+I want to
+
+### Steps to Follow
+
+You are required to write code as a @{full_stack_dev} following the instructions provided above and test the correctness by running the designated test suite.
+
+Follow these steps exactly:
+
+1. Update all the impacted files using the @{insert_edit_into_file} tool
+2. Then use the @{cmd_runner} tool to run the test suite with `<test_cmd>` (do this after you have updated the code)
+3. Make sure you trigger both tools in the same response
+
+We'll repeat this cycle until the test command exits without error.
+
+Lastly run `<cargo format>` using the @{cmd_runner} tool to format the code.
+
+Ensure no deviations from these steps.]]
+              end,
+            },
+          },
+        },
+      },
       ["Fix clippy errors"] = {
         strategy = "workflow",
         description = "Use a workflow to fix all clippy errors",
@@ -99,13 +144,10 @@ return function()
         prompts = {
           {
             {
-              name = "Setup Test",
+              name = "Fix Clippy Errors",
               role = "user",
               opts = { auto_submit = false },
               content = function()
-                -- Enable turbo mode!!!
-                vim.g.codecompanion_auto_tool_mode = true
-
                 return [[### Instructions
 
 Fix all clippy errors from `cargo clippy --all-targets --all-features -- -D warnings`
