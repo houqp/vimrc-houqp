@@ -107,9 +107,6 @@ return function()
               role = "user",
               opts = { auto_submit = false },
               content = function()
-                -- Enable turbo mode!!!
-                vim.g.codecompanion_auto_tool_mode = true
-
                 return [[### Instructions
 
 I want to
