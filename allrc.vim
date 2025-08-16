@@ -207,3 +207,6 @@ command! SmallerFont call SmallerFont()
 " disable the stupid ex mode
 """"""""""""""""""""""""""""""
 nnoremap Q <Nop>
+
+" copy current file path to clipboard
+nnoremap <leader>cp :let @+=expand("%:p")<Bar>echo "Copied path: " . expand("%:p")<CR>
