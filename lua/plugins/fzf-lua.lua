@@ -1,17 +1,17 @@
 return function()
   local fzf_lua = require('fzf-lua')
 
-  local function get_git_root()
+  local function get_git_root(ignore_error)
     -- Get the directory of the current file
     local file_dir = vim.fn.expand('%:p:h')
     local git_root = vim.fn.systemlist('git -C ' .. vim.fn.shellescape(file_dir) .. ' rev-parse --show-toplevel')
-    if vim.v.shell_error ~= 0 or #git_root == 0 then
+    if not ignore_error and (vim.v.shell_error ~= 0 or #git_root == 0) then
       vim.notify("Error: Not in a Git repository", vim.log.levels.ERROR)
     end
     -- Return the Git root directory (first line of output)
     return git_root[1]
   end
-  local git_root = get_git_root()
+  local git_root = get_git_root(true)
 
   fzf_lua.setup({
     files = { cwd = git_root },
