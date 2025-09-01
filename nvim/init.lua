@@ -125,18 +125,29 @@ lazy_plugin_specs = {
     end,
   },
   {
-    -- for auto format on save
-    "hashivim/vim-terraform",
-    ft = {"tf", "terraform"},
+    -- for autoformat on save across different languages
+    'stevearc/conform.nvim',
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
+    opts = {
+      -- Set default options
+    },
     config = function()
-      vim.cmd([[
-        """"""""""""""""""""""""""""""
-        " Allow vim-terraform to align settings automatically with Tabularize.
-        """"""""""""""""""""""""""""""
-        let g:terraform_align=1
-        let g:terraform_fmt_on_save=1
-      ]])
-    end,
+      require("conform").setup({
+        formatters_by_ft = {
+          hcl = {"terraform_fmt"},
+          terraform = {"terraform_fmt"},
+        },
+        default_format_opts = {
+          lsp_format = "fallback",
+        },
+        format_on_save = {
+          -- These options will be passed to conform.format()
+          timeout_ms = 500,
+          lsp_format = "fallback",
+        },
+      })
+    end
   },
   {
     -- for auto format starlark files
