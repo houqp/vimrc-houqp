@@ -22,7 +22,10 @@ return function()
     end
   end
 
-  lspconfig.biome.setup{}
+  lspconfig.biome.setup{
+    cmd = { "biome", "lsp-proxy", "--config-path=" .. vim.fn.expand("~/.vim") },
+    on_attach = on_attach,  -- Enable format-on-save for Biome
+  }
 
   lspconfig.ts_ls.setup {
     on_attach = on_attach,

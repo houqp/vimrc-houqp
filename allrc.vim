@@ -31,6 +31,7 @@ autocmd FileType haml setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType dokuwiki setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType terraform setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType nix setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType json setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 """"""""""""""""""""""""""""""
 " Ruby syntax highlight is horrible in Vim
 """"""""""""""""""""""""""""""
