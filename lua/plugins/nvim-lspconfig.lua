@@ -1,6 +1,4 @@
 return function()
-  local lspconfig = require("lspconfig")
-
   vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(ev)
       local opts = { buffer = ev.buf }
@@ -22,18 +20,18 @@ return function()
     end
   end
 
-  lspconfig.biome.setup{
+  vim.lsp.config('biome', {
     cmd = { "biome", "lsp-proxy", "--config-path=" .. vim.fn.expand("~/.vim") },
-    on_attach = on_attach,  -- Enable format-on-save for Biome
-  }
+    on_attach = on_attach,
+  })
 
-  lspconfig.ts_ls.setup {
+  vim.lsp.config('ts_ls', {
     on_attach = on_attach,
     filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
     cmd = { "typescript-language-server", "--stdio" }
-  }
+  })
 
-  lspconfig.gopls.setup({
+  vim.lsp.config('gopls', {
     settings = {
       gopls = {
         analyses = {
@@ -45,25 +43,25 @@ return function()
     },
   })
 
-  lspconfig.ccls.setup {
+  vim.lsp.config('ccls', {
     init_options = {
       cache = {
         directory = ".ccls-cache";
       };
     }
-  }
+  })
 
   -- ruby
-  lspconfig.rubocop.setup{
+  vim.lsp.config('rubocop', {
     cmd = { "bundle", "exec", "rubocop", "--lsp" }
-  }
-  lspconfig.ruby_lsp.setup{
+  })
+  vim.lsp.config('ruby_lsp', {
     cmd = { "bundle", "exec", "ruby-lsp" }
-  }
+  })
 
   -- python
-  lspconfig.pyright.setup {}
-  lspconfig.ruff.setup {
-    on_attach = on_attach,  -- lint python code on save
-  }
+  vim.lsp.config('pyright', {})
+  vim.lsp.config('ruff', {
+    on_attach = on_attach,
+  })
 end

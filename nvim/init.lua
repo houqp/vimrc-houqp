@@ -23,7 +23,9 @@ lazy_plugin_specs = {
   -- languages ---
   ----------------
   {
-    'neovim/nvim-lspconfig',
+    -- LSP configuration using built-in vim.lsp.config (Neovim 0.11+)
+    dir = vim.fn.stdpath("config"),
+    name = "lsp-config",
     config = require("plugins/nvim-lspconfig"),
   },
   {
@@ -53,31 +55,21 @@ lazy_plugin_specs = {
 
   -- rust related
   {
-    "rust-lang/rust.vim", ft = {"rs", "rust"},
-    config = function() vim.g.rustfmt_autosave = 1 end,
-  },
-  {
-    "racer-rust/vim-racer", ft = {"rs", "rust"},
+    'mrcjkb/rustaceanvim',
+    version = '^5',
+    ft = {"rs", "rust"},
     config = function()
-      -- show argument list and return type in racer completion
-      vim.g.racer_experimental_completer = 1
-    end,
-  },
-  {
-    'simrat39/rust-tools.nvim', ft = {"rs", "rust"},
-    config = function()
-      local rt = require("rust-tools")
-      rt.setup({
+      vim.g.rustaceanvim = {
         tools = {
+          -- Automatically set inlay hints (type hints)
           inlay_hints = {
             auto = true,
             only_current_line = true,
-            right_align = false,
           },
         },
         server = {
-          on_attach = function(_, bufnr)
-            local keymap_opts = { buffer = buffer }
+          on_attach = function(client, bufnr)
+            local keymap_opts = { buffer = bufnr }
             -- Code navigation and shortcuts
             vim.keymap.set("n", "<c-]>", vim.lsp.buf.definition, keymap_opts)
             vim.keymap.set("n", "K", vim.lsp.buf.hover, keymap_opts)
@@ -88,7 +80,7 @@ lazy_plugin_specs = {
             vim.keymap.set("n", "gW", vim.lsp.buf.workspace_symbol, keymap_opts)
           end,
         },
-      })
+      }
     end,
   },
 
@@ -285,7 +277,6 @@ lazy_plugin_specs = {
 
   {
     "nvim-tree/nvim-tree.lua",
-    event = "VeryLazy",
     keys = {
       { "<leader>t", "<cmd>NvimTreeToggle<CR>", desc = "Toggle nvim-tree" },
     },
@@ -361,9 +352,6 @@ lazy_plugin_specs = {
   {
     "j-hui/fidget.nvim",
     event = "VeryLazy",
-    dependencies = {
-      "neovim/nvim-lspconfig",
-    },
     opts = {
       -- required for plugin to load :(
     },
