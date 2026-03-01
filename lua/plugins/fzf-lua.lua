@@ -32,9 +32,23 @@ return function()
     })
   end, { desc = 'Find files git root' })
 
+  -- Grep for word under cursor or visual selection
   vim.keymap.set('n', '<leader>r', function()
+    local word = vim.fn.expand('<cword>')
+    fzf_lua.grep({cwd = get_git_root(), search = word})
+  end, { desc = 'Grep word under cursor' })
+
+  vim.keymap.set('v', '<leader>r', function()
+    -- Get the visual selection
+    vim.cmd('noau normal! "vy"')
+    local selection = vim.fn.getreg('v')
+    fzf_lua.grep({cwd = get_git_root(), search = selection})
+  end, { desc = 'Grep visual selection' })
+
+  vim.keymap.set('n', '<leader>er', function()
     fzf_lua.grep({cwd = get_git_root()})
-  end)
+  end, { desc = 'Grep with empty keyword' })
+
   vim.keymap.set('n', '<leader>l', function()
     fzf_lua.live_grep({cwd = get_git_root()})
   end)
