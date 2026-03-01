@@ -44,6 +44,9 @@ return function()
   })
 
   vim.lsp.config('ccls', {
+    cmd = { 'ccls' },
+    filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda' },
+    root_markers = { 'compile_commands.json', '.ccls', '.ccls-root', '.git' },
     init_options = {
       cache = {
         directory = ".ccls-cache";
@@ -63,5 +66,10 @@ return function()
   vim.lsp.config('pyright', {})
   vim.lsp.config('ruff', {
     on_attach = on_attach,
+  })
+
+  vim.lsp.enable({
+    'biome', 'ts_ls', 'gopls', 'ccls',
+    'rubocop', 'ruby_lsp', 'pyright', 'ruff',
   })
 end
